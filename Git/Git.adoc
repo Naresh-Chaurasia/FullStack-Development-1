@@ -1,0 +1,102 @@
+= Git
+:toc: left
+:toclevels: 5
+:sectnums:
+
+
+== GIT - PP
+
+=== Getting to Know Git
+
+* Git tracks changes to source code
+* `git init` - local repository
+
+*Creating Snapshots*
+
+* Git Tracks changes to source code.
+
+image::img/git-launch.png[]
+
+---
+
+----
+git init
+git add .
+git commit -m "comment"
+git log
+git diff <hash1> <hash2>
+git checkout <hash2>
+----
+
+Let's say that we have a launch pad to the repository. And what we just did is we put some files on the launch pad. *This launch pad is also called the index in git*. In this case, we put all the files in the project in the index. And now step two, we can send the content of the index straight to the repository with this command called commit. *So get commit means create a snapshot that includes all the files that I put on the launch pad earlier*. And we can give a message to the commit to describe what's in it, say first commit with all the files. *And when I send this command, fire the files, get to the repository and they become the first snapshot of the project inside the repository. So we just created a snapshot of the entire project*. And if I use this command git log, then we see the history of the project so far that right now is *only this single snapshot, this single commit in the language of git*. Now this committee isn't very useful until we have at least another committee. So let's imagine that we have to do something that happens all the time in software development, we have to fix a bug. I'll use my text editor to edit a file in this project. Let's say this file and let's change this line here to fix the bug. Actually, I'm just doing a random change. Most likely I just created a bug instead of fixing it. But let's just pretend that I made this change to fix a bug. Now, this file has been changed. It's been modified since the last time we took a snapshot, a commit of the project. And in fact, if I ask git for the current status of the project, it tells me look, this file has been modified, it shows the modified file in red. This is already a mildly useful thing, right? This fact that GIT tells me which files have been modified since the last commit. So let's create another commit. But this time this commit only includes the changes since the previous commit. That is this file. So once again, two steps, first add the file, let's say it's this blue file in the diagram, put it on the launch pad. And if we do git status again, git shows me this modified file in green to mean this file is ready to go in the next commit. And second, we create the commit with a message 3 to 1, lift off. And now we have a second commit another snapshot that includes this change file. In fact, git status shows nothing because everything in the project is aligned with the latest commit. And if I ask for the log, you can see two commits one from a few seconds ago, that includes the latest changes and an earlier one that includes all the original files in the project. And it also shows us who created these commits. That's me. So we are already tracking the history of the project at this point. For example, we can ask a GIT, okay. So what changed between these two snapshots? That's a command named git diff that shows the difference between two commits. This command needs the names of two commits. And one way we identify commits in it is by using their unique code, their version. If you wish these long extra decimal codes git generates these codes automatically when we create a commit, we actually don't need to use the entire code. We can get away with just the first few digits. Like give me the diff between these, i'll copy, paste it here. And this, and this command shows that the only thing that changed between the two commits is that in this file, this line changed. So now we can find out what changed in the project and who changed it and when exactly. And that's already a very useful concept, right? Especially in a large project, but that's only the beginning it gets better. Let's see.
+
+=== Understanding Version Control
+
+*Branching and Merging*
+
+image::img/branch-1.png[]
+
+---
+
+image::img/branch-2.png[width=500]
+
+---
+
+*Merging*
+
+* You move to the premium branch and then you say get merge main.
+** Example: Bug Fix
+
+image::img/branch-3.png[width=500]
+
+---
+
+image::img/branch-4.png[width=500]
+
+---
+
+image::img/branch-5.png[width=500]
+
+---
+
+image::img/branch-6.png[width=500]
+
+=== Making Sense of Git
+
+*Client Server Architecture*
+
+image::img/client-server-1.png[]
+
+---
+
+*Distributed Architecture*
+
+image::img/distributed-1.png[]
+
+---
+
+image::img/distributed-2.png[]
+
+== GIT - F
+
+*Git Configuration Hierarchy*
+
+image::img/git-hierarchy.png[]
+
+----
+
+# [home directory]/.gitconfig
+git config --global user.name "Naresh C"
+git config --global user.name
+
+
+# [repository]/.git/config
+git config --local user.email NC@example.com
+
+git config --list
+
+git config --global --list
+
+git config --local --list
+----
+

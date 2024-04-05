@@ -1,0 +1,13 @@
+= Building Websites with HTML and CSS by Gill Cleeren
+Lars Vogel(c) 2016 vogella GmbH
+Version 0.3, 17.05.2021
+:sectnums:
+:toc:
+:toclevels: 4
+
+
+== Building Websites with HTML and CSS by Gill Cleeren
+
+* HTML5 / HTML Living Standard
+* Live Server Extension
+* HTML tags are case insensitive

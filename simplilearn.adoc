@@ -1,0 +1,613 @@
+= Simplilearn Fullstack
+:toc: left
+:toclevels: 5
+:sectnums:
+
+NOTE: NOTE
+
+TIP: TIP
+
+IMPORTANT: IMPORTANT
+
+CAUTION: CAUTION
+
+WARNING: WARNING
+
+* 30 Minutes Break
+* Poll
+* 20 Minutes for session
+
+
+---
+
+
+* 0.1 TOC
+** React-TOC.xlsx
+
+
+
+|===
+|Source |Mac |Drive |Comment
+
+|Gmail
+|/Users/nareshchaurasia/Documents/Simplilearn
+|https://drive.google.com/drive/u/1/folders/1niLmYuhkki1R5Xgm6_Xa_f3zjK-SRv11
+|Column 4, row 1
+
+
+|===
+
+
+* [ ] /Users/nareshchaurasia/nc/Simplilearn-FullStack
+
+== Schedule
+
+* 6th Apr ,7th Apr 
+* ,13th Apr ,14th Apr 
+* ,20th Apr ,21st Apr 
+* ,27th Apr ,28th Apr 
+* ,4th May ,5th May 
+* ,11th May ,12th May 
+* ,18th May ,19th May 
+* ,25th May ,26th May ,
+* 1st Jun ,2nd Jun
+
+
+== Course and Topics
+
+* *Agile*: https://drive.google.com/drive/folders/14uPaf1FT4ynJklpz-8Pog7kkRJ6K4LvR
+* Breathe and Go Slow.
+
+[cols="2,4,1,1"]
+|===
+|Topic |Question |Status|Date
+
+|Lesson_01_Understanding_Agile
+a|
+- Ok
+|Done
+|4.Apr
+
+|Lesson_02_Scrum_Methodology_Overview_Values,_and_Roles
+a|
+- Ok
+|Done
+|4.Apr
+
+|Lesson_03_Scrum_Ceremonies_and_Events
+a|
+- Need to look at it once again.
+|Done
+|4.Apr
+
+|Lesson_05_Kanban_Method
+a|
+- Ok
+| Done
+|4.Apr
+
+|===
+
+---
+
+* Git
+
+[cols="2,4,1,1"]
+|===
+|Topic |Question |Status|Date
+
+|Lesson_01_Introduction_to_Git
+a|
+- What is VPC
+|Done
+|4.Apr
+
+|Lesson_02_Installing_Git
+a|
+- Git Installation
+- BitBucket Installation
+- Installation in live session. Environment etc.
+|In Progress
+|
+
+|Lesson_03_Git_File_Management
+|Column 2, row 3
+|Column 3, row 3
+|
+
+|Column 1, row 4
+|Column 2, row 4
+|Column 3, row 4
+|
+|===
+
+
+
+
+== Full Stack
+
+* /Users/nareshchaurasia/Documents/Simplilearn/FSD_Trainer_PPT_Phase1_ILT.zip
+** [ ] FSD_1_L1_Java_Deep_Dive_Building_Blocks.pptx
+*** Typecasting
+*** Access Modifier
+*** Class, Object, Methods, Variables, Primitive, If Else, While,Object Lifecycle, Operator, Precedence, static, final, this
+
+** [ ] FSD_1_L2_Java_Deep_Dive_Interfaces_and_Collections
+*** Method, Constructors, Collections, Innter classes, Single and Multidimentional Array
+*** RegEx
+
+** [ ] FSD_1_L3_Multithreading_Expection_Handling_and_OOPs
+*** Explain polymorphism and inheritance
+*** Method overloading
+*** Abstract classes
+*** Exceptions
+*** Try-catch
+*** Finally implementation
+*** Exception types
+*** Explain the advantages of exception handling
+*** Custom Exceptions
+
+*** File Operation
+*** Create
+*** Read
+*** Modify
+
+*** Serialization
+*** Deserialization
+
+** [ ] FSD_1_L4_Data_Structures_Arrays_and_Lists.pptx
+*** Maven
+*** Explain arrays
+*** Implement array rotations, order statistics, range queries, and matrix
+*** Explain linked lists
+*** Demonstrate singly linked list, circular linked list, and doubly linked list
+*** Design and implement the stack
+*** Design and implement the queue
+
+** [ ] FSD_1_L5_Data_Structures_Sorting_and_Searching
+*** Searching Algorithm
+*** Sorting Algorithm
+*** Implement Graph in Project
+
+
+
+
+
+
+---
+
+== Simplilearn1
+
+* /Users/nareshchaurasia/Documents/Simplilearn/All_About_Designing_and_Planning_UI_ILT
+
+=== Module 1
+
+*Concepts of Agile, Git, SQL*
+
+* Iterative and Incremental Development
+* Customer Collaboration
+* User Stories and Backlog
+* Scrum and Kanban
+* Continuous Integration and Continuous Delivery (CI/CD)
+* Frequent Releases
+* Daily Standup Meetings, Retrospective
+* Burndown Charts and Velocity
+
+---
+
+* Front-end technologies: HTML/CSS, JavaScript, Angular Planning projects with Agile
+
+==== HTML5
+
+Certainly! If you're preparing for an interview related to HTML5, you might encounter questions covering a range of topics. Here are some HTML5 interview questions along with brief explanations:
+
+1. **What is HTML5?**
+- **Answer:** HTML5 is the latest version of the Hypertext Markup Language used to structure content on the web. It introduces new elements, attributes, and APIs to enhance multimedia support, improve semantics, and provide better support for web applications.
+
+2. **Can you mention some new features introduced in HTML5?**
+- **Answer:** HTML5 introduced features such as new semantic elements (`<header>`, `<footer>`, etc.), multimedia elements (`<audio>`, `<video>`), the `<canvas>` element for drawing graphics, and APIs like local storage and session storage.
+
+3. **Explain the difference between `<div>` and `<section>` in HTML5.**
+- **Answer:** `<div>` is a generic container used to group content, while `<section>` is a semantic element that represents a thematic grouping of content. `<section>` is typically used to define sections within a document, providing more semantic meaning to the content.
+
+4. **How does the `canvas` element work in HTML5?**
+- **Answer:** The `<canvas>` element provides a drawing surface for JavaScript. Developers can use the Canvas API to draw shapes, images, and text dynamically. It's commonly used for creating animations, charts, and interactive graphics.
+
+5. **Explain the purpose of the `<header>` and `<footer>` elements.**
+- **Answer:** The `<header>` element represents introductory content at the beginning of a section or a page, such as a heading or navigation links. The `<footer>` element represents the footer of a section or a page, often containing metadata, copyright information, or links.
+
+6. **What is the purpose of the `localStorage` in HTML5?**
+- **Answer:** `localStorage` is part of the Web Storage API introduced in HTML5. It allows developers to store key-value pairs locally on the client's browser. The data persists even after the browser is closed and can be used for tasks like caching or storing user preferences.
+
+7. **How does the `video` element differ from the `audio` element in HTML5?**
+- **Answer:** Both `<audio>` and `<video>` are multimedia elements. The `<audio>` element is used for embedding audio content, while `<video>` is used for embedding video content. They both support attributes like `controls` for providing playback controls and `autoplay` for automatic playback.
+
+8. **Explain the difference between `localStorage` and `sessionStorage`.**
+- **Answer:** Both are part of the Web Storage API. `localStorage` stores data with no expiration time, while `sessionStorage` stores data for the duration of the page session. Data stored in `localStorage` persists across page reloads and browser sessions, while `sessionStorage` data is cleared when the session ends.
+
+9. **How do you integrate HTML5 with CSS3?**
+- **Answer:** HTML5 and CSS3 work together to create visually appealing and responsive web pages. CSS3 is used for styling HTML5 elements. Developers can link external style sheets using the `<link>` element in the document's `<head>` or use inline styles directly within HTML elements using the `style` attribute.
+
+10. **What are the benefits of using the `picture` element in HTML5 for responsive images?**
+- **Answer:** The `<picture>` element allows developers to provide multiple image sources and define different conditions for their display based on factors such as screen size or resolution. This helps create responsive designs by delivering the most appropriate image for the user's device.
+
+These questions cover various aspects of HTML5, ranging from basic knowledge of new elements to practical usage of APIs and integration with other web technologies. Keep in mind that interview questions may vary, and it's essential to have a good understanding of HTML5 concepts and practical applications.
+
+---
+
+* Dividing projects into epics and stories
+* Creating a central Git repository
+* Create DB tables
+* Creating home, about us, contact us pages
+* Create category and product pages Adding product info
+* Adding additional pages like add to cart, wishlist, order details, searching items
+
+=== Module 2
+
+- [ ]  Core Java,
+
+==== JDBC - Ok
+
+Java Database Connectivity (JDBC) is a *Java-based API* that provides a *standard interface for connecting Java applications to relational databases*. JDBC enables Java programs to interact with databases, execute SQL queries, and manipulate data. Here are some basic concepts of JDBC:
+
+*Driver:*
+
+The JDBC driver is a software component that enables Java applications to connect to a database. There are four types of JDBC drivers:
+
+Type 1 (JDBC-ODBC Bridge): Uses ODBC (Open Database Connectivity) to connect to databases.
+
+Type 2 (Native-API Driver): Uses database-specific native code, requiring the installation of database-specific libraries on the client machine.
+
+Type 3 (Network Protocol Driver): Communicates with a middle-tier server that connects to the database.
+
+*Type 4 (Thin Driver)*: *Pure Java* implementation, directly communicates with the database using a database-specific protocol.
+Connection:
+
+The *Connection interface* in JDBC represents a connection to the database. It provides methods to create statements, commit or rollback transactions, and manage connection properties.
+Statement:
+
+The *Statement interface* is used for executing SQL queries and updates. There are three types of statements:
+
+* Statement: Used for executing simple SQL queries.
+* PreparedStatement: Used for executing precompiled SQL queries with input parameters.
+* CallableStatement: Used for executing stored procedures.
+
+*ResultSet*:
+
+The ResultSet interface represents the result set of a SQL query. It allows you to iterate over the rows and retrieve column values.
+
+*DriverManager*:
+
+The DriverManager class is responsible for managing a list of database drivers. It is used to establish a connection to the database using the appropriate driver.
+
+*DataSource*:
+
+The DataSource interface is an alternative to DriverManager for establishing a database connection. It provides a more flexible and efficient way to manage database connections, especially in the context of connection pooling.
+Transaction Management:
+
+JDBC supports *transactions*, allowing you to group a set of SQL statements into a single atomic unit. You can use the commit and rollback methods to manage transactions.
+
+*Exception Handling*:
+
+JDBC methods can throw SQLException which needs to be handled appropriately. Proper exception handling is crucial to manage potential issues such as connection failures or SQL errors.
+
+----
+ Connection connection = DriverManager.getConnection(url, user, password);
+
+// Create a statement
+Statement statement = connection.createStatement();
+
+// Execute a query
+ResultSet resultSet = statement.executeQuery("SELECT * FROM employees");
+----
+
+
+---
+
+
+====  Servlets - Ok
+
+Servlets are *Java-based server-side technologies* that extend the capabilities of a web server. They provide a way to *generate dynamic content, handle requests, and manage state on the server side of a web application*. Here's a brief overview of servlets:
+
+*Definition*:
+A servlet is a Java class that is responsible for processing requests and generating dynamic content for web applications. It operates on the server-side and interacts with the client through the HTTP protocol.
+
+*Lifecycle:*
+Servlets follow a lifecycle that includes initialization, service handling, and destruction phases. Key methods in this lifecycle include *init(), service(), and destroy()*. The init() method is called when the servlet is first created, service() handles requests, and destroy() is called when the servlet is about to be taken out of service.
+
+*HttpServletRequest and HttpServletResponse*:
+Servlets handle HTTP requests and responses using HttpServletRequest and HttpServletResponse objects. The HttpServletRequest provides information about the request (parameters, headers, etc.), while the HttpServletResponse is used to control the response sent back to the client.
+
+*Mapping*:
+Servlets are typically mapped to specific URL patterns in the *web.xml deployment descriptor* or through annotations. When a client sends a request that matches the servlet's URL pattern, the servlet is invoked to process the request.
+
+*Multithreading*:
+Servlets are multithreaded by nature. Each request to a servlet is processed by a separate thread, allowing the servlet container to handle multiple requests simultaneously.
+
+*Session Management*:
+Servlets can manage user sessions, allowing the server to maintain state information across multiple requests. Session management is crucial for tasks like user authentication and maintaining user-specific data.
+
+*Cookies*:
+Servlets can work with cookies, which are small pieces of data sent from a server and stored on a client's machine. Cookies are often used for tracking user sessions and maintaining user-specific information.
+
+*Servlet Container*:
+Servlets are executed within a servlet container (like Apache Tomcat or Jetty), which provides the runtime environment for servlet execution. The servlet container manages the lifecycle of servlets, handles requests, and provides various services to servlets.
+
+*Servlet API*:
+The Servlet API, part of the Java EE (Enterprise Edition) specification, defines the contract between a servlet and the servlet container. Servlets use classes and interfaces from this API to interact with the container and handle HTTP requests.
+
+----
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
+
+public class HelloWorldServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.println("<html><body>");
+        out.println("<h2>Hello World!</h2>");
+        out.println("</body></html>");
+    }
+}
+----
+
+====  Maven - Ok
+
+* Project Object Model (POM):
+* Build Lifecycle
+** clean, validate, compile, test, package, install, and deploy.
+* Plugins:
+Maven uses plugins to extend its functionality. Plugins are responsible for executing specific tasks during the build process. Common plugins include the compiler plugin, surefire plugin for running tests, and the assembly plugin for creating distributable packages.
+* Dependency Management:
+* Central Repository
+* Convention over Configuration
+* Transitive Dependencie
+* Build Profiles
+* Maven Repositories
+* Integration with IDEs
+* Command-Line Interface (CLI)
+
+====  JSP - Ok
+
+*Definition*:
+JavaServer Pages (JSP) is a technology that simplifies the creation of dynamic, data-driven web pages using Java. It allows developers to embed Java code within HTML pages, making it easier to combine static content with dynamic server-side logic.
+
+*Architecture*:
+JSP is part of the *Java EE (Enterprise Edition) platform and operates on the server side*. When a JSP page is requested by a client, the server processes the embedded Java code and generates HTML or other content to be sent back to the client.
+Syntax:
+
+JSP uses special tags to embed Java code within HTML. These tags include:
+----
+<% ... %>: For embedding Java code directly.
+<%= ... %>: For embedding Java expressions whose results are included in the HTML output.
+<%! ... %>: For declaring class-level variables and methods.
+<%@ ... %>: For page directives, setting page-level attributes.
+----
+
+*Implicit Objects*:
+JSP provides a set of implicit objects that can be used within the embedded Java code. Examples include *request, response, session, application, and out*. These objects provide access to request parameters, session attributes, and other aspects of the web application environment.
+
+*Expression Language (EL)*:
+JSP supports Expression Language, which provides a simple way to access data stored in JavaBeans components within a JSP page. EL expressions are enclosed in ${...} and can be used to read or write data.
+
+*Tag Libraries (JSTL)*:
+JSP supports the use of custom tag libraries, such as the JavaServer Pages Standard Tag Library (JSTL). Tag libraries provide a set of custom tags for performing common tasks, such as iteration, conditional processing, and formatting.
+
+*Servlet Backing*:
+Under the hood, JSP pages are translated into servlets by the container during the first request or when the JSP file is modified. These servlets handle subsequent requests, and the dynamic content generation is done in Java.
+
+*MVC Architecture*:
+JSP is often used in conjunction with servlets to implement the Model-View-Controller (MVC) architecture. Servlets handle controller logic, while JSP pages serve as the view, presenting data to the user.
+
+*Scoped Variables*:
+JSP supports variable scopes such as *page, request, session, and application*. These scopes determine the lifetime and visibility of variables, allowing data to be shared or isolated between different parts of the application.
+
+*Error Handling*:
+JSP provides mechanisms for handling errors, including the use of the `<%@ page isErrorPage="true" %>` directive to designate a JSP page as an error page. Error pages can display custom error messages or redirect to another page.
+
+==== MongoDB
+
+* file:///Users/nareshchaurasia/nc/Awakening-The-Giant/technical/mongodb/Infybuzz-MongoDb.adoc
+
+====  Setting up the development environment - Ok
+
+====  Configuring Java, Tomcat, JDBC, servlets, and JSP packages/plugins - Ok
+
+====  Setting up an admin portal - Ok
+
+====  Creating Java classes for features like reg, login, wish listing, and cart - Ok
+
+====  Creating Java classes for services to connect to databases - DAO - Ok
+
+The DAO (Data Access Object) pattern is a design pattern used in software engineering to abstract the underlying data access logic. It provides a way to separate the business logic of an application from the low-level details of accessing a data source, such as a database
+
+----
+public interface UserDao {
+    User getById(int userId);
+    List<User> getAll();
+    void save(User user);
+    void update(User user);
+    void delete(int userId);
+}
+
+public class UserDaoImpl implements UserDao {
+    // Implementation details, such as JDBC connections, Hibernate sessions, etc.
+
+    @Override
+    public User getById(int userId) {
+        // Implementation to retrieve a user from the database
+    }
+
+    // Other CRUD operations implementations...
+}
+
+----
+
+=== Module 3
+
+==== Key concepts of JUnit, Spring, Spring Boot, Web Services, and Microservices - Ok
+
+* Spring Data
+* Spring Integration
+* Spring Boot
+* Spring Core
+* Spring MVC
+* Spring WebFlux
+* Spring Security
+* Spring Cloud
+* Spring Batch
+
+
+
+*Web Services*
+
+Certainly! REST (Representational State Transfer) is an architectural style for *designing networked applications*, and RESTful web services are services that adhere to the principles of REST. Here's a brief overview of RESTful web services:
+
+1. *Resource-Based:*
+- REST is centered around the concept of resources, which are entities that can be identified by a URI (Uniform Resource Identifier). Resources can represent real-world objects or abstract entities. For example, in a blogging application, blog posts, users, and comments could be resources.
+
+2. *Uniform Interface:*
+- The uniform interface is a key aspect of REST. It consists of several constraints:
+- *Resource Identification:* Each resource must have a unique identifier, usually in the form of a URI.
+- *Resource Manipulation through Representations:* Resources are manipulated through representations, such as JSON or XML, which are exchanged between the client and the server.
+- *Stateless Communication:* Each request from a client to a server must contain all the information needed to understand and process the request. The server should not store any client context between requests.
+- *Hypermedia as the Engine of Application State (HATEOAS):* The server provides hypermedia links in the response to guide the client in its interactions with the application.
+
+3. *HTTP Methods (CRUD Operations):*
+- RESTful web services use standard HTTP methods to perform operations on resources. The common CRUD (Create, Read, Update, Delete) operations map to HTTP methods as follows:
+- *GET:* Retrieve a representation of a resource.
+- *POST:* Create a new resource.
+- *PUT:* Update a resource or create a resource if it doesn't exist.
+- *DELETE:* Remove a resource.
+
+4. *Statelessness:*
+- RESTful services are stateless, meaning that each request from a client to a server is independent, and the server does not store any information about the client's state between requests. This enhances scalability and simplicity.
+
+5. *Representation:*
+- Resources are represented using a standard format, such as JSON or XML. Clients interact with resources by exchanging representations with the server. The format is typically specified using the `Content-Type` and `Accept` headers in the HTTP request and response.
+
+6. *URL Patterns:*
+- Resources are identified by URIs, and URL patterns are designed to be intuitive and hierarchical. For example:
+- `GET /users`: Retrieve a list of users.
+- `GET /users/123`: Retrieve details of user with ID 123.
+- `POST /users`: Create a new user.
+- `PUT /users/123`: Update user with ID 123.
+- `DELETE /users/123`: Delete user with ID 123.
+
+7. *Stateless Communication:*
+- Each request from a client to a server must contain all the information needed to understand and process the request. The server should not store any client context between requests. This simplifies server design and enhances scalability.
+
+8. *Content Negotiation:*
+- RESTful services support content negotiation, allowing clients to specify the desired representation format (JSON, XML, etc.) using the `Accept` header in the HTTP request. Servers respond with the requested format, specified in the `Content-Type` header of the HTTP response.
+
+9. *Security:*
+- RESTful services often use standard security mechanisms provided by the underlying transport protocol (usually *HTTPS*). Additionally, authentication and authorization mechanisms can be implemented at the application level.
+
+10. *Examples of RESTful Services:*
+- Many web APIs, including those provided by popular services like Twitter, GitHub, and Google, adhere to REST principles. These APIs allow developers to interact with the services programmatically using HTTP methods and follow RESTful conventions.
+
+In summary, RESTful web services provide a simple, scalable, and stateless approach to building distributed systems. They leverage standard HTTP methods and are commonly used in modern web and mobile applications to enable communication between clients and servers.
+
+==== Integrating Maven and Spring Boot - Ok
+
+==== Using annotations to create services to add features
+
+----
+@Component
+@Configuration
+@Service
+@Repository
+
+----
+
+==== Using Angular services connect frontend to backend
+
+==== Using service methods to handle HTTP requests and responses
+
+==== Setting up Jenkins Pipeline
+
+
+=== Module 4
+
+Concepts of Docker, Jenkins, and AWS Cloud Connect Jenkins with GitHub Repositories Using Docker for the pipeline
+Set up EC2 and S3
+Deploy an application on EC2 using Docker
+
+---
+
+*Docker*
+
+Docker is a platform for developing, shipping, and running applications in containers. *Containers allow developers to package an application and its dependencies into a single unit, ensuring consistency across different environments, from development to production*. Docker provides a lightweight and efficient solution for deploying and managing applications.
+
+Here's an overview of key concepts and components in Docker:
+
+### Key Concepts:
+
+1. **Container:**
+- A container is a lightweight, standalone, and executable package that includes everything needed to run a piece of software, including the code, runtime, libraries, and system tools. Containers isolate applications from the underlying infrastructure, making them portable and consistent across various environments.
+
+2. **Image:**
+- An image is a lightweight, standalone, and executable package that includes everything needed to run a piece of software, including the code, runtime, libraries, and system tools. Images are used to create containers. Docker images are built from a set of instructions called a Dockerfile.
+
+3. **Dockerfile:**
+- *A Dockerfile is a text file containing a set of instructions for building a Docker image. It specifies the base image, sets up the environment, copies application code, and defines runtime configurations*. Dockerfiles allow developers to create reproducible and consistent images.
+
+### Components:
+
+1. **Docker Engine:**
+- Docker Engine is the core component that enables containerized applications to run on a host system. It consists of a daemon process (`dockerd`), a REST API for interacting with the daemon, and a command-line interface (`docker`).
+
+2. **Docker Hub:**
+- Docker Hub is a public registry that hosts a vast collection of pre-built Docker images. Developers can use Docker Hub to find, share, and distribute images. It also serves as a central repository for community-contributed images.
+
+3. **Docker Compose:**
+- Docker Compose is a tool for defining and managing multi-container Docker applications. It uses a YAML file to configure the services, networks, and volumes for a multi-container application, allowing developers to define the entire application stack in a single file.
+
+4. **Docker Swarm:**
+- Docker Swarm is a native clustering and orchestration solution for Docker. It allows the creation and management of a swarm of Docker nodes, turning them into a single virtual Docker host. Docker Swarm enables the deployment and scaling of services across a cluster of machines.
+
+### Basic Docker Workflow:
+
+1. **Write Dockerfile:**
+- Create a Dockerfile that specifies the base image, adds application code, and configures the runtime environment.
+
+2. **Build Image:**
+- Use the `docker build` command to build a Docker image from the Dockerfile. The resulting image is a snapshot of the application and its dependencies.
+
+   ```bash
+   docker build -t my-app:latest .
+   ```
+
+3. **Run Container:**
+- Use the `docker run` command to create and run a container based on the built image. This starts the application inside the container.
+
+   ```bash
+   docker run -p 8080:80 my-app:latest
+   ```
+
+4. **Push to Registry (Optional):**
+- If you want to share your Docker image or deploy it on different environments, you can push the image to a container registry like Docker Hub.
+
+   ```bash
+   docker push my-app:latest
+   ```
+
+5. **Docker Compose (Optional):**
+- Use Docker Compose to define and run multi-container applications. The `docker-compose.yml` file specifies the services, networks, and volumes.
+
+   ```yaml
+   version: '3'
+   services:
+     web:
+       image: my-app:latest
+       ports:
+         - "8080:80"
+   ```
+
+   ```bash
+   docker-compose up
+   ```
+
+Docker simplifies the process of building, packaging, and deploying applications, making it easier for developers to work in consistent and isolated environments. It has become a fundamental technology in modern DevOps practices and is widely used for container orchestration and management in production environments.

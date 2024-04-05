@@ -1,0 +1,353 @@
+=  Glossary FullStack
+:toc: left
+:toclevels: 5
+:sectnums:
+
+
+NOTE: NOTE
+
+TIP: TIP
+
+IMPORTANT: IMPORTANT
+
+CAUTION: CAUTION
+
+WARNING: WARNING
+
+== Agile
+
+*Kanban V/s Scrum*
+
+Scrum and Kanban are both Agile methodologies that focus on improving the efficiency and effectiveness of software development processes, but they have different approaches, practices, and principles. Here's a comparison of Scrum vs. Kanban:
+
+1. **Framework vs. Methodology**:
+- Scrum: Scrum is a framework with prescribed roles, events, and artifacts. It emphasizes time-boxed iterations (sprints), roles such as Scrum Master, Product Owner, and Development Team, and specific ceremonies like Sprint Planning, Daily Stand-ups, Sprint Review, and Sprint Retrospective.
+- Kanban: Kanban is a methodology that emphasizes visualizing work, limiting work in progress (WIP), managing flow, and continuous improvement. It does not prescribe specific roles, events, or ceremonies but provides principles and practices to optimize workflow.
+
+2. **Time-Boxed vs. Continuous Flow**:
+- Scrum: Scrum organizes work into fixed-length iterations called sprints, typically lasting 1-4 weeks. Teams plan work for each sprint and aim to deliver a potentially shippable product increment by the end of the sprint.
+- Kanban: Kanban focuses on continuous flow, where work items move through the system as soon as capacity allows. There are no fixed timeboxes, and work is pulled into the system based on demand, with an emphasis on minimizing cycle time and maximizing throughput.
+
+3. **Roles and Responsibilities**:
+- Scrum: Scrum defines specific roles, including Scrum Master, Product Owner, and Development Team. Each role has distinct responsibilities for facilitating the Scrum process, managing the product backlog, and delivering the product increment.
+- Kanban: Kanban does not prescribe specific roles but encourages collaboration and empowerment within teams. Team members are responsible for managing their workflow, making decisions, and continuously improving processes.
+
+4. **Planning and Prioritization**:
+- Scrum: Scrum involves detailed sprint planning sessions where the team selects items from the product backlog and commits to delivering them within the sprint. Prioritization is based on the product backlog, with the Product Owner determining the order of work.
+- Kanban: Kanban focuses on visualizing work and prioritizing based on demand and capacity. Work items are pulled into the system as capacity allows, and priorities may shift dynamically based on changing requirements or feedback.
+
+5. **Flexibility vs. Structure**:
+- Scrum: Scrum provides a structured framework with defined roles, events, and artifacts. It offers a clear cadence for planning, executing, and reviewing work but may be less flexible in adapting to changes outside of sprint boundaries.
+- Kanban: Kanban offers more flexibility and adaptability, allowing teams to adjust their processes and priorities in real-time based on evolving needs. It provides a lightweight framework that can be tailored to suit the specific context and requirements of the team.
+
+Overall, while both Scrum and Kanban share common Agile principles and goals, they offer distinct approaches to managing and improving software development processes. The choice between Scrum and Kanban depends on factors such as team structure, project requirements, organizational culture, and desired level of flexibility.
+
+---
+
+*Kanban Principles*
+
+Kanban is a visual management method that helps teams to visualize work, limit work in progress (WIP), and maximize efficiency. Kanban practices are designed to facilitate the smooth flow of work through the system while enabling continuous improvement. Here are some key Kanban practices:
+
+1. **Visualizing the Workflow**: Kanban utilizes a visual board, often divided into columns representing different stages of the workflow (e.g., To Do, In Progress, Done). Each task or work item is represented by a card or sticky note on the board, allowing team members to see the status of work at a glance.
+
+2. **Limiting Work in Progress (WIP)**: Kanban emphasizes the importance of limiting the number of tasks or work items that can be in progress at any given time. This practice prevents overloading individuals or teams and helps to maintain a steady flow of work through the system.
+
+3. **Managing Flow**: Kanban focuses on optimizing the flow of work through the system, aiming to minimize bottlenecks, reduce cycle times, and deliver value to customers more efficiently. Teams monitor and analyze the flow of work, identifying areas for improvement and making adjustments as needed.
+
+4. **Making Policies Explicit**: Kanban encourages teams to define explicit policies or rules for each stage of the workflow, clarifying expectations and guiding decision-making. These policies help to standardize processes, improve transparency, and ensure consistent quality and throughput.
+
+5. **Using Feedback Loops**: Kanban relies on feedback loops to continuously monitor performance, gather insights, and drive improvement. Teams collect feedback from various sources, such as customers, stakeholders, and team members, and use this feedback to adapt their processes and practices iteratively.
+
+6. **Implementing Continuous Improvement (Kaizen)**: Kanban promotes a culture of continuous improvement, where teams regularly reflect on their processes, identify opportunities for optimization, and implement incremental changes to enhance efficiency and effectiveness. Kaizen events or retrospectives are commonly used to facilitate these improvement activities.
+
+7. **Collaborating and Empowering Teams**: Kanban emphasizes collaboration and empowerment within teams, encouraging individuals to take ownership of their work and contribute to the success of the team. Team members are empowered to self-organize, make decisions, and take action to resolve issues and improve outcomes.
+
+8. **Using Metrics for Decision-Making**: Kanban utilizes various metrics and key performance indicators (KPIs) to measure performance, track progress, and inform decision-making. Common metrics include cycle time, lead time, throughput, and WIP limits, which provide valuable insights into the health and performance of the system.
+
+9. **Evolutionary Change**: Kanban recognizes that change is a natural and ongoing process, and it encourages teams to embrace evolutionary change rather than seeking radical transformations. Teams start where they are, gradually introduce Kanban practices, and evolve their processes over time based on feedback and learning.
+
+By embracing these Kanban practices, teams can improve their workflow management, enhance collaboration and communication, and achieve higher levels of productivity and efficiency.
+
+---
+
+*Kanban*
+
+NOTE: PS
+
+Kanban originates from Toyota Production System, or TPS. TPS is a manufacturing philosophy that aims to eliminate waste and maximize efficiency, and it's also referred to as lean production system, lean manufacturing, or simply lean. Kanban is a Japanese word, and at Toyota, it refers to special cards used as a signaling system for just‑in‑time production. Just‑in‑time means making only what is needed, when it is needed, and in the amount needed, so there is no interruption or slow down in the production process. Kanban concepts had been born in manufacturing, but in the early 2000s, David Anderson adopted them for software development, and Kanban has been successfully used in the software industry ever since. However, the application of Kanban doesn't stop there. Now days, it's improving the delivery of products and services across a range of different industries. So what exactly is modern Kanban? If we summarize what we've just said, we can state that Kanban is a way of bringing lean thinking to an organization. If we want to be more precise, for now, we can say that *Kanban is a set of principles and practices for workflow optimization*. With that being said, I'd also like to make clear what Kanban is not. *Kanban is not intended to define the processes, Kanban only optimizes processes*. Also, the method doesn't specify how to implement the work, it only helps us manage workflows effectively. Kanban is simple. It's an excellent match for companies with a developed agile mindset. However, it surely helps other companies to be more responsive or adaptive, or even to become agile. But then, it's also true that you can use Kanban in other contexts with a straightforward goal to improve the workflows so companies can start with what they have with their already established processes, practices, roles, and simply introduce optimization by adding Kanban on top. The reason I'm talking about the simplicity and promises of Kanban is that this understanding is essential when considering the adoption. Having the right expectations in mind, we cannot argue about the drawbacks of the method because it doesn't require a significant instant change or investment. Anyone can try using Kanban on top of what they have and decide if it's the right fit for their organizational context, and, if so, agree to pursue the evolution. Okay, by now we've talked about what Kanban is, and now let's see how Kanban works in practice.
+
+---
+
+*Metrics*
+
+NOTE: PS
+
+Two key Kanban metrics, lead time and throughput.
+
+*Lead time* is the amount of time it takes for a work item to flow through the system. Naturally, we want to minimize the lead time because the lower the lead time, is the faster work gets completed.
+
+*Throughput* is the average number of finalized work items per time unit. For instance, if in each of the last four weeks, 8, 12, 9, and 11 cards have reached the Done column, weekly throughput is 10. You've probably noticed that here we measure the number of cards only, and some of you may wonder why we haven't taken their size into the calculation. Well, if cards varied in size significantly, we would, of course, calculate that in. But, typically, Kanban teams tend to create items of roughly the same size to smooth the flow further and make planning easier. A fascinating fact is that in a stable system, key Kanban metrics are nicely linked through a straightforward relationship known as Little's law. Little's law comes from queuing theory, but practice confirms its validity. The essence of this relationship is real and very actionable, so here it is. Average lead time is average work in progress over average throughput. So lead time, work in progress, and throughput are interdependent.
+
+For instance, when we decrease the number of work items in progress, lead time goes down, and when we decrease lead time, throughput goes up. Or to put it differently, when we set the right WIP limits, work will be delivered faster. And when work is delivered faster, we fulfill more requests from our customers and users.
+
+---
+
+*12 Agile Priciples*
+
+The Agile Manifesto outlines 12 principles that guide Agile methodologies. These principles are:
+
+1. **Customer satisfaction through early and continuous delivery of valuable software**: Agile prioritizes delivering working software to customers frequently, ensuring their needs are met and allowing for feedback and adjustments throughout the development process.
+
+2. **Welcome changing requirements, even late in development**: Agile recognizes that requirements can change and encourages embracing these changes, regardless of the project phase, to deliver a product that meets the customer's evolving needs.
+
+3. **Deliver working software frequently, with a preference for shorter timescales**: Agile promotes delivering small, incremental releases of software, typically in iterations or sprints, to obtain rapid feedback and maintain a sustainable pace of development.
+
+4. **Collaboration between business people and developers throughout the project**: Agile emphasizes close collaboration between stakeholders, including customers, product owners, and development teams, to ensure a shared understanding of goals and requirements and to facilitate timely decision-making.
+
+5. **Build projects around motivated individuals, giving them the environment and support they need, and trust them to get the job done**: Agile values motivated individuals and teams and provides them with the autonomy, resources, and support necessary to accomplish their goals, fostering a culture of trust and empowerment.
+
+6. **The most efficient and effective method of conveying information to and within a development team is face-to-face conversation**: Agile advocates for direct, frequent communication among team members and stakeholders to facilitate shared understanding, collaboration, and problem-solving.
+
+7. **Working software is the primary measure of progress**: Agile prioritizes delivering working software as the primary indicator of project progress, focusing on tangible results over documentation or other artifacts.
+
+8. **Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely**: Agile promotes a sustainable pace of work, avoiding overloading team members and ensuring that they can maintain productivity and quality over the long term.
+
+9. **Continuous attention to technical excellence and good design enhances agility**: Agile emphasizes the importance of technical excellence and sound design practices, enabling teams to adapt to changing requirements and maintain the integrity and maintainability of the software.
+
+10. **Simplicity—the art of maximizing the amount of work not done—is essential**: Agile encourages simplicity in both the software itself and the development process, focusing on delivering the highest value with the least amount of unnecessary complexity or effort.
+
+11. **The best architectures, requirements, and designs emerge from self-organizing teams**: Agile trusts self-organizing teams to make decisions regarding architecture, requirements, and design, enabling them to adapt to change and innovate based on their collective expertise and experience.
+
+12. **At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly**: Agile promotes regular reflection and adaptation through practices such as retrospectives, allowing teams to continuously improve their processes, collaboration, and performance.
+
+These principles serve as a foundation for Agile methodologies, guiding teams in delivering high-quality software that meets customer needs through collaboration, adaptability, and continuous improvement.
+
+---
+
+*Different terms used in Agile Methodology*
+
+Agile methodology encompasses a variety of terms that are central to its principles and practices. Here are some of the key terms used in Agile:
+
+1. **Agile**: A methodology for software development that emphasizes flexibility, collaboration, and customer satisfaction.
+
+2. **Scrum**: One of the most popular Agile frameworks, characterized by iterative development cycles called sprints, daily stand-up meetings, and defined roles such as Scrum Master, Product Owner, and Development Team.
+
+3. **Sprint**: A time-boxed iteration, usually lasting between one and four weeks, in which a specific set of features or tasks are completed.
+
+4. **Product Owner**: The person responsible for defining and prioritizing the features of a product and ensuring that the development team delivers value to the customer.
+
+5. **Scrum Master**: The facilitator of the Scrum process, responsible for removing impediments, ensuring that the team adheres to Scrum practices, and facilitating communication.
+
+6. **Development Team**: The group of individuals responsible for developing the product increment during each sprint.
+
+7. **Backlog**: A prioritized list of features, enhancements, and fixes that need to be addressed in the product.
+
+8. **Product Backlog**: A prioritized list of all features, enhancements, and fixes that constitute the product roadmap.
+
+9. **Sprint Backlog**: The list of tasks to be completed during the current sprint, derived from the product backlog.
+
+10. **User Story**: A brief description of a feature told from the perspective of the end-user, typically written in the form of "As a [user], I want [feature] so that [benefit]."
+
+11. **Epics**: Large user stories that can be broken down into smaller, more manageable stories.
+
+12. **Velocity**: A measure of the amount of work a team can complete in a sprint, often used for planning future sprints.
+
+13. **Increment**: The sum of all the product backlog items completed during a sprint, which must be potentially releasable.
+
+14. **Daily Stand-up (Daily Scrum)**: A brief meeting held every day during a sprint, where team members discuss what they did yesterday, what they plan to do today, and any blockers they're facing.
+
+15. **Burn-down Chart**: A graphical representation of work left to do versus time, often used to track progress during a sprint.
+
+16. **Retrospective**: A meeting held at the end of each sprint to reflect on what went well, what could be improved, and how the team can adjust their processes for future sprints.
+
+These terms are fundamental to understanding and implementing Agile methodologies effectively.
+
+
+== Angular
+
+*What is #Angular Framework#*
+
+Angular is a combination of prewritten code, useful tools, and some structured guidelines, all packaged together with a clear purpose, help you build web applications of any size. This combination is called a web framework, and Angular is one of the most popular
+
+Angular's use of a *component‑based architecture*, mainly helping to break down large projects into smaller parts.
+
+Components are self‑contained chunks of functionality managing how something shows up for the user and all of the logic for that piece of your application.
+
+---
+
+*Frameworks similar to #Angular Frameworks#*
+
+
+Certainly! If you're looking for alternatives to **Angular**, there are several other frameworks that you might find interesting. Let's explore a few of them:
+
+1. **React.js**:
+
+- React.js is an open-source JavaScript library for building user interfaces (UIs) and UI components. It's widely used for developing single-page applications (SPAs) and interactive web apps.
+
+2. **Vue.js**:
+
+- Vue.js is another popular JavaScript framework for building user interfaces. It emphasizes simplicity, flexibility, and ease of integration.
+
+
+---
+
+What is *#e-commerce application#* and what are some of its functionalities
+
+An e-commerce application is a digital platform that facilitates buying and selling goods or services over the internet. These applications provide users with a virtual marketplace where they can browse, select, and purchase products or services without the need for physical interaction. Here are some common functionalities of e-commerce applications:
+
+1. **Product Catalog**: An organized listing of products or services available for purchase, typically categorized and searchable to facilitate easy browsing.
+
+2. **User Accounts**: User registration and authentication systems that allow customers to create accounts, manage their profiles, view order history, and track shipments.
+
+3. **Shopping Cart**: A virtual shopping cart that enables users to add, remove, and manage selected items before proceeding to checkout.
+
+4. **Checkout Process**: A streamlined process for users to complete their purchases, including options for payment methods, shipping addresses, and order review.
+
+5. **Payment Gateway Integration**: Integration with secure payment gateways to facilitate various payment methods such as credit/debit cards, digital wallets, bank transfers, and more.
+
+6. **Order Management**: Backend functionality for administrators to manage orders, process payments, update order status, and handle returns or refunds.
+
+7. **Inventory Management**: Tools for managing product inventory, including tracking stock levels, restocking products, and managing product variations (e.g., sizes, colors).
+
+8. **Security Features**: Implementation of security measures such as SSL encryption, PCI compliance, and protection against fraud to ensure safe transactions and safeguard customer data.
+
+9. **Responsive Design**: Compatibility with various devices and screen sizes to ensure a seamless shopping experience across desktops, tablets, and smartphones.
+
+10. **Search and Filters**: Advanced search capabilities and filtering options to help users quickly find specific products based on criteria such as price, brand, category, or popularity.
+
+11. **Product Reviews and Ratings**: Features that allow customers to leave reviews and ratings for products, helping other users make informed purchasing decisions.
+
+12. **Personalization**: Customization features that provide personalized recommendations, promotions, and content based on user preferences and browsing history.
+
+13. **Social Media Integration**: Integration with social media platforms to enable sharing of products, user-generated content, and customer feedback, as well as social login options.
+
+14. **Analytics and Reporting**: Tools for tracking key metrics such as sales performance, customer behavior, conversion rates, and website traffic to inform business decisions and optimize strategies.
+
+15. **Customer Support**: Channels for providing customer support, including live chat, email support, FAQs, and help centers to assist users with inquiries, issues, or technical support.
+
+---
+
+
+*Angular is #Interpreted/Compiled#*
+
+Angular applications are written using TypeScript, which is a superset of JavaScript. TypeScript code is compiled into JavaScript before it's executed by the browser. This compilation process happens before the code is deployed to a web server or served to clients.
+
+Once the Angular application is deployed to a server and accessed by a user's browser, the JavaScript code generated by the TypeScript compiler is interpreted and executed by the browser. The browser parses the JavaScript code and renders the corresponding HTML and CSS to create the interactive web application that users can see and interact with.
+
+In summary, Angular code is written in TypeScript, compiled into JavaScript, and then interpreted by the user's browser to render the web application.
+
+---
+
+*What is #Routing# in modern web frameworks*
+
+In an old traditional website, when you clicked on a link, it would go back to the server and load a completely new web page into the browser. However, that's a problem in modern web applications because as soon as you load a new web page from the server, you'd lose all of your browser state like the items in your cart, for example. And so in a modern web application, when you click a link, typically that doesn't require any conversation at all with the server. Instead, the website uses JavaScript to simply swap out portions of the HTML with other HTML it already has stored in memory without actually changing pages as far as the browser knows. This allows us to maintain state, and swapping pages like this is called *routing in modern web frameworks*
+
+
+---
+
+*What is #TypeScript#*
+
+You might hear Angular referred to as a JavaScript framework, but Angular apps are created using TypeScript, a programming language that's built on top of JavaScript. People often refer to TypeScript as a superset of JavaScript, but you really don't need to know all the details around that. *Just know that code written in TypeScript when compiled becomes JavaScript, enabling it to run in the browser*. You can think of TypeScript as a language that fixes a lot of the issues that tend to come along with using JavaScript, and it gives us cleaner code and less errors at the same time
+
+== Git
+
+=== Git Commands
+
+----
+
+----
+
+
+*What is linear and non-linear workflow*
+
+
+1. **Linear Workflow**:
+- In a linear workflow, changes are applied sequentially, one after the other, without any divergent branches.
+- This typically involves a simple workflow where developers work on a single branch, such as the main branch (`master` or `main` in Git).
+- Changes are made directly on this branch, and each change builds upon the previous one.
+- Once changes are made and tested, they are committed directly to the main branch, creating a linear history of commits.
+
+2. **Non-linear Workflow**:
+- In a non-linear workflow, developers may work on multiple branches, allowing for parallel development and experimentation.
+- This often involves creating feature branches, where developers work on specific features or fixes independently of each other.
+- These feature branches can diverge from the main branch and may have their own sub-branches.
+- Once a feature is complete and tested, it can be merged back into the main branch, integrating the changes into the project history.
+
+In Git, both linear and non-linear workflows are common and can be used depending on the needs of the project and the development team. Linear workflows are simpler and easier to understand, making them suitable for smaller projects or teams. Non-linear workflows offer more flexibility and scalability, allowing for concurrent development of multiple features or bug fixes, making them suitable for larger projects with multiple developers.
+
+== MySQL
+
+*What is #Database#*
+
+Certainly! In simple terms, a **database** is like a well-organized digital filing cabinet where we store and manage information. Here are the key points:
+
+1. **What is Data?**
+- **Data** refers to raw and unprocessed information. For example, names, class, marks, etc.
+- In computer language, data is any piece of information that can be translated into a form for efficient movement and processing.
+
+2. **What is a Database?**
+- A **database** is a structured collection of data that can be accessed or stored in a computer system.
+- It's like a digital warehouse where we keep related information organized.
+- Databases are managed using a **Database Management System (DBMS)**, which is software designed to handle data efficiently.
+- Think of it as a way to store a large amount of data in one place and easily retrieve specific pieces of information.
+
+3. **How Does It Work?**
+- In a database, data is organized into **tables** consisting of rows and columns.
+- Each row represents a specific record (like a student's details or a product), and each column represents a specific attribute (like name, age, or price).
+- Databases are indexed, allowing for easy updates, expansions, and deletions of data.
+
+4. **Types of Databases:**
+- **Relational Database**: Made up of tables with data fitting predefined categories.
+- **Distributed Database**: Portions stored in multiple locations, with processing dispersed across a network.
+- **Cloud Database**: Runs on cloud computing platforms, providing access to data transparently.
+
+In summary, a database is where we keep our digital treasures organized, making it easier to manage information, analyze facts, and make informed decisions!
+
+---
+
+*How is database different compared to spreadsheet*
+
+Certainly! Let's explore the key differences between a **database** and a **spreadsheet**:
+
+1. **What is a Spreadsheet?**
+- A spreadsheet is like an electronic ledger—a digital version of paper accounting worksheets.
+- It was created to store accounting information in tabular form digitally.
+- Spreadsheets allow you to create tables, perform calculations using formulas, and manage data about one subject area.
+- Examples include Microsoft Excel and Google Sheets.
+
+2. **What is a Database?**
+- A database is significantly more complex than a spreadsheet.
+- It's a collection of data organized and managed using **Structured Query Language (SQL)**.
+- Databases are typically formatted in rows and columns, similar to spreadsheets, but their capabilities extend far beyond.
+- Unlike spreadsheets, databases can vary greatly in size—from small files on your desktop to massive cloud clusters.
+
+3. **Key Differences:**
+- **Data Structure**:
+- Spreadsheets store a single table of data, while databases break data into multiple tables linked using special keys.
+- **Functionality**:
+- Spreadsheets are great for basic calculations and simple data analysis.
+- Databases offer more advanced features like querying, indexing, and handling large datasets.
+- **Scalability**:
+- Databases can handle vast amounts of data, whereas spreadsheets are limited by the number of cells they can hold.
+
+4. **Pros and Cons:**
+- **Spreadsheets**:
+- **Advantages**: Simple to use, suitable for small datasets, and easy calculations.
+- **Disadvantages**: Limited scalability, less robust for complex data.
+- **Databases**:
+- **Advantages**: Powerful, scalable, efficient for large datasets, and better for data integrity.
+- **Disadvantages**: May require more technical expertise.
+
+In summary, if you need to track numbers or occasionally share lists, a spreadsheet suffices. For more complex data management or multi-purpose use, a database is the better choice!
+
+---
+
+*ANSI SQL (Structured Query Language)*
+
+ANSI SQL stands for American National Standards Institute Structured Query Language. It’s a standardized language used for managing data in Relational Database Management Systems (RDBMS).
+
+
+
+== References
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects[Configure Git]
