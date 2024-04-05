@@ -3,56 +3,7 @@
 :toclevels: 5
 :sectnums:
 
-NOTE: NOTE
 
-TIP: TIP
+== Git
 
-IMPORTANT: IMPORTANT
-
-CAUTION: CAUTION
-
-WARNING: WARNING
-
-
----
-
-http://www.vogella.com
-
-
----
-
-Where did all the [.underline]#cores# go?
-
----
-
-.Example block title
-====
-Content in an example block is subject to normal substitutions.
-====
-
-
----
-
-
-.Sidebar title
-****
-Sidebars contain aside text and are subject to normal substitutions.
-****
-
----
-
-[quote, firstname lastname, movie title]
-____
-I am a block quote or a prose excerpt.
-I am subject to normal substitutions.
-____
-
----
-
-[verse, firstname lastname, poem title and more]
-____
-I am a verse block.
-  Indents and endlines are preserved in verse blocks.
-____
-
----
+link:git/Git.adoc[Git]

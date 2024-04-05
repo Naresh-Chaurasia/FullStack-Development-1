@@ -257,6 +257,27 @@ You might hear Angular referred to as a JavaScript framework, but Angular apps a
 
 ----
 
+*Sample `.gitconfig`*
+
+----
+[user]
+    name = Your Name
+    email = your.email@example.com
+
+[core]
+    editor = nano
+    autocrlf = input
+
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    df = diff
+----
+
+---
+
 
 *What is linear and non-linear workflow*
 
