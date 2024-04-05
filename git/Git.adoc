@@ -3,6 +3,11 @@
 :toclevels: 5
 :sectnums:
 
+== How Git Works - PP
+
+== GIT - JT
+
+image::img/git-workflow.png[]
 
 == GIT - PP
 
@@ -169,4 +174,28 @@ git config --local --remove-section user
 In Git, both linear and non-linear workflows are common and can be used depending on the needs of the project and the development team. Linear workflows are simpler and easier to understand, making them suitable for smaller projects or teams. Non-linear workflows offer more flexibility and scalability, allowing for concurrent development of multiple features or bug fixes, making them suitable for larger projects with multiple developers.
 
 == Git Commands
+
+
+----
+git init <name-of-project>
+
+# Files being tracked
+git ls-files
+
+# Undo changes
+git reset HEAD level1-file.txt
+git checkout -- level1-file.txt
+
+# Rename file in Git
+git mv <file1.txt> <file2.txt>
+
+# Rename file in OS
+mv <file1.txt> <file2.txt>
+git add -A
+
+git log
+
+# Pull from origin master, before pushing to origin.
+git pull origin master
+----
 

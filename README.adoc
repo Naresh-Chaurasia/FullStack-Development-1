@@ -1,8 +1,12 @@
-= ASCIIDOC Template
+= FullStack Development
 :toc: left
 :toclevels: 5
 :sectnums:
 
+
+== Agile
+
+link:agile/Agile.adoc[Agile]
 
 == Git
 
