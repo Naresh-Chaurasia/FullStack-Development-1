@@ -79,9 +79,26 @@ image::img/distributed-2.png[]
 
 == GIT - F
 
+########################################################################################################################
+
+---
+
 *Git Configuration Hierarchy*
 
 image::img/git-hierarchy.png[]
+
+########################################################################################################################
+
+---
+
+
+image::git-hierarchy2.png[]
+
+########################################################################################################################
+
+---
+
+*Sample Commands*
 
 ----
 
@@ -98,5 +115,58 @@ git config --list
 git config --global --list
 
 git config --local --list
+
+git config --list --show-origin --show-scope
+
+git config --local --unset user.name
+
+git config --local --remove-section user
 ----
+
+########################################################################################################################
+
+---
+
+*Sample `.gitconfig`*
+
+----
+[user]
+    name = Your Name
+    email = your.email@example.com
+
+[core]
+    editor = nano
+    autocrlf = input
+
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    df = diff
+----
+
+
+== Git Glossary
+
+---
+
+*What is linear and non-linear workflow*
+
+
+1. **Linear Workflow**:
+- In a linear workflow, changes are applied sequentially, one after the other, without any divergent branches.
+- This typically involves a simple workflow where developers work on a single branch, such as the main branch (`master` or `main` in Git).
+- Changes are made directly on this branch, and each change builds upon the previous one.
+- Once changes are made and tested, they are committed directly to the main branch, creating a linear history of commits.
+
+2. **Non-linear Workflow**:
+- In a non-linear workflow, developers may work on multiple branches, allowing for parallel development and experimentation.
+- This often involves creating feature branches, where developers work on specific features or fixes independently of each other.
+- These feature branches can diverge from the main branch and may have their own sub-branches.
+- Once a feature is complete and tested, it can be merged back into the main branch, integrating the changes into the project history.
+
+In Git, both linear and non-linear workflows are common and can be used depending on the needs of the project and the development team. Linear workflows are simpler and easier to understand, making them suitable for smaller projects or teams. Non-linear workflows offer more flexibility and scalability, allowing for concurrent development of multiple features or bug fixes, making them suitable for larger projects with multiple developers.
+
+== Git Commands
 
