@@ -203,8 +203,34 @@ Certainly! Here are some backlog items for a *ticket booking application*:
 - Provide statistical insights such as total revenue, popular events, and booking trends.
 - Implement features for administrators to generate reports and export data.
 
-
 These backlog items cover a range of features and functionalities required for a ticket booking application. You can prioritize them based on business needs and user requirements.
+
+==== User Stories
+
+Absolutely! Here are user stories for backlog items 1 and 2:
+
+**User Story 1: User Authentication and Authorization**
+
+- **Title:** User Registration
+- **As a** potential customer
+- **I want to** register for an account
+- **So that I can** access the ticket booking system and manage my bookings.
+- **Acceptance Criteria:**
+1. There is a registration form with fields for entering username, email, and password.
+2. Upon successful registration, I receive a confirmation email to verify my account.
+3. Once verified, I can log in to the system using my credentials.
+
+**User Story 2: Event Management**
+
+- **Title:** Add/Edit/Delete Events
+- **As an** event organizer/administrator
+- **I want to** manage events in the system
+- **So that** users can view and book tickets for upcoming events.
+- **Acceptance Criteria:**
+1. There is a form for adding new events with fields for title, date, time, location, and ticket availability.
+2. I can edit existing events to update their details or make changes to ticket availability.
+3. I can delete events that are no longer relevant or have been canceled.
+4. Users cannot book tickets for events that have reached their maximum capacity or have passed their date/time.
 
 === Different Kinds of Issues in Sprint
 
