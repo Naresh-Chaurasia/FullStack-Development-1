@@ -16,7 +16,7 @@ WARNING: WARNING
 
 == Agile
 
-*Kanban V/s Scrum*
+=== Kanban V/s Scrum
 
 Scrum and Kanban are both Agile methodologies that focus on improving the efficiency and effectiveness of software development processes, but they have different approaches, practices, and principles. Here's a comparison of Scrum vs. Kanban:
 
@@ -44,7 +44,7 @@ Overall, while both Scrum and Kanban share common Agile principles and goals, th
 
 ---
 
-*Kanban Principles*
+=== Kanban Principles
 
 Kanban is a visual management method that helps teams to visualize work, limit work in progress (WIP), and maximize efficiency. Kanban practices are designed to facilitate the smooth flow of work through the system while enabling continuous improvement. Here are some key Kanban practices:
 
@@ -70,7 +70,7 @@ By embracing these Kanban practices, teams can improve their workflow management
 
 ---
 
-*Kanban*
+=== Kanban
 
 NOTE: PS
 
@@ -78,7 +78,7 @@ Kanban originates from Toyota Production System, or TPS. TPS is a manufacturing 
 
 ---
 
-*Metrics*
+=== Metrics
 
 NOTE: PS
 
@@ -92,7 +92,7 @@ For instance, when we decrease the number of work items in progress, lead time g
 
 ---
 
-*12 Agile Priciples*
+=== 12 Agile Priciples
 
 The Agile Manifesto outlines 12 principles that guide Agile methodologies. These principles are:
 
@@ -124,7 +124,7 @@ These principles serve as a foundation for Agile methodologies, guiding teams in
 
 ---
 
-*Different terms used in Agile Methodology*
+=== Different terms used in Agile Methodology
 
 Agile methodology encompasses a variety of terms that are central to its principles and practices. Here are some of the key terms used in Agile:
 
@@ -161,3 +161,47 @@ Agile methodology encompasses a variety of terms that are central to its princip
 16. **Retrospective**: A meeting held at the end of each sprint to reflect on what went well, what could be improved, and how the team can adjust their processes for future sprints.
 
 These terms are fundamental to understanding and implementing Agile methodologies effectively.
+
+########################################################################################################################
+
+---
+
+=== Backlog Items
+
+Certainly! Here are some backlog items for a *ticket booking application*:
+
+1. **User Authentication and Authorization:**
+- Implement user registration and login functionality.
+- Set up authentication mechanisms such as email verification and password hashing.
+- Define user roles and permissions for different types of users (admin, customer, etc.).
+
+2. **Event Management:**
+- Create a system for adding, editing, and deleting events.
+- Allow administrators to specify event details such as title, date, time, location, and ticket availability.
+- Implement validation to ensure that event details are accurate and complete.
+
+3. **Ticket Booking:**
+- Develop a feature for users to search for events based on various criteria (date, location, category, etc.).
+- Enable users to view event details and select tickets for booking.
+- Implement a shopping cart system for users to review and finalize their ticket selections.
+
+4. **Payment Integration:**
+- Integrate a payment gateway for processing ticket payments securely.
+- Provide support for multiple payment methods (credit/debit cards, PayPal, etc.).
+- Implement error handling and validation for payment transactions.
+
+5. **Email Notifications:**
+- Set up automated email notifications for various events such as ticket booking confirmations, event reminders, and updates.
+- Customize email templates to include relevant information and branding.
+
+6. **User Profile Management:**
+- Allow users to view and edit their profiles, including personal information and communication preferences.
+- Implement functionality for users to manage their bookings, view past orders, and print tickets.
+
+7. **Admin Dashboard:**
+- Create an administrative dashboard for managing events, bookings, and users.
+- Provide statistical insights such as total revenue, popular events, and booking trends.
+- Implement features for administrators to generate reports and export data.
+
+
+These backlog items cover a range of features and functionalities required for a ticket booking application. You can prioritize them based on business needs and user requirements.

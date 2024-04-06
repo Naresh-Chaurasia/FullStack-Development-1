@@ -9,6 +9,28 @@
 
 image::img/git-workflow.png[]
 
+=== Branching and Merging
+
+----
+git branch -a
+
+git branch premium
+
+git checkout premium
+
+#moving/renaming branch
+git branch -m branch1 branch2
+
+#deleting a branch
+git branch -d branch1
+====
+
+====
+====
+
+====
+----
+
 == GIT - PP
 
 === Getting to Know Git
@@ -195,6 +217,7 @@ git add -A
 
 git log
 
+# origin refers to the name of the remote repository
 # Pull from origin master, before pushing to origin.
 git pull origin master
 ----
