@@ -9,7 +9,8 @@
 
 image::img/git-workflow.png[]
 
-=== Branching and Merging
+=== Branching
+
 
 ----
 git branch -a
@@ -23,13 +24,28 @@ git branch -m branch1 branch2
 
 #deleting a branch
 git branch -d branch1
-====
-
-====
-====
-
-====
 ----
+
+=== Merging
+
+----
+git branch -a
+git diff main new_feature_branch
+git checkout new_feature_branch
+echo "new file entry"> new.txt
+cat new.txt
+git add .
+git commit -m "commiting new file to branch"
+git status
+git checkout main
+git diff main new_feature_branch
+git merge new_feature_branch
+
+git log --oneline --graph --decorate
+output: f907392 (HEAD -> main, new_feature_branch) commiting new file to branch
+----
+
+Fast-forwarding is only really possible when there are no changes being made on the target branch, which is what we just did. We branched away,  we did some work, and then we came back and then merged into master; Lostwe didn't do any additional work on master before doing the merge.
 
 == GIT - PP
 
