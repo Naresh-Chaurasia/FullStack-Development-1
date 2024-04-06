@@ -205,3 +205,63 @@ Certainly! Here are some backlog items for a *ticket booking application*:
 
 
 These backlog items cover a range of features and functionalities required for a ticket booking application. You can prioritize them based on business needs and user requirements.
+
+=== Different Kinds of Issues in Sprint
+
+In Agile methodologies such as Scrum, various types of issues or work items can be included in a sprint to represent the tasks that need to be completed by the development team. Here are some common types of issues that can be included in a sprint:
+
+1. **User Stories:** User stories represent specific features or functionalities from the perspective of an end-user. They typically follow the format of "As a [user role], I want [goal] so that [reason]" and describe the desired outcome without specifying implementation details.
+
+2. **Bugs:** Bugs are issues that describe defects or errors in the software that need to be fixed. They are usually reported by users, testers, or identified during development.
+
+3. **Tasks:** Tasks represent smaller, actionable items that contribute to the completion of a user story or a larger piece of work. They can include activities such as research, documentation, coding, testing, or deployment.
+
+4. **Sub-tasks:** Sub-tasks are smaller units of work that are part of a larger task. They can be used to break down complex tasks into manageable components and track progress at a more granular level.
+
+5. **Improvement Stories:** Improvement stories focus on enhancements or optimizations to existing features rather than the development of entirely new functionality. They address areas for improvement based on user feedback, performance issues, or usability concerns.
+
+6. **Technical Debt:** Technical debt represents the work required to address code quality issues, refactorings, or architectural improvements that have been deferred in previous sprints. It includes activities aimed at reducing complexity, improving maintainability, and ensuring the long-term health of the codebase.
+
+7. **Epics:** Epics are large bodies of work that cannot be completed within a single sprint and need to be broken down into smaller, more manageable user stories or tasks. They represent high-level initiatives or themes that span multiple sprints and require coordination across teams.
+
+8. **Chores:** Chores are non-functional tasks or housekeeping activities that are necessary for the maintenance or upkeep of the project but do not directly deliver business value. They can include activities such as updating documentation, setting up environments, or conducting code reviews.
+
+By including a mix of these different types of issues in a sprint, teams can ensure that they address a variety of work items and make progress towards their sprint goals while delivering value to their stakeholders.
+
+=== Problem Statement
+
+You are working as an Agile Scrum Master and have been asked to perform spring planning in Jira for one of the projects. Demonstrate the steps to perform the same in Jira.
+
+Certainly! Here's a step-by-step guide to performing Sprint Planning in Jira:
+
+1. **Navigate to your Project in Jira:**
+Log in to your Jira account and navigate to the project for which you want to perform Sprint Planning.
+
+2. **Go to the Backlog:**
+Click on the "Backlog" link in the project's sidebar. This will take you to the backlog view where you can see all the issues that are currently in the backlog.
+
+3. **Create a New Sprint:**
+At the top-right corner of the backlog, you'll see a button labeled "Create sprint". Click on it to create a new sprint. Give your sprint a name and set the start and end dates for the sprint.
+
+4. **Select Issues for the Sprint:**
+Drag and drop issues from the backlog into the new sprint. These are the tasks that you and your team will work on during the sprint. You can also use the Jira query language (JQL) to filter and search for specific issues to include in the sprint.
+
+5. **Estimate Issues:**
+Once you've selected the issues for the sprint, you can estimate the amount of work required for each issue using story points or time estimates. Click on an issue to open it, then click on the "Edit" button to enter the estimate in the appropriate field.
+
+6. **Prioritize the Sprint Backlog:**
+Arrange the issues in the sprint backlog in priority order. You can drag and drop issues to reorder them based on their importance or dependency.
+
+7. **Review Capacity:**
+Review the team's capacity for the sprint in terms of available hours or story points. Make sure that the total estimated effort for the sprint does not exceed the team's capacity.
+
+8. **Adjust as Necessary:**
+As you plan the sprint, you may need to make adjustments based on feedback from the team or changes in priorities. Be prepared to add, remove, or re-prioritize issues as needed to ensure that the sprint is achievable and aligned with the project goals.
+
+9. **Finalize the Sprint:**
+Once you're satisfied with the sprint plan, click the "Start sprint" button to finalize the sprint. This will move the selected issues from the backlog into the active sprint, and your team can begin working on them.
+
+10. **Monitor Progress:**
+Throughout the sprint, monitor the progress of the team and the sprint backlog in Jira. You can use the "Active sprints" view to track the status of individual issues, update progress, and make adjustments as necessary.
+
+That's it! By following these steps, you can effectively plan and manage sprints in Jira to ensure that your team stays on track and delivers value to your stakeholders.
