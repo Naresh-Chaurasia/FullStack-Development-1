@@ -16,6 +16,12 @@ WARNING: WARNING
 
 == Agile
 
+== Scrum V/s Agile
+
+Agile is an iterative and flexible approach to software development and project management.
+
+Scrum is one of the most popular frameworks within the Agile methodology.
+
 === Kanban V/s Scrum
 
 Scrum and Kanban are both Agile methodologies that focus on improving the efficiency and effectiveness of software development processes, but they have different approaches, practices, and principles. Here's a comparison of Scrum vs. Kanban:
