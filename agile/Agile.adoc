@@ -14,9 +14,9 @@ CAUTION: CAUTION
 
 WARNING: WARNING
 
-== Agile
 
-== Scrum V/s Agile
+
+==== Scrum V/s Agile
 
 Agile is an iterative and flexible approach to software development and project management.
 
