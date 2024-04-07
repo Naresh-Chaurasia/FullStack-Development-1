@@ -39,6 +39,7 @@ Certainly! Here's an example backlog for a ticket booking application:
 3. As a user, I want the option to reset my password in case I forget it.
 
 **Epic: Event Discovery and Selection**
+
 1. As a user, I want to view a list of upcoming events sorted by date and location.
 
 2. As a user, I want to search for events based on keywords, categories, or dates.
@@ -48,6 +49,7 @@ Certainly! Here's an example backlog for a ticket booking application:
 4. As a user, I want to select the number of tickets and seating preferences for an event and add them to my cart.
 
 **Epic: Ticket Booking and Checkout**
+
 1. As a user, I want to review the items in my cart before proceeding to checkout.
 
 2. As a user, I want to provide my payment details securely to purchase the selected tickets.
@@ -55,6 +57,7 @@ Certainly! Here's an example backlog for a ticket booking application:
 3. As a user, I want to receive a confirmation email with my booking details after completing the checkout process.
 
 **Epic: User Profile Management**
+
 1. As a user, I want to view and edit my profile information, including my name, contact details, and password.
 
 2. As a user, I want to view my booking history and upcoming events.
@@ -62,6 +65,7 @@ Certainly! Here's an example backlog for a ticket booking application:
 3. As a user, I want to manage my email subscriptions for event notifications and newsletters.
 
 **Epic: Admin Dashboard**
+
 1. As an admin, I want to manage event listings, including adding, editing, and deleting events.
 
 2. As an admin, I want to view booking details and generate reports on sales and attendance.
