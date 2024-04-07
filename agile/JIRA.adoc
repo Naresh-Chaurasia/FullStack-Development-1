@@ -25,6 +25,9 @@
 ---
 
 
+image::jira-hierarchy.png[]
+
+
 Certainly! Here's an example backlog for a ticket booking application:
 
 **Epic: User Registration and Authentication**
