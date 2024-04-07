@@ -6,8 +6,17 @@
 
 == Agile
 
-link:agile/Agile.adoc[Agile]
+link:agile/Agile.adoc[Agile,window=_blank]
 
 == Git
 
-link:git/Git.adoc[Git]
+link:git/Git.adoc[Git,window=_blank]
+
+== JIRA
+
+link:agile/JIRA.adoc[JIRA,window=_blank]
+
+
+== References
+
+https://www.atlassian.com/software/jira/free[JIRA Free Account,window=_blank]
