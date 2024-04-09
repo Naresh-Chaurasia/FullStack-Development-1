@@ -1,0 +1,17 @@
+= Intellij
+:toc: left
+:toclevels: 5
+:sectnums:
+
+
+== Commands
+
+----
+npm install -g @angular/cli
+
+ng new my-first-project
+
+ng serve
+
+npm install --save bootstrap@3
+----

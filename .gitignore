@@ -1,0 +1,9 @@
+# Node.js dependencies
+/**/node_modules/
+
+
+
+# IDE and editor files
+.vscode/
+.idea/
+

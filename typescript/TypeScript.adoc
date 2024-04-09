@@ -1,0 +1,39 @@
+= TypeScript
+:toc: left
+:toclevels: 5
+:sectnums:
+
+----
+
+let myNumber: number = 42;
+let myBoolean: boolean = true;
+let myArray: number[] = [1, 2, 3, 4, 5]; // Array of numbers
+let myArray2: string[] = ["apple", "banana", "orange"]; // Array of strings
+
+let myAny: any = 10; // Any type can hold any kind of value
+myAny = "Hello"; // No error, since myAny can be anything
+
+let myArray: number[] = [1, 2, 3, 4, 5];
+let myArray: Array<number> = [1, 2, 3, 4, 5];
+
+let myArray: Array<any> = [1, "two", true];
+
+
+#Enum
+
+// Define an enum named 'Direction'
+enum Direction {
+  Up,    // 0
+  Down,  // 1
+  Left,  // 2
+  Right  // 3
+}
+
+// Using the enum
+let playerDirection: Direction = Direction.Up;
+console.log(playerDirection); // Output: 0
+
+// Enums can also be accessed by their values
+console.log(Direction[2]); // Output: "Left"
+
+----
