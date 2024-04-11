@@ -1,0 +1,17 @@
+= Visual Studio
+:toc: left
+:toclevels: 5
+:sectnums:
+
+== How To
+
+=== Search
+
+* Inside File Search: Control/Command + F
+* Searching for 2 words in file using regex | symbol
+
+=== Intellsense
+
+== Pluggins
+
+* Angular Language Service

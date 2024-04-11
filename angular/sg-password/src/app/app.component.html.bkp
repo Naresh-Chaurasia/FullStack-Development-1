@@ -1,0 +1,44 @@
+<h1>Password Generator</h1>
+
+<div>
+  <label>Enter Length</label>
+  <input (input)="onChangeLength($event)" />
+</div>
+
+<div>
+  <label>Use Letters</label>
+  <input type="checkbox" />
+</div>
+
+<div>
+  <label>Use Numbers</label>
+  <input type="checkbox" />
+</div>
+
+<div>
+  <label>Use Symbols</label>
+  <input type="checkbox" />
+</div>
+
+<div>
+  <button (click)="onButtonClick()">Generate!</button>
+</div>
+
+<div>
+  <label>Your Password Event</label>
+  <input [value]="password"/>
+</div>
+
+<div>
+  <label>Your Password Method</label>
+  <input [value]="getPassword()"/>
+</div>
+
+<div>
+  <label>Your Password Interpollation</label>
+  <input value="{{password}}"/>
+</div>
+
+<div>
+  <h1></h1>
+</div>

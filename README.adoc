@@ -19,4 +19,6 @@ link:agile/JIRA.adoc[JIRA,window=_blank]
 
 == References
 
-https://www.atlassian.com/software/jira/free[JIRA Free Account,window=_blank]
+* https://www.atlassian.com/software/jira/free[JIRA Free Account,window=_blank]
+
+* https://docs.emmet.io/cheat-sheet/[Emmet Cheat Sheet, window=_blank]
