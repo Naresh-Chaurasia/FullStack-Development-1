@@ -1,4 +1,4 @@
-// Addition
+
 var sum = 5 + 3; // sum = 8
 console.log("Sum:", sum);
 // Subtraction

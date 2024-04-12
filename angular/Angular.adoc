@@ -21,6 +21,28 @@ npm install
 ----
 
 
+== Angular Glossary
+
+=== What is Nodejs
+
+In simple terms, Node.js is a runtime environment that allows you to run JavaScript code on the server side. It's built on the Chrome V8 JavaScript engine, which is known for its speed and efficiency.
+
+Node.js enables you to create web servers, build command-line tools, and perform various other server-side tasks using JavaScript. It's particularly popular for building web applications and APIs because it allows developers to use a single language (JavaScript) for both client-side and server-side development, which can simplify the development process and promote code reuse.
+
+In essence, Node.js expands the capabilities of JavaScript beyond the web browser, making it possible to build full-stack applications entirely in JavaScript, from the front end to the back end.
+
+=== What is Angular CLI
+
+Angular CLI, short for Angular Command Line Interface, is a tool that helps you create, develop, and manage Angular applications more efficiently. It provides a set of commands that you can run in your terminal or command prompt to scaffold new Angular projects, generate components, services, modules, and more.
+
+In simple terms, Angular CLI acts as a Swiss Army knife for Angular developers, automating repetitive tasks and providing a streamlined workflow for building Angular applications. With Angular CLI, you can quickly set up a new Angular project, generate code scaffolding, serve your application locally for development, and build optimized production-ready bundles for deployment.
+
+It abstracts away much of the configuration and boilerplate code, allowing you to focus more on writing application logic and less on setting up build tools and project structure. Overall, Angular CLI is an essential tool for Angular developers to increase productivity and maintain consistency across projects.
+
+=== What is bootstrapping
+
+Angular bootstrapping is the process of initializing and starting an Angular application. It involves loading the root module of the application, compiling its components, and rendering the application's view.
+
 == The APP
 
 image::img/app.png[]
@@ -29,14 +51,14 @@ image::img/app.png[]
 
 image::img/sg-files.png[]
 
-########################################################################################################################
+##############################################################################
 
 ---
 ---
 
 image::img/all-components.png[]
 
-########################################################################################################################
+##############################################################################
 
 ---
 ---
@@ -44,25 +66,38 @@ image::img/all-components.png[]
 
 image::img/all-components2.png[]
 
-########################################################################################################################
+##############################################################################
 
 ---
 ---
 
 image::img/sg-event.png[]
 
-########################################################################################################################
+##############################################################################
 
 ---
 ---
 
 image::img/directive.png[]
 
-########################################################################################################################
+##############################################################################
 
 ---
 ---
 
 image::img/cheat-sheet.png[]
 
+##############################################################################
+
+---
+---
+
+image::img/load-angular.png[]
+
+##############################################################################
+
+---
+---
+
+image::img/app-bootup.png[]
 

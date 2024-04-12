@@ -8,6 +8,10 @@
 
 link:agile/Agile.adoc[Agile,window=_blank]
 
+== Angular
+
+link:angular/Angular.adoc[Angular,window=_blank]
+
 == Git
 
 link:git/Git.adoc[Git,window=_blank]

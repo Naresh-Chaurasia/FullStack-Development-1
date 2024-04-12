@@ -1,0 +1,462 @@
+= MYSQL
+:toc: left
+:toclevels: 5
+:sectnums:
+
+== What is ACID
+
+Sure! Let's use a simple example to explain ACID in the context of MySQL:
+
+1. **Atomicity**: Imagine you're transferring money from one bank account to another using MySQL. Atomicity ensures that either the entire transaction of transferring money happens successfully or none of it happens at all. So, if you're transferring $100 from Account A to Account B, MySQL ensures that either $100 is deducted from Account A and added to Account B completely, or nothing happens if there's an error. It's like all or nothing, no in-between state.
+
+2. **Consistency**: Now, let's say you have a rule that no account balance should go below $0. Consistency ensures that this rule is always maintained, even during a transaction. So, if you're transferring $100 from Account A to Account B, MySQL ensures that after the transfer, both accounts still follow this rule. None of the accounts will end up with a negative balance.
+
+3. **Isolation**: Imagine you and your friend are both transferring money from different accounts at the same time. Isolation ensures that your transaction doesn't interfere with your friend's transaction, and vice versa. So, even if you both are transferring money simultaneously, MySQL ensures that each transaction is processed independently without affecting the other.
+
+4. **Durability**: Lastly, durability ensures that once a transaction is completed and confirmed, it stays that way even if there's a system crash or power outage. So, if your money transfer transaction is successful, MySQL makes sure that the changes made (like the deduction from Account A and addition to Account B) are permanent and not lost due to any unforeseen circumstances.
+
+In essence, ACID ensures that your transactions in MySQL are reliable, secure, and consistent, even in challenging situations.
+
+== "HaaS," "PaaS," and "SaaS"
+
+In the realm of cloud computing, "HaaS," "PaaS," and "SaaS" are three different models that represent various levels of service and responsibility for users. Let's break them down:
+
+1. **HaaS (Hardware as a Service)**: In this model, the cloud provider offers physical hardware infrastructure, such as servers, storage, and networking equipment, to users on a subscription basis. Users typically rent these resources rather than owning them outright. HaaS allows businesses to avoid the upfront costs and maintenance associated with purchasing and managing physical hardware. Instead, they can scale resources up or down based on their needs, paying only for what they use. Examples of HaaS providers include Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
+
+2. **PaaS (Platform as a Service)**: PaaS provides a platform allowing customers to develop, run, and manage applications without the complexity of building and maintaining the underlying infrastructure. The cloud provider manages the infrastructure, including servers, storage, and networking, while users focus on developing and deploying their applications. PaaS offerings often include development tools, databases, middleware, and runtime environments. This model enables faster application development, scalability, and flexibility for developers. Examples of PaaS providers include Heroku, Microsoft Azure App Service, and Google App Engine.
+
+3. **SaaS (Software as a Service)**: SaaS delivers software applications over the internet on a subscription basis, eliminating the need for users to install, maintain, and update the software locally on their devices. Users access the software through a web browser or an API, and the cloud provider hosts and manages everything, including infrastructure, software, and data. SaaS applications cover a wide range of functions, including email, customer relationship management (CRM), productivity tools, and enterprise resource planning (ERP). Examples of SaaS offerings include Google Workspace (formerly G Suite), Microsoft Office 365, Salesforce, and Dropbox.
+
+These three models—HaaS, PaaS, and SaaS—offer varying levels of abstraction and management responsibilities, allowing organizations to choose the level of control and flexibility that best suits their needs and resources.
+
+== What is Database
+
+Certainly! In simple terms, a **database** is like a well-organized digital filing cabinet where we store and manage information. Here are the key points:
+
+1. **What is Data?**
+- **Data** refers to raw and unprocessed information. For example, names, class, marks, etc.
+- In computer language, data is any piece of information that can be translated into a form for efficient movement and processing.
+
+2. **What is a Database?**
+- A **database** is a structured collection of data that can be accessed or stored in a computer system.
+- It's like a digital warehouse where we keep related information organized.
+- Databases are managed using a **Database Management System (DBMS)**, which is software designed to handle data efficiently.
+- Think of it as a way to store a large amount of data in one place and easily retrieve specific pieces of information.
+
+3. **How Does It Work?**
+- In a database, data is organized into **tables** consisting of rows and columns.
+- Each row represents a specific record (like a student's details or a product), and each column represents a specific attribute (like name, age, or price).
+- Databases are indexed, allowing for easy updates, expansions, and deletions of data.
+
+4. **Types of Databases:**
+- **Relational Database**: Made up of tables with data fitting predefined categories.
+- **Distributed Database**: Portions stored in multiple locations, with processing dispersed across a network.
+- **Cloud Database**: Runs on cloud computing platforms, providing access to data transparently.
+
+In summary, a database is where we keep our digital treasures organized, making it easier to manage information, analyze facts, and make informed decisions!
+
+== Database V/s Spreadsheet
+
+*How is database different compared to spreadsheet*
+
+Certainly! Let's explore the key differences between a **database** and a **spreadsheet**:
+
+1. **What is a Spreadsheet?**
+- A spreadsheet is like an electronic ledger—a digital version of paper accounting worksheets.
+- It was created to store accounting information in tabular form digitally.
+- Spreadsheets allow you to create tables, perform calculations using formulas, and manage data about one subject area.
+- Examples include Microsoft Excel and Google Sheets.
+
+2. **What is a Database?**
+- A database is significantly more complex than a spreadsheet.
+- It's a collection of data organized and managed using **Structured Query Language (SQL)**.
+- Databases are typically formatted in rows and columns, similar to spreadsheets, but their capabilities extend far beyond.
+- Unlike spreadsheets, databases can vary greatly in size—from small files on your desktop to massive cloud clusters.
+
+3. **Key Differences:**
+- **Data Structure**:
+- Spreadsheets store a single table of data, while databases break data into multiple tables linked using special keys.
+- **Functionality**:
+- Spreadsheets are great for basic calculations and simple data analysis.
+- Databases offer more advanced features like querying, indexing, and handling large datasets.
+- **Scalability**:
+- Databases can handle vast amounts of data, whereas spreadsheets are limited by the number of cells they can hold.
+
+4. **Pros and Cons:**
+- **Spreadsheets**:
+- **Advantages**: Simple to use, suitable for small datasets, and easy calculations.
+- **Disadvantages**: Limited scalability, less robust for complex data.
+- **Databases**:
+- **Advantages**: Powerful, scalable, efficient for large datasets, and better for data integrity.
+- **Disadvantages**: May require more technical expertise.
+
+In summary, if you need to track numbers or occasionally share lists, a spreadsheet suffices. For more complex data management or multi-purpose use, a database is the better choice!
+
+== ANSI
+
+*ANSI SQL (Structured Query Language)*
+
+ANSI SQL stands for American National Standards Institute Structured Query Language. It’s a standardized language used for managing data in Relational Database Management Systems (RDBMS).
+
+
+== SQL Queries
+
+=== CREATE TABLE
+
+----
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    age INT,
+    grade VARCHAR(10)
+);
+
+----
+
+=== DROP TABLE
+
+----
+DROP TABLE employees;
+----
+
+=== TRUNCATE TABLE
+
+----
+TRUNCATE TABLE employees;
+----
+
+=== INSERT SAMPLE RECORDS INTO THE STUDENTS TABLE
+
+----
+INSERT INTO students (first_name, last_name, age, grade) VALUES
+('John', 'Doe', 18, 'Senior'),
+('Jane', 'Smith', 17, 'Junior'),
+('Michael', 'Johnson', 16, 'Sophomore'),
+('Emily', 'Williams', 15, 'Freshman');
+----
+
+=== UPDATE COLUMN IN STUDENT TABLE
+
+----
+UPDATE students
+SET grade = 'Senior (Honor)'
+WHERE first_name = 'John';
+----
+
+=== DELETE A RECORD FROM STUDENT TABLE
+
+----
+DELETE FROM students
+WHERE age < 16;
+----
+
+=== ALTER COLUMN NAME FROM STUDENT TABLE
+
+----
+ALTER TABLE students
+RENAME COLUMN grade TO class;
+----
+
+=== ORDER BY
+
+----
+SELECT first_name, last_name, age
+FROM students
+ORDER BY age DESC;
+----
+
+=== GROUP BY
+
+----
+CREATE TABLE orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    quantity INT
+);
+
+
+INSERT INTO orders (product_id, quantity) VALUES
+(1, 10),
+(1, 15),
+(2, 20),
+(2, 25),
+(3, 30),
+(3, 35);
+
+SELECT product_id, SUM(quantity) AS total_quantity
+FROM orders
+GROUP BY product_id;
+----
+
+=== GROUP BY AND HAVING
+
+----
+SELECT product_id, SUM(quantity) AS total_quantity
+FROM orders
+GROUP BY product_id
+HAVING SUM(quantity) > 30;
+----
+
+=== UNIQUE KEY
+
+----
+
+CREATE TABLE inventory (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(100),
+    sku VARCHAR(50) UNIQUE,
+    quantity INT,
+    price DECIMAL(10, 2)
+);
+
+CREATE TABLE inventory (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(100),
+    sku VARCHAR(50) UNIQUE,
+    quantity INT,
+    price DECIMAL(10, 2)
+);
+----
+
+*COMPOSITE KEY*
+
+----
+
+CREATE TABLE employees (
+    employee_id INT,
+    department_id INT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    PRIMARY KEY (employee_id, department_id)
+);
+
+
+INSERT INTO employees (employee_id, department_id, first_name, last_name)
+VALUES
+(1, 1, 'John', 'Doe'),
+(2, 1, 'Jane', 'Smith'),
+(3, 2, 'Michael', 'Johnson'),
+(4, 2, 'Emily', 'Williams');
+
+-- This record violates the composite key constraint
+INSERT INTO employees (employee_id, department_id, first_name, last_name)
+VALUES
+(1, 1, 'John', 'Doe');
+----
+
+=== FOREIGN KEY CONSTRAINT
+
+----
+-- Create the departments table
+CREATE TABLE departments (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(100)
+);
+
+-- Create the employees table with a foreign key constraint
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES departments(department_id)
+);
+
+
+-- Insert data into the departments table
+INSERT INTO departments (department_id, department_name) VALUES
+(1, 'Sales'),
+(2, 'Marketing'),
+(3, 'Human Resources');
+
+-- Insert data into the employees table
+INSERT INTO employees (employee_id, first_name, last_name, department_id) VALUES
+(1, 'John', 'Doe', 1),  -- Employee John Doe belongs to Sales department
+(2, 'Jane', 'Smith', 2), -- Employee Jane Smith belongs to Marketing department
+(3, 'Michael', 'Johnson', 1), -- Employee Michael Johnson belongs to Sales department
+(4, 'Emily', 'Williams', 3); -- Employee Emily Williams belongs to Human Resources department
+
+----
+
+* We first insert data into the departments table, specifying the department_id and department_name.
+* Then, we insert data into the employees table, specifying the employee_id, first_name, last_name, and department_id. Note that the department_id values we insert must exist in the departments table due to the foreign key constraint.
+
+---
+
+=== DISTINCT
+
+----
+SELECT DISTINCT first_name, last_name, age, grade
+FROM students;
+----
+
+=== LAST_INSERT_ID()
+
+----
+-- Create a table with an auto-increment primary key
+CREATE TABLE example_table (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+-- Insert a record into the table
+INSERT INTO example_table (name) VALUES ('John');
+
+-- Retrieve the last automatically generated ID
+SELECT LAST_INSERT_ID();
+----
+
+Certainly! `LAST_INSERT_ID()` is a MySQL function that returns the last automatically generated value that was inserted into an AUTO_INCREMENT column. It's typically used after an INSERT statement to get the value of the last automatically generated ID.
+
+
+In this example:
+
+- We create a table named `example_table` with an `id` column that is an AUTO_INCREMENT primary key.
+- We insert a record into the table with the name 'John'.
+- We then use `LAST_INSERT_ID()` to retrieve the value of the last automatically generated ID, which is the `id` of the record we just inserted.
+
+`LAST_INSERT_ID()` is often used in scenarios where you need to insert records into multiple tables with foreign key relationships, and you need to retrieve the generated IDs to maintain referential integrity between the tables.
+
+---
+
+=== SELF JOIN/LEFT JOIN
+
+A self-join is a SQL join in which a table is joined with itself. It's often used when you need to compare rows within the same table.
+
+----
+-- Create the employees table
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    employee_name VARCHAR(50),
+    manager_id INT
+);
+
+-- Insert sample data into the employees table
+INSERT INTO employees (employee_id, employee_name, manager_id) VALUES
+(1, 'John', NULL),    -- John doesn't have a manager
+(2, 'Jane', 1),       -- Jane's manager is John
+(3, 'Michael', 1),    -- Michael's manager is John
+(4, 'Emily', 2),      -- Emily's manager is Jane
+(5, 'David', 2);      -- David's manager is Jane
+
+SELECT e.employee_name AS employee, m.employee_name AS manager
+FROM employees e
+LEFT JOIN employees m ON e.manager_id = m.employee_id;
+----
+
+=== INNER JOIN
+
+An inner join is used to return rows from both tables that satisfy the join condition.
+
+----
+-- Create the employees table
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    employee_name VARCHAR(50),
+    department_id INT
+);
+
+-- Insert sample data into the employees table
+INSERT INTO employees (employee_id, employee_name, department_id) VALUES
+(1, 'John', 1),   -- John belongs to department 1
+(2, 'Jane', 1),   -- Jane also belongs to department 1
+(3, 'Michael', 2);  -- Michael belongs to department 2
+
+-- Create the departments table
+CREATE TABLE departments (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(50)
+);
+
+-- Insert sample data into the departments table
+INSERT INTO departments (department_id, department_name) VALUES
+(1, 'Sales'),
+(2, 'Marketing');
+
+
+SELECT e.employee_name, d.department_name
+FROM employees e
+INNER JOIN departments d ON e.department_id = d.department_id;
+
+----
+
+=== RIGHT JOIN
+
+A right join returns all rows from the right table (second table mentioned in the query) and the matched rows from the left table (first table mentioned in the query). If there are no matching rows in the left table, NULL values are returned for the left table columns.
+
+----
+-- Create the orders table
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    order_date DATE,
+    total_amount DECIMAL(10, 2)
+);
+
+-- Insert sample data into the orders table
+INSERT INTO orders (order_id, customer_id, order_date, total_amount) VALUES
+(1, 101, '2023-01-15', 150.00),
+(2, 102, '2023-02-20', 200.00),
+(3, 103, '2023-03-25', 100.00),
+(4, NULL, '2023-04-30', 250.00); -- This order has no associated customer
+
+-- Create the customers table
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(100),
+    email VARCHAR(100)
+);
+
+-- Insert sample data into the customers table
+INSERT INTO customers (customer_id, customer_name, email) VALUES
+(101, 'John Doe', 'john@example.com'),
+(102, 'Jane Smith', 'jane@example.com');
+
+SELECT o.order_id, o.order_date, o.total_amount, c.customer_name, c.email
+FROM orders o
+RIGHT JOIN customers c ON o.customer_id = c.customer_id;
+----
+
+
+=== FULL JOIN
+
+A full join, also known as a full outer join, returns all rows from both tables, combining the results of both left and right joins. If a row in the left table does not have a corresponding match in the right table, NULL values are returned for the right table columns, and vice versa.
+
+----
+
+-- Create the orders table
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    order_date DATE,
+    total_amount DECIMAL(10, 2)
+);
+
+-- Insert sample data into the orders table
+INSERT INTO orders (order_id, customer_id, order_date, total_amount) VALUES
+(1, 101, '2023-01-15', 150.00),
+(2, 102, '2023-02-20', 200.00),
+(3, 103, '2023-03-25', 100.00),
+(4, NULL, '2023-04-30', 250.00); -- This order has no associated customer
+
+-- Create the customers table
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(100),
+    email VARCHAR(100)
+);
+
+-- Insert sample data into the customers table
+INSERT INTO customers (customer_id, customer_name, email) VALUES
+(101, 'John Doe', 'john@example.com'),
+(102, 'Jane Smith', 'jane@example.com');
+
+
+SELECT o.order_id, o.order_date, o.total_amount, c.customer_name, c.email
+FROM orders o
+FULL JOIN customers c ON o.customer_id = c.customer_id;
+
+
+----
+

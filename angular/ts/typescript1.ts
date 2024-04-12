@@ -1,3 +1,5 @@
+console.log("---arithmetic---")
+
 // Addition
 let sum: number = 5 + 3; // sum = 8
 console.log("Sum:", sum);
