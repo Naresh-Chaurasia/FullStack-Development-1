@@ -98,6 +98,93 @@ In summary, if you need to track numbers or occasionally share lists, a spreadsh
 
 ANSI SQL stands for American National Standards Institute Structured Query Language. It’s a standardized language used for managing data in Relational Database Management Systems (RDBMS).
 
+== Data Types
+
+=== String
+
+**Types**: MySQL offers several string data types:
+
+- **CHAR**: Fixed-length string, up to 255 characters.
+- **VARCHAR**: Variable-length string, up to 65,535 characters.
+- **TEXT**: Variable-length string with a maximum length of 65,535 characters.
+- **BLOB**: Binary large object for storing large binary data, such as images or documents.
+
+*Fixed vs. Variable Length*:
+
+*CHAR*: CHAR stores fixed-length strings. When you define a CHAR column, you specify the maximum length of the string it can hold. If the actual string is shorter than the specified length, it is padded with spaces to fill the fixed length.
+
+*VARCHAR*: VARCHAR stores variable-length strings. It only uses the amount of storage required for the actual string plus one or two bytes to store the length of the string. It doesn't pad spaces, so it can be more space-efficient for shorter strings.
+
+----
+-- Create a table with CHAR and VARCHAR columns
+CREATE TABLE char_vs_varchar_example (
+id INT AUTO_INCREMENT PRIMARY KEY,
+char_column CHAR(10),
+varchar_column VARCHAR(10)
+);
+
+-- Insert data into the CHAR and VARCHAR columns
+INSERT INTO char_vs_varchar_example (char_column, varchar_column) VALUES
+('hello', 'hello'),   -- 'hello' will be padded with spaces to fit 10 characters in the CHAR column
+('world', 'world');   -- 'world' will be stored as it is in the VARCHAR column
+----
+
+=== Numeric Data
+
+----
+-- Create a table with INT and FLOAT columns
+CREATE TABLE int_float_example (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    int_column INT,
+    float_column FLOAT
+);
+
+-- Insert data into the INT and FLOAT columns
+INSERT INTO int_float_example (int_column, float_column) VALUES
+    (10, 3.14),
+    (20, 6.28),
+    (30, 9.42);
+----
+
+---
+
+----
+-- Create a table with DATE and TIMESTAMP columns
+CREATE TABLE date_timestamp_example (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    date_column DATE,
+    timestamp_column TIMESTAMP
+);
+
+-- Insert data into the DATE and TIMESTAMP columns
+INSERT INTO date_timestamp_example (date_column, timestamp_column) VALUES
+    ('2024-04-12', '2024-04-12 12:00:00'),
+    ('2024-04-13', '2024-04-13 13:30:00'),
+    ('2024-04-14', '2024-04-14 15:45:00');
+----
+
+== Database and Table Privileges
+
+Certainly! MySQL provides a range of privileges that can be assigned to users on a database or table level. Here are the specific privileges related to databases and tables:
+
+### Database-Level Privileges:
+
+* **CREATE DATABASE**: Allows the user to create new databases.
+* **DROP DATABASE**: Allows the user to delete databases.
+* **ALTER DATABASE**: Allows the user to modify the structure of existing databases.
+* **SHOW DATABASES**: Allows the user to see a list of available databases.
+
+### Table-Level Privileges:
+
+* **SELECT**: Allows the user to retrieve data from tables.
+* **INSERT**: Allows the user to add new rows to tables.
+* **UPDATE**: Allows the user to modify existing rows in tables.
+* **DELETE**: Allows the user to remove rows from tables.
+* **CREATE**: Allows the user to create new tables.
+* **DROP**: Allows the user to delete tables.
+* **ALTER**: Allows the user to modify the structure of existing tables.
+
+These privileges can be granted or revoked using SQL commands like GRANT and REVOKE, providing fine-grained control over who can perform specific actions on databases and tables within a MySQL server.
 
 == SQL Queries
 
@@ -189,6 +276,9 @@ FROM orders
 GROUP BY product_id;
 ----
 
+
+
+
 === GROUP BY AND HAVING
 
 ----
@@ -197,6 +287,71 @@ FROM orders
 GROUP BY product_id
 HAVING SUM(quantity) > 30;
 ----
+
+
+Certainly! Let's provide some sample data for the `orders` table and then demonstrate the examples I provided earlier:
+
+First, let's create the `orders` table and insert some sample data:
+
+```sql
+-- Create the orders table
+CREATE TABLE orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(50),
+    total_amount DECIMAL(10, 2),
+    order_status VARCHAR(20)
+);
+
+-- Insert sample data into the orders table
+INSERT INTO orders (customer_name, total_amount, order_status) VALUES
+    ('Alice', 100.00, 'complete'),
+    ('Alice', 200.00, 'pending'),
+    ('Bob', 300.00, 'complete'),
+    ('Bob', 400.00, 'complete'),
+    ('Bob', 500.00, 'pending'),
+    ('Charlie', 600.00, 'complete'),
+    ('Charlie', 700.00, 'complete'),
+    ('Charlie', 800.00, 'complete'),
+    ('David', 900.00, 'pending'),
+    ('David', 1000.00, 'complete'),
+    ('David', 1100.00, 'complete');
+```
+
+Now that we have inserted sample data into the `orders` table, let's run the queries from earlier to demonstrate the use of `HAVING` clause:
+
+1. Example using aggregate function in HAVING:
+
+```sql
+SELECT
+    customer_name,
+    COUNT(*) AS order_count
+FROM
+    orders
+GROUP BY
+    customer_name
+HAVING
+    COUNT(*) > 5;
+```
+
+This query will return customers who have placed more than 5 orders.
+
+2. Example without using aggregate function in HAVING:
+
+```sql
+SELECT
+    customer_name,
+    order_status
+FROM
+    orders
+GROUP BY
+    customer_name
+HAVING
+    MAX(order_status) = 'complete';
+```
+
+This query will return customers whose maximum order status is 'complete'.
+
+You can execute these queries against the sample `orders` table to see the results based on the provided sample data.
 
 === UNIQUE KEY
 
@@ -320,30 +475,59 @@ In this example:
 
 ---
 
-=== SELF JOIN/LEFT JOIN
+=== SELF JOIN
 
-A self-join is a SQL join in which a table is joined with itself. It's often used when you need to compare rows within the same table.
+Certainly! Let's provide some sample data for the `employees` table and then demonstrate the self join:
 
-----
+First, let's create the `employees` table and insert some sample data:
+
+```sql
 -- Create the employees table
 CREATE TABLE employees (
-    employee_id INT PRIMARY KEY,
+    employee_id INT AUTO_INCREMENT PRIMARY KEY,
     employee_name VARCHAR(50),
+    job_title VARCHAR(50),
     manager_id INT
 );
 
 -- Insert sample data into the employees table
-INSERT INTO employees (employee_id, employee_name, manager_id) VALUES
-(1, 'John', NULL),    -- John doesn't have a manager
-(2, 'Jane', 1),       -- Jane's manager is John
-(3, 'Michael', 1),    -- Michael's manager is John
-(4, 'Emily', 2),      -- Emily's manager is Jane
-(5, 'David', 2);      -- David's manager is Jane
+INSERT INTO employees (employee_name, job_title, manager_id) VALUES
+    ('John Doe', 'Manager', NULL),  -- John Doe is the manager (manager_id is NULL)
+    ('Jane Smith', 'Employee', 1),   -- Jane Smith reports to John Doe (manager_id is 1)
+    ('Alice Johnson', 'Employee', 1),-- Alice Johnson also reports to John Doe
+    ('Bob Brown', 'Employee', 2);    -- Bob Brown reports to Jane Smith (manager_id is 2)
+```
 
-SELECT e.employee_name AS employee, m.employee_name AS manager
+Now that we have inserted sample data into the `employees` table, let's run the self join query:
+
+```sql
+SELECT e.employee_name, m.employee_name AS manager_name
 FROM employees e
-LEFT JOIN employees m ON e.manager_id = m.employee_id;
-----
+JOIN employees m ON e.manager_id = m.employee_id;
+```
+
+This query will return a list of employees along with the names of their managers based on the matching `manager_id` and `employee_id`. Here's the expected result:
+
+[cols="2", options="header"]
+|===
+| employee_name | manager_name
+
+| John Doe
+| NULL
+
+| Jane Smith
+| John Doe
+
+| Alice Johnson
+| John Doe
+
+| Bob Brown
+| Jane Smith
+|===
+
+
+
+You can see that each employee's `manager_name` corresponds to the `employee_name` of their manager, achieved through the self join.
 
 === INNER JOIN
 
@@ -381,82 +565,145 @@ INNER JOIN departments d ON e.department_id = d.department_id;
 
 ----
 
+=== LEFT JOIN
+
+Sure! Let's create an example with sample data and demonstrate a LEFT JOIN query.
+
+Suppose we have two tables: `employees` and `departments`. The `employees` table contains information about employees, including their names and the department they belong to. The `departments` table contains information about departments, including their names and IDs.
+
+Here's how we can create the tables and insert some sample data:
+
+```sql
+-- Create the employees table
+CREATE TABLE employees (
+    employee_id INT AUTO_INCREMENT PRIMARY KEY,
+    employee_name VARCHAR(50),
+    department_id INT
+);
+
+-- Insert sample data into the employees table
+INSERT INTO employees (employee_name, department_id) VALUES
+    ('John Doe', 1),    -- John Doe belongs to department 1
+    ('Jane Smith', 2),  -- Jane Smith belongs to department 2
+    ('Alice Johnson', 1),-- Alice Johnson also belongs to department 1
+    ('Bob Brown', NULL);-- Bob Brown's department is unknown
+
+-- Create the departments table
+CREATE TABLE departments (
+    department_id INT AUTO_INCREMENT PRIMARY KEY,
+    department_name VARCHAR(50)
+);
+
+-- Insert sample data into the departments table
+INSERT INTO departments (department_name) VALUES
+    ('HR'),   -- Department ID 1 is HR
+    ('IT');   -- Department ID 2 is IT
+```
+
+Now, let's say we want to retrieve a list of all employees along with their department names. We can use a LEFT JOIN to ensure that all employees are included in the result, even if their department is unknown.
+
+Here's the LEFT JOIN query:
+
+```sql
+SELECT e.employee_name, d.department_name
+FROM employees e
+LEFT JOIN departments d ON e.department_id = d.department_id;
+```
+
+This query will return a list of all employees along with their department names. If an employee's department is unknown (i.e., their `department_id` is NULL), the corresponding department name will also be NULL. Here's the expected result:
+
+```
++---------------+----------------+
+| employee_name | department_name|
++---------------+----------------+
+| John Doe      | HR             |
+| Jane Smith    | IT             |
+| Alice Johnson | HR             |
+| Bob Brown     | NULL           |
++---------------+----------------+
+```
+
+In this result:
+
+- John Doe and Alice Johnson belong to the HR department.
+- Jane Smith belongs to the IT department.
+- Bob Brown's department is unknown, so the department name is NULL.
+
+---
+
 === RIGHT JOIN
 
-A right join returns all rows from the right table (second table mentioned in the query) and the matched rows from the left table (first table mentioned in the query). If there are no matching rows in the left table, NULL values are returned for the left table columns.
+Of course! Let's continue with the same example of the `employees` and `departments` tables, but this time we'll demonstrate a RIGHT JOIN query.
 
-----
--- Create the orders table
-CREATE TABLE orders (
-    order_id INT PRIMARY KEY,
-    customer_id INT,
-    order_date DATE,
-    total_amount DECIMAL(10, 2)
-);
+Suppose we want to retrieve a list of all departments along with the names of employees who belong to each department. We want to ensure that all departments are included in the result, even if they have no employees.
 
--- Insert sample data into the orders table
-INSERT INTO orders (order_id, customer_id, order_date, total_amount) VALUES
-(1, 101, '2023-01-15', 150.00),
-(2, 102, '2023-02-20', 200.00),
-(3, 103, '2023-03-25', 100.00),
-(4, NULL, '2023-04-30', 250.00); -- This order has no associated customer
+Here's how we can achieve this using a RIGHT JOIN:
 
--- Create the customers table
-CREATE TABLE customers (
-    customer_id INT PRIMARY KEY,
-    customer_name VARCHAR(100),
-    email VARCHAR(100)
-);
+```sql
+SELECT d.department_name, e.employee_name
+FROM departments d
+RIGHT JOIN employees e ON d.department_id = e.department_id;
+```
 
--- Insert sample data into the customers table
-INSERT INTO customers (customer_id, customer_name, email) VALUES
-(101, 'John Doe', 'john@example.com'),
-(102, 'Jane Smith', 'jane@example.com');
+This query will return a list of all departments along with the names of employees who belong to each department. If a department has no employees, the corresponding employee name will be NULL.
 
-SELECT o.order_id, o.order_date, o.total_amount, c.customer_name, c.email
-FROM orders o
-RIGHT JOIN customers c ON o.customer_id = c.customer_id;
-----
+Here's the expected result based on the provided sample data:
+
+```
++----------------+---------------+
+| department_name| employee_name |
++----------------+---------------+
+| HR             | John Doe      |
+| HR             | Alice Johnson |
+| IT             | Jane Smith    |
+| NULL           | Bob Brown     |
++----------------+---------------+
+```
+
+In this result:
+
+- The HR department has two employees: John Doe and Alice Johnson.
+- The IT department has one employee: Jane Smith.
+- There is a department with no employees, indicated by the NULL value in the `department_name` column, and Bob Brown is listed as having no department affiliation.
 
 
 === FULL JOIN
 
-A full join, also known as a full outer join, returns all rows from both tables, combining the results of both left and right joins. If a row in the left table does not have a corresponding match in the right table, NULL values are returned for the right table columns, and vice versa.
+Sure! Let's continue with the same example of the `employees` and `departments` tables, but this time we'll demonstrate a FULL JOIN query.
 
-----
+Suppose we want to retrieve a list of all departments along with the names of employees who belong to each department. We want to ensure that all departments and all employees are included in the result, even if they don't have a corresponding match in the other table.
 
--- Create the orders table
-CREATE TABLE orders (
-    order_id INT PRIMARY KEY,
-    customer_id INT,
-    order_date DATE,
-    total_amount DECIMAL(10, 2)
-);
+Here's how we can achieve this using a FULL JOIN:
 
--- Insert sample data into the orders table
-INSERT INTO orders (order_id, customer_id, order_date, total_amount) VALUES
-(1, 101, '2023-01-15', 150.00),
-(2, 102, '2023-02-20', 200.00),
-(3, 103, '2023-03-25', 100.00),
-(4, NULL, '2023-04-30', 250.00); -- This order has no associated customer
+```sql
+SELECT d.department_name, e.employee_name
+FROM departments d
+FULL JOIN employees e ON d.department_id = e.department_id;
+```
 
--- Create the customers table
-CREATE TABLE customers (
-    customer_id INT PRIMARY KEY,
-    customer_name VARCHAR(100),
-    email VARCHAR(100)
-);
+This query will return a list of all departments along with the names of employees who belong to each department. If a department has no employees or an employee doesn't belong to any department, the corresponding department name or employee name will be NULL.
 
--- Insert sample data into the customers table
-INSERT INTO customers (customer_id, customer_name, email) VALUES
-(101, 'John Doe', 'john@example.com'),
-(102, 'Jane Smith', 'jane@example.com');
+Here's the expected result based on the provided sample data:
 
+```
++----------------+---------------+
+| department_name| employee_name |
++----------------+---------------+
+| HR             | John Doe      |
+| HR             | Alice Johnson |
+| IT             | Jane Smith    |
+| NULL           | Bob Brown     |
++----------------+---------------+
+```
 
-SELECT o.order_id, o.order_date, o.total_amount, c.customer_name, c.email
-FROM orders o
-FULL JOIN customers c ON o.customer_id = c.customer_id;
+In this result:
 
+- The HR department has two employees: John Doe and Alice Johnson.
+- The IT department has one employee: Jane Smith.
+- There is a department with no employees, indicated by the NULL value in the `department_name` column, and Bob Brown is listed as having no department affiliation.
 
-----
+== Connecting to DB
+
+* Start MySQL
+* Connect to DB using MySQL Workbench
 

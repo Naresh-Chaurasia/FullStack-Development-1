@@ -23,7 +23,7 @@ link:agile/JIRA.adoc[JIRA,window=_blank]
 
 == MySQL
 
-link:mysql/MYSQL.adoc[mySQL,window=_blank]
+link:mysql/MYSQL.adoc[MySQL,window=_blank]
 
 
 == References
