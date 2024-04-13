@@ -359,17 +359,17 @@ You can execute these queries against the sample `orders` table to see the resul
 ----
 
 CREATE TABLE employees (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT PRIMARY KEY,
     name VARCHAR(100),
     email VARCHAR(100) UNIQUE,
     department VARCHAR(100)
 );
 
 INSERT INTO employees (name, email, department) VALUES
-('John Doe', 'john@example.com', 'HR'),
-('Jane Smith', 'jane@example.com', 'IT'),
-('Michael Johnson', 'michael@example.com', 'Finance'),
-('Emily Brown', 'emily@example.com', 'Marketing');
+(1,'John Doe', 'john@example.com', 'HR'),
+(2,'Jane Smith', 'jane@example.com', 'IT'),
+(3,'Michael Johnson', 'michael@example.com', 'Finance'),
+(4,'Emily Brown', 'emily@example.com', 'Marketing');
 
 
 
