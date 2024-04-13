@@ -739,10 +739,13 @@ COMMIT;
 
 === How to connect to DB
 
+----
+# switching to root user
+sudo su root
 
-* sudo su root
-* mysql -u root
-
+# connect to mysql
+mysql -u root
+----
 
 
 
