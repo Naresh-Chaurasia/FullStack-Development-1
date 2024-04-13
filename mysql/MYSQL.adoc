@@ -702,8 +702,43 @@ In this result:
 - The IT department has one employee: Jane Smith.
 - There is a department with no employees, indicated by the NULL value in the `department_name` column, and Bob Brown is listed as having no department affiliation.
 
-== Connecting to DB
+=== ROLLBACK
 
-* Start MySQL
-* Connect to DB using MySQL Workbench
+
+INSERT INTO orders (customer_name, total_amount, order_status) VALUES  ('Alice1', 101.00, 'completed')
+
+=== SAVEPOINT
+
+----
+CREATE TABLE customers (
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100),
+email VARCHAR(100)
+);
+
+-- Start a transaction
+START TRANSACTION;
+
+-- Update the email of customer with id 1
+UPDATE customers SET email = 'john.doe@example.com' WHERE id = 1;
+
+-- Create a savepoint named 'update1'
+SAVEPOINT update1;
+
+-- Update the email of customer with id 2
+UPDATE customers SET email = 'jane.smith@example.com' WHERE id = 2;
+
+-- Oops! Something went wrong
+-- We want to roll back to the 'update1' savepoint
+ROLLBACK TO update1;
+
+-- Commit the transaction
+COMMIT;
+
+----
+
+
+
+
+
 
