@@ -228,8 +228,8 @@ INSERT INTO students (first_name, last_name, age, grade) VALUES
 
 ----
 UPDATE students
-SET grade = 'Senior (Honor)'
-WHERE first_name = 'John';
+SET grade = 'Senior2'
+WHERE age >16 and first_name='John';
 ----
 
 === DELETE A RECORD FROM STUDENT TABLE
@@ -243,13 +243,13 @@ WHERE age < 16;
 
 ----
 ALTER TABLE students
-RENAME COLUMN grade TO class;
+RENAME COLUMN grade TO student_grade;
 ----
 
 === ORDER BY
 
 ----
-SELECT first_name, last_name, age
+SELECT *
 FROM students
 ORDER BY age DESC;
 ----
@@ -358,21 +358,21 @@ You can execute these queries against the sample `orders` table to see the resul
 
 ----
 
-CREATE TABLE inventory (
+CREATE TABLE employees (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    product_name VARCHAR(100),
-    sku VARCHAR(50) UNIQUE,
-    quantity INT,
-    price DECIMAL(10, 2)
+    name VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    department VARCHAR(100)
 );
 
-CREATE TABLE inventory (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    product_name VARCHAR(100),
-    sku VARCHAR(50) UNIQUE,
-    quantity INT,
-    price DECIMAL(10, 2)
-);
+INSERT INTO employees (name, email, department) VALUES
+('John Doe', 'john@example.com', 'HR'),
+('Jane Smith', 'jane@example.com', 'IT'),
+('Michael Johnson', 'michael@example.com', 'Finance'),
+('Emily Brown', 'emily@example.com', 'Marketing');
+
+
+
 ----
 
 *COMPOSITE KEY*
