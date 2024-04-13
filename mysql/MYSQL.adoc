@@ -749,7 +749,10 @@ mysql -u root
 show databases;
 
 create database my_sql_db;
+
+use my_sql_db;
 ----
+
 
 
 
