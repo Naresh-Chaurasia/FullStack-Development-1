@@ -365,7 +365,9 @@ CREATE TABLE employees (
     department VARCHAR(100)
 );
 
-INSERT INTO employees (name, email, department) VALUES
+INSERT INTO employees (id, name, email, department) VALUES
+(null,'John Doe', null, 'HR'),
+(5,'John Doe', null, 'HR'),
 (1,'John Doe', 'john@example.com', 'HR'),
 (2,'Jane Smith', 'jane@example.com', 'IT'),
 (3,'Michael Johnson', 'michael@example.com', 'Finance'),
