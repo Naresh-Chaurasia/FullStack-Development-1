@@ -192,7 +192,6 @@ These privileges can be granted or revoked using SQL commands like GRANT and REV
 
 ----
 CREATE TABLE students (
-    id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50),
     last_name VARCHAR(50),
     age INT,
@@ -202,6 +201,8 @@ CREATE TABLE students (
 ----
 
 === DROP TABLE
+
+* Deleting the table.
 
 ----
 DROP TABLE employees;
