@@ -737,6 +737,11 @@ COMMIT;
 
 ----
 
+=== How to connect to DB
+
+
+* sudo su root
+* mysql -u root
 
 
 
