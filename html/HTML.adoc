@@ -1,0 +1,57 @@
+= HTML
+:toc: left
+:toclevels: 5
+:sectnums:
+
+=== Anchor link
+
+Sure! The HTML `<a>` (anchor) tag is used to create hyperlinks. It can include various attributes to specify the target URL, link behavior, and appearance. Here are some common attributes of the `<a>` tag:
+
+1. **`href`**: Specifies the URL of the link. This is the most essential attribute of the `<a>` tag.
+
+```html
+<a href="https://www.example.com">Visit Example</a>
+```
+
+2. **`target`**: Specifies where to open the linked document. Values can include `_self` (default, opens in the same frame), `_blank` (opens in a new window or tab), `_parent` (opens in the parent frame), or `_top` (opens in the full body of the window).
+
+```html
+<a href="https://www.example.com" target="_blank">Visit Example</a>
+```
+
+3. **`title`**: Provides additional information about the link, typically displayed as a tooltip when the user hovers over the link.
+
+```html
+<a href="https://www.example.com" title="Visit Example">Visit Example</a>
+```
+
+4. **`download`**: Specifies that the target will be downloaded when the user clicks on the hyperlink. The value should be the name of the file being downloaded.
+
+```html
+<a href="example.pdf" download>Download PDF</a>
+```
+
+5. **`rel`**: Specifies the relationship between the current document and the linked document. Common values include `nofollow` (suggests to search engines not to follow the link) and `noopener noreferrer` (ensures security when opening in a new window).
+
+```html
+<a href="https://www.example.com" rel="noopener noreferrer">Visit Example</a>
+```
+
+6. **`aria-label`**: Specifies an accessible label for the link, which is read out by screen readers for visually impaired users.
+
+```html
+<a href="https://www.example.com" aria-label="Visit Example">Visit Example</a>
+```
+
+7. **`id` and `class`**: Attributes used for styling or scripting purposes. They don't directly affect the behavior of the link, but they can be useful for targeting specific links with CSS or JavaScript.
+
+```html
+<a href="https://www.example.com" id="link1" class="external-link">Visit Example</a>
+```
+
+These are just a few examples of the attributes that can be used with the HTML `<a>` tag to create hyperlinks with various behaviors and appearances.
+
+=== Table Example
+
+
+
