@@ -745,6 +745,10 @@ sudo su root
 
 # connect to mysql
 mysql -u root
+
+show databases;
+
+create database my_sql_db;
 ----
 
 
