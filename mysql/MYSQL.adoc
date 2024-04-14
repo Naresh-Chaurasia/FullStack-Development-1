@@ -740,6 +740,21 @@ COMMIT;
 
 ----
 
+=== BLOB
+
+In MySQL, the `BLOB` (Binary Large OBject) data type is used to store large binary data, such as images, audio, video, or other files. The size of a `BLOB` column is determined by the maximum packet size (`max_allowed_packet`) parameter in the MySQL server configuration.
+
+By default, the maximum packet size in MySQL is set to 4MB (megabytes). This means that you can store BLOBs up to 4MB in size in a single column if you haven't changed the default configuration.
+
+However, you can increase the maximum packet size to allow for larger BLOBs to be stored. Keep in mind that increasing the maximum packet size can have implications for memory usage and network traffic, so it's important to consider the potential impact on your MySQL server.
+
+As for the maximum size of a file you can store in a `BLOB` column, it depends on the maximum packet size and the specific configuration of your MySQL server. If you have increased the maximum packet size, you can store larger files accordingly. For example, if you increase the maximum packet size to 16MB, you can theoretically store BLOBs up to 16MB in size.
+
+However, it's worth noting that storing very large files directly in a MySQL database can have performance and scalability implications. For storing very large files, it's often recommended to use a file system or a specialized file storage system instead of storing the files directly in the database.
+
+
+=== How to Create User.
+
 === How to connect to DB
 
 ----
