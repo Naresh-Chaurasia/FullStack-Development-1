@@ -445,8 +445,24 @@ INSERT INTO employees (employee_id, first_name, last_name, department_id) VALUES
 === DISTINCT
 
 ----
-SELECT DISTINCT first_name, last_name, age, grade
-FROM students;
+
+-- Create the employees table
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50),
+    department VARCHAR(50)
+);
+
+-- Insert sample data into the employees table
+INSERT INTO employees (name, department) VALUES
+    ('Alice', 'Sales'),
+    ('Bob', 'Marketing'),
+    ('Charlie', 'Sales'),
+    ('David', 'HR'),
+    ('Eve', 'Marketing'),
+    ('Frank', 'HR');
+
+
 ----
 
 === LAST_INSERT_ID()
