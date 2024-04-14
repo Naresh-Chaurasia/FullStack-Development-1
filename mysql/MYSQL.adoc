@@ -463,6 +463,10 @@ INSERT INTO employees (name, department) VALUES
     ('Frank', 'HR');
 
 
+SELECT DISTINCT department
+FROM employees;
+
+
 ----
 
 === LAST_INSERT_ID()
