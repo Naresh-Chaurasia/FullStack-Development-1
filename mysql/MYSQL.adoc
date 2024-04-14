@@ -692,38 +692,58 @@ In this result:
 
 === FULL JOIN
 
-Sure! Let's continue with the same example of the `employees` and `departments` tables, but this time we'll demonstrate a FULL JOIN query.
+Certainly! MySQL doesn't have a direct `FULL JOIN` syntax like some other database systems, but you can achieve the same result by combining a `LEFT JOIN`, a `RIGHT JOIN`, and a `UNION`. Let's demonstrate this with sample data.
 
-Suppose we want to retrieve a list of all departments along with the names of employees who belong to each department. We want to ensure that all departments and all employees are included in the result, even if they don't have a corresponding match in the other table.
-
-Here's how we can achieve this using a FULL JOIN:
+Suppose we have two tables: `departments` and `employees`. Here's how you might perform a `FULL JOIN` to get all departments along with their associated employees:
 
 ```sql
-SELECT d.department_name, e.employee_name
+-- Create sample tables
+CREATE TABLE departments (
+    id INT,
+    name VARCHAR(50)
+);
+
+CREATE TABLE employees (
+    id INT,
+    name VARCHAR(50),
+    department_id INT
+);
+
+-- Insert sample data
+INSERT INTO departments (id, name) VALUES
+    (1, 'Sales'),
+    (2, 'Marketing'),
+    (3, 'HR');
+
+INSERT INTO employees (id, name, department_id) VALUES
+    (101, 'Alice', 1),
+    (102, 'Bob', 2),
+    (103, 'Charlie', 1),
+    (104, 'David', 3),
+    (105, 'Eve', 2),
+    (106, 'Frank', NULL); -- An employee without a department
+
+-- Perform the FULL JOIN
+SELECT d.id AS department_id, d.name AS department_name, e.id AS employee_id, e.name AS employee_name
 FROM departments d
-FULL JOIN employees e ON d.department_id = e.department_id;
+LEFT JOIN employees e ON d.id = e.department_id
+UNION
+SELECT d.id AS department_id, d.name AS department_name, e.id AS employee_id, e.name AS employee_name
+FROM departments d
+RIGHT JOIN employees e ON d.id = e.department_id
+WHERE d.id IS NULL;
 ```
 
-This query will return a list of all departments along with the names of employees who belong to each department. If a department has no employees or an employee doesn't belong to any department, the corresponding department name or employee name will be NULL.
+In this example:
+- We create two tables: `departments` and `employees`.
+- We insert sample data into both tables.
+- We use a `LEFT JOIN` to get all departments along with their associated employees.
+- We use a `RIGHT JOIN` to get all employees along with their associated departments.
+- We use `UNION` to combine the results of the two joins.
+- We use a `WHERE` clause to filter out departments that already have matching employees, leaving only the departments without employees.
+- We alias the columns to make the result set clearer.
 
-Here's the expected result based on the provided sample data:
-
-```
-+----------------+---------------+
-| department_name| employee_name |
-+----------------+---------------+
-| HR             | John Doe      |
-| HR             | Alice Johnson |
-| IT             | Jane Smith    |
-| NULL           | Bob Brown     |
-+----------------+---------------+
-```
-
-In this result:
-
-- The HR department has two employees: John Doe and Alice Johnson.
-- The IT department has one employee: Jane Smith.
-- There is a department with no employees, indicated by the NULL value in the `department_name` column, and Bob Brown is listed as having no department affiliation.
+After executing this SQL script, you'll get a result set containing all departments along with their associated employees, including departments without employees.
 
 === ROLLBACK
 

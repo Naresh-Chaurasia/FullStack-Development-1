@@ -1,8 +1,3 @@
-| id | name   | department |
-|----|--------|------------|
-| 1  | Alice  | Sales      |
-| 2  | Bob    | Marketing  |
-| 3  | Charlie| Sales      |
-| 4  | David  | HR         |
-| 5  | Eve    | Marketing  |
-| 6  | Frank  | HR         |
+SELECT *
+FROM table1
+NATURAL JOIN table2;
