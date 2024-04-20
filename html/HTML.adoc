@@ -164,6 +164,27 @@
 
 ----
 
+
+==== Image Example
+
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Image Tag Example</title>
+</head>
+<body>
+
+    <h2>Image Tag Example</h2>
+    <img src="css4.png" width="200" height="200">
+
+</body>
+</html>
+
+----
+
 ==== DOCTYPE
 
 The DOCTYPE declaration in HTML stands for "Document Type Declaration." It's an instruction to the web browser about what version of HTML the page is written in and how the browser should render it.
