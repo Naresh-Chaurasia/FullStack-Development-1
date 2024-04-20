@@ -102,6 +102,53 @@
 </html>
 ----
 
+==== HTML List
+
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML List Example</title>
+</head>
+<body>
+
+    <h2>Ordered List (ol)</h2>
+    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ol>
+
+    <h2>Unordered List (ul)</h2>
+    <ul>
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Banana</li>
+    </ul>
+
+    <h2>Nested List</h2>
+    <ul>
+        <li>Fruits</li>
+        <ul>
+            <li>Apple</li>
+            <li>Orange</li>
+            <li>Banana</li>
+        </ul>
+        <li>Veggies</li>
+        <ul>
+            <li>Carrot</li>
+            <li>Broccoli</li>
+            <li>Spinach</li>
+        </ul>
+    </ul>
+
+</body>
+</html>
+
+----
+
 ==== DOCTYPE
 
 The DOCTYPE declaration in HTML stands for "Document Type Declaration." It's an instruction to the web browser about what version of HTML the page is written in and how the browser should render it.
