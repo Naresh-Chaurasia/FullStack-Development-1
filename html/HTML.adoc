@@ -11,7 +11,7 @@
 
 === HTML
 
-=== First HTML
+==== First HTML
 
 ----
 <!DOCTYPE html>
@@ -35,6 +35,41 @@
 <footer>
     <p>&copy; 2024 My Simple Webpage. All rights reserved.</p>
 </footer>
+
+</body>
+</html>
+
+----
+
+==== H Tags
+
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Heading Tags Example</title>
+</head>
+<body>
+
+    <h1>This is a Level 1 Heading</h1>
+    <p>This is some content under the level 1 heading.</p>
+
+    <h2>This is a Level 2 Heading</h2>
+    <p>This is some content under the level 2 heading.</p>
+
+    <h3>This is a Level 3 Heading</h3>
+    <p>This is some content under the level 3 heading.</p>
+
+    <h4>This is a Level 4 Heading</h4>
+    <p>This is some content under the level 4 heading.</p>
+
+    <h5>This is a Level 5 Heading</h5>
+    <p>This is some content under the level 5 heading.</p>
+
+    <h6>This is a Level 6 Heading</h6>
+    <p>This is some content under the level 6 heading.</p>
 
 </body>
 </html>
