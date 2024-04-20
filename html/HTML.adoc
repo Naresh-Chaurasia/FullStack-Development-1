@@ -3,6 +3,31 @@
 :toclevels: 5
 :sectnums:
 
+
+=== Pre-Requisite
+
+* Visual Studio
+* Live Server Extension
+
+=== DOCTYPE
+
+The DOCTYPE declaration in HTML stands for "Document Type Declaration." It's an instruction to the web browser about what version of HTML the page is written in and how the browser should render it.
+
+----
+<!DOCTYPE html>
+----
+
+This declaration tells the browser that the document is an HTML5 document.
+
+=== iFrame
+
+An <iframe> (short for inline frame) in HTML is used to embed another document within the current HTML document. It allows you to display content from another web page or resource within your own web page. Here are some common uses of <iframe>:
+
+Embedding External Content: You can embed content from another website, such as a YouTube video, a Google Map, or a social media post, by specifying the URL of the external content within the <iframe> tag.
+
+
+
+
 === Anchor link
 
 Sure! The HTML `<a>` (anchor) tag is used to create hyperlinks. It can include various attributes to specify the target URL, link behavior, and appearance. Here are some common attributes of the `<a>` tag:
@@ -52,6 +77,120 @@ Sure! The HTML `<a>` (anchor) tag is used to create hyperlinks. It can include v
 These are just a few examples of the attributes that can be used with the HTML `<a>` tag to create hyperlinks with various behaviors and appearances.
 
 === Table Example
+
+==== Table 1
+
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML Table Example</title>
+</head>
+<body>
+
+<table summary="This is an example table" id="example-table" class="highlighted" border="1">
+    <caption>Sample Table</caption>
+    <thead>
+    <tr>
+        <th>Header 1</th>
+        <th>Header 2</th>
+        <th>Header 3</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Row 1, Cell 1</td>
+        <td style="background-color: blue; color: white;">Row 1, Cell 2</td>
+        <td>Row 1, Cell 3</td>
+    </tr>
+    <tr>
+        <td>Row 2, Cell 1</td>
+        <td style="background-color: blue; color: white;">Row 2, Cell 2</td>
+        <td>Row 2, Cell 3</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="3">Footer Content</td>
+    </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>
+
+----
+
+==== Table 2 - Alignment
+
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline Table with Left and Top Alignment</title>
+</head>
+<body>
+
+<table width="100%" border="1">
+    <tr>
+        <td align="left" valign="top">
+            Left
+        </td>
+        <td align="Right" valign="top">
+            Right
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
+----
+
+=== HTML form
+
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Form Example</title>
+</head>
+<body>
+
+<form action="/submit" method="post">
+  <!-- Text Fields -->
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required><br>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required><br>
+
+  <!-- Checkboxes -->
+  <input type="checkbox" id="subscribe" name="subscribe" value="subscribe">
+  <label for="subscribe">Subscribe to our newsletter</label><br>
+
+  <input type="checkbox" id="terms" name="terms" value="accepted" required>
+  <label for="terms">I accept the terms and conditions</label><br>
+
+  <!-- Radio Buttons -->
+  <label>Gender:</label><br>
+  <input type="radio" id="male" name="gender" value="male" required>
+  <label for="male">Male</label><br>
+
+  <input type="radio" id="female" name="gender" value="female">
+  <label for="female">Female</label><br>
+
+  <!-- Submit Button -->
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
+----
 
 
 

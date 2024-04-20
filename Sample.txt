@@ -1,3 +1,2 @@
-SELECT *
-FROM table1
-NATURAL JOIN table2;
+INSERT INTO employees (id, name, department_id) VALUES
+    (101, 'Alice2', 10);

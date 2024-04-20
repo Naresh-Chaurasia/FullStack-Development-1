@@ -4,24 +4,128 @@
 :sectnums:
 
 
+== Creating Angular Project
+
+* [ ] Installing Node
+* [ ] Installing Angular
+* [ ] Creating Angular Project using ng
+* [ ] Final Project
+
+
 == Commands
+
+=== How to Install Node on Mac
+
+==== Using Homebrew:
+
+1. **Install Homebrew**: If you haven't already installed Homebrew, open Terminal and run:
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+2. **Install Node.js**: Once Homebrew is installed, installing Node.js is as simple as running:
+```
+brew install node
+```
+
+3. **Verify Installation**: After installation is complete, you can verify Node.js and npm (Node Package Manager) by typing:
+```
+node -v
+npm -v
+```
+
+==== Using Official Installer:
+
+1. **Download Node.js**: Go to the official Node.js website (https://nodejs.org/) and download the macOS installer.
+
+2. **Install Node.js**: Double-click the downloaded .pkg file and follow the installation instructions.
+
+3. **Verify Installation**: After installation, open Terminal and verify Node.js and npm by typing:
+```
+node -v
+npm -v
+```
+
+==== Using NVM (Node Version Manager):
+
+NVM allows you to manage multiple installations of Node.js. Here's how to install Node.js using NVM:
+
+1. **Install NVM**: Open Terminal and run:
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+
+2. **Close and Reopen Terminal**: After installation, close and reopen Terminal, or run:
+```
+source ~/.bashrc
+```
+
+3. **Install Node.js**: Once NVM is installed, you can install Node.js by running:
+```
+nvm install node
+```
+
+4. **Verify Installation**: After installation, verify Node.js and npm versions:
+```
+node -v
+npm -v
+```
+
+=== Common Commands
+
+* NPM
 
 ----
 npm install -g @angular/cli
 
-ng version
-
-ng new my-first-project
-
-ng serve
+npm start
 
 npm install --save bootstrap@3
 
 npm install
 ----
 
+* NG
+
+----
+ng version
+
+ng new my-first-project
+
+ng serve
+
+# This will also update app.module.ts
+# Update app.component.ts `imports: [CommonModule, RouterOutlet, HomeComponent]`
+# add tag to app.component.html
+ng generate component home
+----
+
+
 
 == Angular Glossary
+
+----
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-example',
+  template: '<p>This is an example component with multiple inline styles.</p>',
+  styles: ['p { color: blue; }', 'span { font-weight: bold; }']
+})
+export class ExampleComponent { }
+----
+
+
+=== Angular Metadata
+
+In Angular, component metadata is data that defines how a component should be processed, instantiated, and used by the framework. This metadata is typically provided via the `@Component()` decorator, which is applied to a TypeScript class representing the component.
+
+Here are some common properties included in component metadata:
+
+1. **Selector**: Specifies the CSS selector that identifies this component in a template. When the Angular compiler encounters this selector in a template, it knows to render the associated component.
+
+2. **Template/TemplateUrl**: Specifies the inline template or the URL to an external template file for the component. This defines the structure of the component's view.
+
 
 === What is Nodejs
 

@@ -1,5 +1,7 @@
 clear
 
+git status --ignored
+
 git add .
 
 my_date=$(date)
