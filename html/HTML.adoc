@@ -273,6 +273,47 @@ These are just a few examples of the attributes that can be used with the HTML `
 
 ==== Tables
 
+==== Simple Table
+
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML Table Example</title>
+</head>
+<body>
+
+<table border="1">
+    <caption> Table Caption</caption>
+
+    <thead>
+    <tr>
+        <th>Header 1</th>
+        <th>Header 2</th>
+        <th>Header 3</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td>Row 1, Cell 1</td>
+        <td >Row 1, Cell 2</td>
+        <td>Row 1, Cell 3</td>
+    </tr>
+    <tr>
+        <td>Row 2, Cell 1</td>
+        <td>Row 2, Cell 2</td>
+        <td>Row 2, Cell 3</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
+
+
+----
+
 ===== Table 1
 
 ----
