@@ -110,6 +110,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Example</title>
+    <style>
+        /* Style for list with squares */
+        .square-list {
+            list-style-type: square;
+        }
+
+        /* Style for list with circles */
+        .circle-list {
+            list-style-type: circle;
+        }
+    </style>
+</head>
+<body>
+
+<h2>List with Squares</h2>
+<ul class="square-list">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+
+<h2>List with Circles</h2>
+<ul class="circle-list">
+    <li>Item A</li>
+    <li>Item B</li>
+    <li>Item C</li>
+</ul>
+
+</body>
+</html>
+
+----
+
+---
+
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML List Example</title>
 </head>
 <body>
@@ -386,6 +428,41 @@ These are just a few examples of the attributes that can be used with the HTML `
 ----
 
 ==== HTML form
+
+
+
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Label Example</title>
+</head>
+<body>
+
+<form>
+    <label>Username:
+        <input type="text" name="username">
+    </label><br><br>
+
+    <label>Password:
+        <input type="password" name="password">
+    </label><br><br>
+
+    <label>Remember me:
+        <input type="checkbox" name="remember">
+    </label><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
+
+----
+
+---
 
 ----
 <!DOCTYPE html>
