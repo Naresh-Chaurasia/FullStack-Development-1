@@ -1525,3 +1525,65 @@ In this example:
 - The `container` class is used to contain and center the content horizontally within the webpage.
 
 Bootstrap's grid system allows you to easily create responsive layouts by dividing the page into rows and columns, providing flexibility in designing your webpage's structure.
+
+---
+
+=== Div Tag
+
+In HTML, the `<div>` tag is a block-level element that is used as a container to group and structure content within a web page. It stands for "division" or "divider" and is a fundamental building block for organizing and styling content.
+
+Here's a basic example of how the `<div>` tag is used:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div Tag Example</title>
+    <style>
+        /* CSS for styling */
+        .container {
+            border: 1px solid black;
+            padding: 10px;
+        }
+        .header {
+            background-color: lightblue;
+            padding: 10px;
+        }
+        .content {
+            margin-top: 10px;
+            padding: 10px;
+        }
+        .footer {
+            background-color: lightgray;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>This is a Header</h1>
+        </div>
+        <div class="content">
+            <p>This is the main content of the page.</p>
+            <p>It can contain text, images, links, and other HTML elements.</p>
+        </div>
+        <div class="footer">
+            <p>This is a Footer</p>
+        </div>
+    </div>
+
+</body>
+</html>
+```
+
+In this example:
+
+- We have used `<div>` elements with different classes (`container`, `header`, `content`, `footer`) to organize different sections of the webpage.
+- The `<div>` elements serve as containers for grouping related content.
+- We have applied CSS styles to these `<div>` elements to add visual styling, such as borders, padding, and background colors.
+
+The `<div>` tag itself doesn't have any semantic meaning; it's purely a structural element used for layout and styling purposes. Developers commonly use it to create layout structures, apply CSS styles, and add JavaScript functionality to specific sections of a webpage.

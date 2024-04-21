@@ -3,56 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample HTML Page</title>
+    <title>Div Tag Example</title>
+    <style>
+        /* CSS for styling */
+        .container {
+            border: 1px solid black;
+            padding: 10px;
+        }
+        .header {
+            background-color: lightblue;
+            padding: 10px;
+        }
+        .content {
+            margin-top: 10px;
+            padding: 10px;
+        }
+        .footer {
+            background-color: lightgray;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-<h1>This is a Heading</h1>
 
-<p>This is a paragraph of text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <div class="container">
+        <div class="header">
+            <h1>This is a Header</h1>
+        </div>
+        <div class="content">
+            <p>This is the main content of the page.</p>
+            <p>It can contain text, images, links, and other HTML elements.</p>
+        </div>
+        <div class="footer">
+            <p>This is a Footer</p>
+        </div>
+    </div>
 
-<h2>Bullet Points</h2>
-<ul>
-    <li>Item 1</li>
-    <li>Item 2</li>
-    <li>Item 3</li>
-</ul>
-
-<h2>Image</h2>
-<img src="https://via.placeholder.com/150" alt="Placeholder Image">
-
-<h2>Video</h2>
-<video width="320" height="240" controls>
-    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
-
-<h2>Form</h2>
-<form action="/submit-form" method="post">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name"><br>
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email"><br><br>
-    <input type="submit" value="Submit">
-</form>
-
-<h2>Table</h2>
-<table border="1">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Age</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>John</td>
-        <td>30</td>
-    </tr>
-    <tr>
-        <td>Jane</td>
-        <td>25</td>
-    </tr>
-    </tbody>
-</table>
 </body>
 </html>
