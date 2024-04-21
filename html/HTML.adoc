@@ -589,6 +589,101 @@ Overall, these characteristics of the HTTP POST method help to ensure the securi
 
 |===
 
+==== Escape Characters in HTML
+
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Escape Characters Example</title>
+</head>
+<body>
+
+    <h2>Escape Characters Example</h2>
+
+    <p>&lt;p&gt;This is a paragraph tag&lt;/p&gt;</p>
+    <!-- The above will be rendered as: <p>This is a paragraph tag</p> -->
+
+    <p>This is an &amp; symbol</p>
+    <!-- The above will be rendered as: This is an & symbol -->
+
+    <p>This is a &copy; symbol</p>
+    <!-- The above will be rendered as: This is a © symbol -->
+
+    <p>This is a &lt;script&gt; tag</p>
+    <!-- The above will be rendered as: This is a <script> tag -->
+
+</body>
+</html>
+----
+
+==== Video Tag
+
+Sure, here's an example of how you can use the `<video>` tag in HTML to embed a video:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Video Tag Example</title>
+</head>
+<body>
+
+    <h2>Video Tag Example</h2>
+
+    <video width="640" height="360" controls>
+        <source src="example.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+</body>
+</html>
+```
+
+In this example:
+
+- `<video>` is the video tag.
+- `width` and `height` attributes specify the dimensions of the video player.
+- `controls` attribute adds playback controls (play, pause, volume, etc.) to the video player.
+- `<source>` tag is nested within the `<video>` tag to specify the video file (`example.mp4`) and its MIME type (`video/mp4`). Multiple `<source>` tags can be used to provide different video formats for compatibility across browsers.
+- The text "Your browser does not support the video tag." will be displayed if the browser does not support the `<video>` tag or any of the specified video formats.
+
+Replace `"example.mp4"` with the path to your actual video file, and consider providing additional formats like WebM and Ogg for broader browser compatibility.
+
+
+==== Video Tag: YouTube
+
+
+No, you cannot directly specify a YouTube video link as the `src` attribute of the `<video>` tag. YouTube videos are not hosted as standalone video files like `.mp4` or `.webm` files; they are streamed from YouTube's servers.
+
+However, you can embed YouTube videos in your HTML page using the `<iframe>` tag and specifying the YouTube video's URL as the `src` attribute. Here's how you can do it:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed YouTube Video Example</title>
+</head>
+<body>
+
+    <h2>YouTube Video Example</h2>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+
+</body>
+</html>
+```
+
+Replace `"VIDEO_ID"` in the `src` attribute with the actual ID of the YouTube video you want to embed. You can find the video ID in the URL of the YouTube video after the `v=` parameter.
+
+This `<iframe>` code will embed the YouTube video player on your webpage, allowing users to watch the video directly within your site.
+
 
 ==== HTML: select, textarea
 
