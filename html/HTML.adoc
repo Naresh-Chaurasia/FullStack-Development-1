@@ -1,4 +1,4 @@
-= HTML
+= HTML & CSS
 :toc: left
 :toclevels: 5
 :sectnums:
@@ -1216,3 +1216,312 @@ These examples demonstrate how CSS combinators can be used to target specific el
 ----
 
 
+=== Animation 1
+
+Certainly! Here's an example of a CSS animation that makes a simple square element rotate continuously:
+
+HTML:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="square"></div>
+
+</body>
+</html>
+```
+
+CSS (styles.css):
+```css
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation: rotateSquare 2s linear infinite; /* Animation name, duration, timing function, and iteration count */
+}
+
+@keyframes rotateSquare {
+    /* Define animation keyframes */
+    from {
+        transform: rotate(0deg); /* Initial state */
+    }
+    to {
+        transform: rotate(360deg); /* Final state */
+    }
+}
+```
+
+In this example:
+
+- We have an HTML `<div>` element with the class "square".
+- In the CSS, we define the initial appearance of the square (red color, 100x100px size).
+- We use the `@keyframes` rule to define the animation named "rotateSquare". This animation rotates the square from 0 degrees to 360 degrees.
+- The animation is applied to the square using the `animation` property, specifying the animation name, duration (2 seconds), timing function (linear), and iteration count (infinite).
+- As a result, the square will continuously rotate clockwise around its center. You can adjust the animation properties and keyframes to create different effects.
+
+=== Animation 2
+
+Certainly! Here's another example that utilizes various properties of CSS animations:
+
+HTML:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="circle"></div>
+
+</body>
+</html>
+```
+
+CSS (styles.css):
+```css
+.circle {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    border-radius: 50%; /* Create a circle shape */
+    animation: bounceCircle 2s ease-in-out infinite alternate; /* Animation properties */
+    animation-delay: 1s; /* Delay before animation starts */
+    animation-fill-mode: both; /* Apply animation styles before and after the animation */
+}
+
+@keyframes bounceCircle {
+    0% {
+        transform: translateY(0); /* Initial state */
+    }
+    50% {
+        transform: translateY(-100px); /* Midway state */
+        background-color: red; /* Change color midway */
+    }
+    100% {
+        transform: translateY(0); /* Final state */
+    }
+}
+```
+
+In this example:
+
+- We have an HTML `<div>` element with the class "circle".
+- In the CSS, we define the initial appearance of the circle (blue color, 100x100px size, border-radius to make it a circle).
+- We use the `@keyframes` rule to define the animation named "bounceCircle". This animation moves the circle up by 100px, changes its color to red midway, and then moves it back down.
+- The animation is applied to the circle using the `animation` property, specifying the animation name ("bounceCircle"), duration (2 seconds), timing function (`ease-in-out`), iteration count (`infinite`), and direction (`alternate`).
+- Additionally, we use `animation-delay` to start the animation after a delay of 1 second, and `animation-fill-mode` to apply the animation styles before and after the animation.
+
+=== Media Queries
+
+CSS media queries are a feature of CSS that allows you to apply different styles to a webpage based on various factors, such as the device's screen size, resolution, orientation, and more. They enable you to create responsive designs that adapt to different viewing environments, ensuring a consistent and optimized user experience across devices.
+
+Here's an example to illustrate how CSS media queries work:
+
+Suppose you have a webpage with a navigation bar that you want to display differently on small screens compared to larger screens.
+
+HTML:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navigation Bar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <!-- Page content goes here -->
+    </div>
+
+</body>
+</html>
+```
+
+CSS (styles.css):
+```css
+/* Common styles for navigation bar */
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+/* Media query for screens smaller than 600px */
+@media only screen and (max-width: 600px) {
+    nav ul li {
+        display: block; /* Change list items to display vertically */
+    }
+
+    nav ul li a {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+}
+```
+
+In this example:
+
+- The HTML code contains a simple navigation bar (`<nav>`) with a list of links (`<ul>` and `<li>`).
+- The CSS code defines the styling for the navigation bar and its links.
+- The `@media` rule is used to create a media query that targets screens smaller than 600 pixels in width (`max-width: 600px`).
+- Inside the media query, the styles for the navigation bar are adjusted to make it more suitable for smaller screens. In this case, the list items (`<li>`) are set to display vertically instead of horizontally, and the padding of the links (`<a>`) is reduced to conserve space.
+
+With this setup, the navigation bar will display horizontally on larger screens and vertically on smaller screens, providing an improved user experience on different devices.
+
+=== CSS Bootstrap
+
+* https://getbootstrap.com/
+* https://getbootstrap.com/docs/5.3/components/card/
+
+CSS Bootstrap is a popular front-end framework that provides a collection of pre-built HTML, CSS, and JavaScript components for building responsive and mobile-first websites and web applications. It simplifies the process of web development by offering a set of ready-to-use UI components, layouts, and utilities that can be easily customized and integrated into projects.
+
+Here's an example of how to use CSS Bootstrap to create a simple webpage with a navigation bar and a card component:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Example</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">My Website</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Welcome to My Website</h5>
+                <p class="card-text">This is a simple example of using Bootstrap to create a webpage.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+In this example:
+
+- We include the Bootstrap CSS file from a CDN (Content Delivery Network) to apply Bootstrap styling to our webpage.
+- We create a navigation bar (`<nav>`) using Bootstrap's navbar component with a dark background and links to different sections of the webpage.
+- We create a card (`<div class="card">`) using Bootstrap's card component to display a welcome message in the content area.
+- We include the Bootstrap JavaScript file (optional) from the CDN to enable Bootstrap's interactive components and functionality, such as collapsible navbar toggler.
+
+With CSS Bootstrap, you can quickly create professional-looking websites with minimal effort, as many common design patterns and UI components are already provided and styled for you.
+
+---
+
+Sure! Here's another simple example using Bootstrap to create a webpage with a responsive grid layout:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Grid Example</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card 1</h5>
+                        <p class="card-text">This is the content of Card 1.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card 2</h5>
+                        <p class="card-text">This is the content of Card 2.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+In this example:
+
+- We include the Bootstrap CSS file from a CDN to apply Bootstrap styling to our webpage.
+- We use Bootstrap's grid system to create a responsive layout with two equal-width columns on small and larger screens (`col-sm-6`).
+- Inside each column, we have a card (`<div class="card">`) with some dummy content.
+- The `container` class is used to contain and center the content horizontally within the webpage.
+
+Bootstrap's grid system allows you to easily create responsive layouts by dividing the page into rows and columns, providing flexibility in designing your webpage's structure.

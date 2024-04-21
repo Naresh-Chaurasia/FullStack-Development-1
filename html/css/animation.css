@@ -1,0 +1,22 @@
+.circle {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    border-radius: 50%; /* Create a circle shape */
+    animation: bounceCircle 5s ease-in-out infinite alternate; /* Animation properties */
+    animation-delay: 2s; /* Delay before animation starts */
+    animation-fill-mode: both; /* Apply animation styles before and after the animation */
+}
+
+@keyframes bounceCircle {
+    0% {
+        transform: translateY(0); /* Initial state */
+    }
+    50% {
+        transform: translateY(+100px); /* Midway state */
+        background-color: red; /* Change color midway */
+    }
+    100% {
+        transform: translateY(0); /* Final state */
+    }
+}
