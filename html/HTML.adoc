@@ -685,6 +685,41 @@ Replace `"VIDEO_ID"` in the `src` attribute with the actual ID of the YouTube vi
 This `<iframe>` code will embed the YouTube video player on your webpage, allowing users to watch the video directly within your site.
 
 
+==== Flash
+
+Certainly! Here's a basic example of embedding a Flash file in HTML using the `<object>` tag. Please note that Flash technology has been deprecated and is no longer supported by many browsers, so this example is for demonstration purposes only:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Flash Example</title>
+</head>
+<body>
+
+    <h2>Flash Example</h2>
+
+    <object type="application/x-shockwave-flash" data="example.swf" width="400" height="300">
+        <!-- This content will be displayed if the browser does not support Flash -->
+        <p>Sorry, your browser doesn't support Flash.</p>
+    </object>
+
+</body>
+</html>
+```
+
+In this example:
+
+- `<object>` is used to embed external resources, such as Flash files.
+- `type="application/x-shockwave-flash"` specifies the MIME type of the embedded content.
+- `data="example.swf"` specifies the path to the Flash file.
+- `width` and `height` attributes specify the dimensions of the embedded Flash content.
+- The content inside the `<object>` tag (in this case, a `<p>` tag with a message) will be displayed if the browser does not support Flash.
+
+Replace `"example.swf"` with the path to your actual Flash file. Keep in mind that modern browsers have dropped support for Flash due to security and performance concerns, so it's recommended to use alternative technologies like HTML5, CSS, and JavaScript for multimedia content.
+
 ==== HTML: select, textarea
 
 ----
