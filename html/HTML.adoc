@@ -558,6 +558,38 @@ Certainly! Let's break down each of these points regarding the HTTP POST method:
 
 Overall, these characteristics of the HTTP POST method help to ensure the security, privacy, and reliability of data transmitted using POST requests in web applications.
 
+==== HTTP GET V/s POST
+
+|===
+| GET                                      | POST
+
+| Used to request data from a specified resource. | Used to submit data to be processed to a specified resource.
+
+| Data is appended to the URL in the form of query parameters. | Data is sent in the request body, which is hidden from users and not appended to the URL.
+
+| Limited amount of data can be sent because data is sent via the URL. | Can send a larger amount of data because it is sent in the request body.
+
+| Data is visible in the URL, which may pose security risks for sensitive information. | Data is not visible in the URL, providing better security for sensitive information.
+
+| Suitable for data retrieval, such as searching or fetching data. | Suitable for data submission, such as form submissions or updating data.
+
+| Data is cached by browsers and can be bookmarked. | Data is not cached by browsers, and it's not bookmarkable.
+
+| Can be bookmarked and revisited easily. | Not bookmarkable because data is not included in the URL.
+
+| Parameters are limited by the URL length restrictions (usually around 2,048 characters). | No such limitations on data length.
+
+| Not suitable for sending sensitive information, such as passwords, because data is visible in the URL. | More suitable for sending sensitive information, such as passwords, because data is not visible in the URL.
+
+| Requests are idempotent, meaning making the same request multiple times will produce the same result. | Requests are not necessarily idempotent, meaning making the same request multiple times may produce different results, especially if it results in data modification.
+
+| Can be cached by browsers, proxies, and other intermediaries. | Cannot be cached by browsers, proxies, or other intermediaries by default, but caching can be implemented with appropriate headers.
+
+| May be cached by browsers, proxies, and other intermediaries, depending on caching headers and directives. | Cannot be cached by browsers, proxies, or other intermediaries by default, but caching can be implemented with appropriate headers.
+
+|===
+
+
 ==== HTML: select, textarea
 
 ----
