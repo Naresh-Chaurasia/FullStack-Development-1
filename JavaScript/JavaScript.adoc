@@ -1080,5 +1080,97 @@ image::images/async2.png[]
 
 ==== Task Queue
 
+=== Functions
+
+==== Arrow Functions
+
+*Arrow Functions / Anonymous Functions / Lambda Functions*
+
+*A*
+
+----
+function helloWorld() {
+  console.log("Hello, World!");
+}
+
+const helloWorld = () => {
+  console.log("Hello, World!");
+};
+----
+
+################################################################################
+
+*B*
+
+----
+// Normal function with two integer arguments
+function add(a, b) {
+  return a + b;
+}
+
+// Call the add function with two integer arguments
+let result = add(5, 3);
+console.log("Result:", result); // Output: Result: 8
+
+// Arrow function with two integer arguments
+const add = (a, b) => {
+  return a + b;
+};
+
+// Call the arrow function with two integer arguments
+let result = add(5, 3);
+console.log("Result:", result); // Output: Result: 8
+----
+
+==== Functions
+
+*Named Function and Function Expression (Anonymous Function)*
+
+----
+// Named function definition
+function greet(name) {
+  console.log("Hello, " + name + "!");
+}
+
+// Call the named function
+greet("Alice"); // Output: Hello, Alice!
+
+// Function expression (anonymous function)
+let greet = function(name) {
+  console.log("Hello, " + name + "!");
+};
+
+// Call the function expression
+greet("Bob"); // Output: Hello, Bob
+----
+
+==== Hoisting
+
+JavaScript hoisting is a behavior where variable and function declarations are moved to the top of their containing scope during the compilation phase, before the code is executed. This means that regardless of where variables and functions are declared in the code, they are effectively "hoisted" to the top of their containing scope, making them accessible throughout the entire scope.
+
+Here's an example to illustrate hoisting with function declarations and `let` variables:
+
+```javascript
+// Function declaration
+greet(); // Output: Hello!
+
+function greet() {
+  console.log("Hello!");
+}
+
+// Variable declaration with let
+console.log(x); // Error: Cannot access 'x' before initialization
+let x = 5;
+console.log(x); // Output: 5
+```
+
+In this example:
+
+- The function `greet` is declared using the `function` keyword before it's called. Even though the function is called before its declaration in the code, JavaScript hoisting moves the function declaration to the top of its containing scope during the compilation phase. As a result, `greet` is accessible and can be called before its actual declaration.
+- The variable `x` is declared with `let` but not initialized before it's used. Therefore, trying to access it before the declaration results in a `ReferenceError`. Once `x` is declared and initialized with `let x = 5;`, it can be accessed and used normally within its scope.
+
+Hoisting applies to both function and variable declarations but behaves differently for variables declared with `let` and `const` compared to `var`. With `let` and `const`, the variable is hoisted to the top of its containing block but remains uninitialized (in a "temporal dead zone") until its actual declaration in the code.
+
+
 
 
