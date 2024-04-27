@@ -20,6 +20,10 @@ link:git/Git.adoc[Git,window=_blank]
 
 link:html/HTML.adoc[HTML,window=_blank]
 
+== JavaScript
+
+link:JavaScript/JavaScript.adoc[JavaScript,window=_blank]
+
 == JIRA
 
 link:agile/JIRA.adoc[JIRA,window=_blank]

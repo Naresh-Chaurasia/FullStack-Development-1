@@ -1050,7 +1050,7 @@ In this example:
 
 While the universal selector can be useful for applying styles globally, it should be used with caution, as it can potentially override other styles unintentionally. It's generally recommended to use more specific selectors whenever possible to target specific elements or groups of elements.
 
-=== CSS combinators
+==== CSS combinators
 
 Sure! CSS combinators are used to specify relationships between different elements in the document tree. There are several types of combinators, including descendant combinator, child combinator, adjacent sibling combinator, and general sibling combinator. Here's a simple example demonstrating each type of combinator:
 
@@ -1170,7 +1170,7 @@ Selects all elements that are siblings of a specified element.
 
 These examples demonstrate how CSS combinators can be used to target specific elements based on their relationships with other elements in the document tree.
 
-=== Pseudo Classes
+==== Pseudo Classes
 
 ----
 <!DOCTYPE html>
@@ -1216,7 +1216,7 @@ These examples demonstrate how CSS combinators can be used to target specific el
 ----
 
 
-=== Animation 1
+==== Animation 1
 
 Certainly! Here's an example of a CSS animation that makes a simple square element rotate continuously:
 
@@ -1266,7 +1266,7 @@ In this example:
 - The animation is applied to the square using the `animation` property, specifying the animation name, duration (2 seconds), timing function (linear), and iteration count (infinite).
 - As a result, the square will continuously rotate clockwise around its center. You can adjust the animation properties and keyframes to create different effects.
 
-=== Animation 2
+==== Animation 2
 
 Certainly! Here's another example that utilizes various properties of CSS animations:
 
@@ -1322,7 +1322,7 @@ In this example:
 - The animation is applied to the circle using the `animation` property, specifying the animation name ("bounceCircle"), duration (2 seconds), timing function (`ease-in-out`), iteration count (`infinite`), and direction (`alternate`).
 - Additionally, we use `animation-delay` to start the animation after a delay of 1 second, and `animation-fill-mode` to apply the animation styles before and after the animation.
 
-=== Media Queries
+==== Media Queries
 
 CSS media queries are a feature of CSS that allows you to apply different styles to a webpage based on various factors, such as the device's screen size, resolution, orientation, and more. They enable you to create responsive designs that adapt to different viewing environments, ensuring a consistent and optimized user experience across devices.
 
@@ -1404,7 +1404,7 @@ In this example:
 
 With this setup, the navigation bar will display horizontally on larger screens and vertically on smaller screens, providing an improved user experience on different devices.
 
-=== CSS Bootstrap
+==== CSS Bootstrap
 
 * https://getbootstrap.com/
 * https://getbootstrap.com/docs/5.3/components/card/
@@ -1528,7 +1528,7 @@ Bootstrap's grid system allows you to easily create responsive layouts by dividi
 
 ---
 
-=== Div Tag
+==== Div Tag
 
 In HTML, the `<div>` tag is a block-level element that is used as a container to group and structure content within a web page. It stands for "division" or "divider" and is a fundamental building block for organizing and styling content.
 
@@ -1587,3 +1587,63 @@ In this example:
 - We have applied CSS styles to these `<div>` elements to add visual styling, such as borders, padding, and background colors.
 
 The `<div>` tag itself doesn't have any semantic meaning; it's purely a structural element used for layout and styling purposes. Developers commonly use it to create layout structures, apply CSS styles, and add JavaScript functionality to specific sections of a webpage.
+
+==== Inline and Block Elements
+
+image::css/inline-block.png[]
+
+---
+
+==== Content Types
+
+image::css/content-types.png[]
+
+The metadata content category defines elements which establish the presentation and behavior of the rest of the document's content or create a relation between this document and other external documents. The *flow category* defines most elements used in the body of a document, so images, links, sections, and much more. Sectioning content points to elements used to organize the page in a logical structure. Phrasing content defines the elements related to text of the document. Heading content defines all elements that define headers, so h1, for example. Embedded content points to elements that are used to bring in external resources, such as video, and interactive content are elements designed for interaction. Again, the plain link is part of this category. And the main thing to remember here is that HTML is focused on giving meaning to content within the document, and the elements in HTML help us to give the correct meaning to content.
+
+
+==== Sectioning Semantic Elements
+
+image::img/sections.png[]
+
+Which semantic elements can we use instead to place on our page then. Well, HTML comes with four elements in the sectioning content category. *Article* is used to contain standalone content to an article really, this could be a blog post or a story. Inside this, we can, of course, use our headings or paragraphs. Next, the *section*. This is a very generic element used to define, well, a section in the page. Don't use a section for just layout purposes though. That is where we will still use the div element. The *nav* element is used to contain navigational links and the main menu and it's typically used in the header of the page. Not all links on the page go in a nav section though. Only the real menu of links within your site will typically go in there. Finally, the *aside* is used to contain related content, so related to the main content of the document. It's typically used for things, such as quotes, or can also contain links separate from the main content.
+
+
+==== Flow Content
+
+image::img/flow.png[]
+
+==== CSS Box Model
+
+image::img/box-model.png[]
+
+---
+
+image::img/padding-margin.png[]
+
+=== Padding & Margin
+
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Padding and Margin Example</title>
+<style>
+    .box {
+        width: 200px;
+        height: 100px;
+        background-color: lightblue;
+        border: 2px solid blue;
+        padding: 20px;
+        margin: 50px;
+    }
+</style>
+</head>
+<body>
+
+<div class="box">This is a box with padding and margin.</div>
+
+</body>
+</html>
+----

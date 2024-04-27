@@ -1,43 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Div Tag Example</title>
-    <style>
-        /* CSS for styling */
-        .container {
-            border: 1px solid black;
-            padding: 10px;
-        }
-        .header {
-            background-color: lightblue;
-            padding: 10px;
-        }
-        .content {
-            margin-top: 10px;
-            padding: 10px;
-        }
-        .footer {
-            background-color: lightgray;
-            padding: 10px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attribute Selector Example</title>
+<style>
+  /* Selects all elements with the title attribute */
+  #title {
+    color: red;
+  }
+</style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="header">
-            <h1>This is a Header</h1>
-        </div>
-        <div class="content">
-            <p>This is the main content of the page.</p>
-            <p>It can contain text, images, links, and other HTML elements.</p>
-        </div>
-        <div class="footer">
-            <p>This is a Footer</p>
-        </div>
-    </div>
+<p id="one">This paragraph has red text.</p>
+<p id="one">This paragraph does not have red text.</p>
+
+
+<br/>
+
+<p style="color: blue; font-size:20px;">Hello Inline</p>
+
 
 </body>
 </html>
