@@ -3,6 +3,22 @@
 :toc: right
 :toclevels: 4
 
+=== How to Start
+
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="./first.js"></script>
+</head>
+
+<body>
+Inspect and See Console
+</body>
+</html>
+
+----
+
 
 === var V/s let
 
