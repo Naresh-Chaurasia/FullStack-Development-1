@@ -1171,6 +1171,80 @@ In this example:
 
 Hoisting applies to both function and variable declarations but behaves differently for variables declared with `let` and `const` compared to `var`. With `let` and `const`, the variable is hoisted to the top of its containing block but remains uninitialized (in a "temporal dead zone") until its actual declaration in the code.
 
+=== Try, Catch, Finally
 
+Certainly! Here's a simple example of using `try` and `catch` in JavaScript:
+
+```javascript
+try {
+  // Code that might throw an error
+  let result = 10 / 0; // This will throw a division by zero error
+  console.log("Result:", result); // This line won't be executed
+} catch (error) {
+  // Code to handle the error
+  console.log("An error occurred:", error.message);
+} finally {
+  // Code that will always execute, regardless of whether an error occurred or not
+  console.log("Finally block executed.");
+}
+```
+
+In this example:
+
+- We have a `try` block containing the code that might throw an error. In this case, we attempt to divide `10` by `0`, which results in a division by zero error.
+- If an error occurs within the `try` block, the control is transferred to the `catch` block. The `catch` block contains code to handle the error. In this example, we log the error message to the console.
+- The `finally` block contains code that will always execute, regardless of whether an error occurred or not. In this example, we log a message indicating that the `finally` block is executed.
+- If no error occurs within the `try` block, the `catch` block is skipped, and the control moves directly to the `finally` block.
+
+This structure allows you to gracefully handle errors in your JavaScript code and execute cleanup tasks even if an error occurs.
+
+=== Local V/s Global
+
+In JavaScript, variables can have either local scope or global scope, depending on where they are declared.
+
+### Local Scope:
+Variables declared inside a function have local scope. This means they can only be accessed within the function in which they are declared.
+
+```javascript
+function myFunction() {
+  let localVar = "I'm a local variable";
+  console.log(localVar); // Accessible within the function
+}
+
+myFunction(); // Output: I'm a local variable
+console.log(localVar); // Error: localVar is not defined (outside the function)
+```
+
+In this example, `localVar` is a local variable defined inside the `myFunction` function. It can be accessed and used only within the `myFunction` function. Attempting to access it outside of the function results in a `ReferenceError`.
+
+### Global Scope:
+Variables declared outside of any function have global scope. This means they can be accessed from anywhere in the script.
+
+```javascript
+let globalVar = "I'm a global variable";
+
+function myFunction() {
+  console.log(globalVar); // Accessible within the function
+}
+
+myFunction(); // Output: I'm a global variable
+console.log(globalVar); // Output: I'm a global variable
+```
+
+In this example, `globalVar` is a global variable declared outside of any function. It can be accessed from both inside and outside of the `myFunction` function.
+
+It's important to be cautious when using global variables, as they can lead to naming conflicts and make it harder to debug and maintain your code. It's generally recommended to limit the use of global variables and prefer local variables whenever possible to encapsulate logic and prevent unintended side effects.
+
+
+=== This Keyword
+
+const person = {
+name: "Alice",
+greet: function() {
+console.log("Hello, my name is " + this.name);
+}
+};
+
+person.greet(); // Output: Hello, my name is Alice
 
 

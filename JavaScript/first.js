@@ -1,10 +1,9 @@
-function helloWorld() {
-console.log("Hello, World!");
-}
-
-helloWorld();
-
-const helloWorld2 = () => {
-console.log("Hello, World2!");
+const person = {
+    name: "Alice",
+    greet: function(name) {
+        this.name = name;
+        console.log("Hello, my name is " + person.name);
+    }
 };
 
+person.greet('NC'); // Output: Hello, my name is Alice
