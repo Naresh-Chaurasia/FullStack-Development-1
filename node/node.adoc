@@ -1,0 +1,26 @@
+= NODE SJ
+:sectnums:
+:toc:
+:toclevels: 4
+
+
+== What is Nodejs
+
+
+Node.js is a runtime environment that allows you to run JavaScript code on the server-side, outside of a web browser. It's built on Chrome's V8 JavaScript engine and provides an event-driven, non-blocking I/O model, making it lightweight and efficient.
+
+In full stack development, Node.js is commonly used on the server-side to handle tasks such as:
+
+1. **Building APIs**: Node.js is used to create API endpoints that communicate between the client-side and server-side of web applications. These endpoints handle requests from the front end, process data, and send responses back.
+
+2. **Server-side rendering**: Node.js can be used to render dynamic web pages on the server-side before sending them to the client's browser. This is particularly useful for improving performance and search engine optimization (SEO) of web applications.
+
+3. **Database interactions**: Node.js can connect to databases like MongoDB, MySQL, or PostgreSQL to perform CRUD (Create, Read, Update, Delete) operations, allowing applications to store and retrieve data efficiently.
+
+4. **Authentication and authorization**: Node.js can implement authentication mechanisms such as JWT (JSON Web Tokens) or OAuth to securely authenticate users and authorize access to protected resources.
+
+5. **Middleware**: Node.js middleware functions can be used to intercept and modify incoming HTTP requests or outgoing responses, enabling tasks such as logging, error handling, or authentication checks.
+
+In full stack development, Node.js often works alongside front-end technologies like HTML, CSS, and JavaScript (typically with frameworks like React, Angular, or Vue.js) to create a seamless user experience. Together, these technologies allow developers to build both the client-side and server-side components of web applications, making Node.js a crucial tool in the full stack developer's toolkit.
+
+################################################################################

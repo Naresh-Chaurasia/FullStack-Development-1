@@ -1,0 +1,40 @@
+= Technology Essentials
+:sectnums:
+:toc:
+:toclevels: 4
+
+
+== Full Stack Development
+
+*What are the best frameworks and technologies to use with javascript in order to build a full stack applications*
+
+There are several popular frameworks and technologies commonly used with JavaScript to build full stack applications. Here's a rundown of some of the best ones:
+
+1. **Frontend Frameworks**:
+- **React**: Developed by Facebook, React is a powerful library for building user interfaces. It's component-based and offers a virtual DOM for efficient updates.
+- **Angular**: Developed by Google, Angular is a comprehensive framework for building web and mobile applications. It provides features like two-way data binding and dependency injection.
+- **Vue.js**: Vue.js is a progressive JavaScript framework for building user interfaces. It's known for its simplicity and flexibility, making it easy to integrate into existing projects.
+
+2. **Backend Frameworks**:
+- **Express.js**: Built on top of Node.js, Express.js is a minimalist web framework for building server-side applications and APIs. It's lightweight, flexible, and easy to learn.
+- **Koa.js**: Developed by the creators of Express.js, Koa.js is a more modern and lightweight alternative. It uses async functions (generators) for middleware, making code more readable and expressive.
+- **NestJS**: NestJS is a progressive Node.js framework for building efficient, reliable, and scalable server-side applications. It's heavily inspired by Angular's architecture and uses TypeScript by default.
+
+3. **Databases**:
+- **MongoDB**: A popular NoSQL database that stores data in flexible, JSON-like documents. It's well-suited for applications with evolving schemas and rapid development cycles.
+- **MySQL / PostgreSQL**: Relational databases like MySQL and PostgreSQL are widely used for applications requiring strong data consistency and complex querying capabilities.
+- **Firebase**: Google's Firebase is a platform that provides a variety of backend services, including a real-time database, authentication, hosting, and cloud functions.
+
+4. **Authentication and Authorization**:
+- **JWT (JSON Web Tokens)**: JWT is a compact, URL-safe means of representing claims to be transferred between two parties. It's commonly used for stateless authentication in web applications.
+- **OAuth**: OAuth is an open standard for access delegation, commonly used for authentication and authorization between web applications and external services.
+- **Passport.js**: Passport.js is an authentication middleware for Node.js. It supports various authentication methods, including username/password, OAuth, and JWT.
+
+5. **Other Tools and Technologies**:
+- **Webpack / Parcel**: Module bundlers like Webpack and Parcel are used to bundle JavaScript modules, assets, and dependencies for web applications.
+- **Docker / Kubernetes**: Containerization platforms like Docker and orchestration tools like Kubernetes are used for deploying and managing containerized applications in production environments.
+- **GraphQL**: GraphQL is a query language for APIs and a runtime for executing those queries with existing data. It's an alternative to RESTful APIs, providing more flexibility and efficiency in data fetching.
+
+These are just some of the many frameworks and technologies available for building full stack applications with JavaScript. The choice depends on factors like project requirements, familiarity with the technology, scalability needs, and team preferences.
+
+################################################################################

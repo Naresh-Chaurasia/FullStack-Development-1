@@ -3,6 +3,8 @@
 :toc: right
 :toclevels: 4
 
+################################################################################
+
 === How to Start
 
 ----
@@ -27,13 +29,14 @@ console.log(count);
 ----
 
 
-=== var V/s let
+=== var V/s let, var-let, let-var
 
 In JavaScript, both `var` and `let` are used for variable declaration, but they have some differences in terms of scoping and hoisting.
 
-1. **`var`:**
+*var*
+
 - Variables declared with `var` are function-scoped or globally scoped, meaning they are accessible anywhere within the function in which they are declared, or globally if declared outside of any function.
-- `var` variables are hoisted to the top of their function or global scope, which means they are moved to the top of their scope during the compilation phase. However, their initialization remains in the same place.
+
 
 Here's an example:
 
@@ -50,9 +53,10 @@ console.log(x); // Throws ReferenceError: x is not defined
 
 In this example, even though `x` is declared inside the `if` block, it is accessible outside of it due to hoisting. This is because `var` declarations are hoisted to the top of the function.
 
-2. **`let`:**
+*let*
+
 - Variables declared with `let` are block-scoped, meaning they are only accessible within the block (enclosed by curly braces) in which they are declared.
-- `let` variables are hoisted to the top of their block scope (the block in which they are declared), but unlike `var`, they are not initialized until their actual declaration is evaluated.
+
 
 Example:
 
@@ -72,6 +76,8 @@ So, in summary:
 
 - Use `var` for variables that need to have function or global scope and may be accessed before they are declared due to hoisting.
 - Use `let` for variables that need block scope and should not be accessed before their declaration within the block. It's generally preferred over `var` due to its more predictable scoping behavior.
+
+*Summary*: The introduction of let in ES6 (ECMAScript 2015) provided JavaScript developers with more predictable and manageable variable scoping behavior, addressing some of the pitfalls associated with var. let is generally preferred over var in modern JavaScript development due to its block scoping and improved handling of variable declarations. However, var is still widely used, especially in legacy codebases or for specific use cases where function-scoped behavior is desired
 
 === Infinity
 
@@ -638,39 +644,54 @@ Both constructor functions and factory functions in JavaScript are used to creat
 - Each instance created with a constructor function has its own copy of methods, which can lead to memory inefficiency when creating multiple instances.
 - Example:
 
-    ```javascript
-    function Person(name, age) {
-        this.name = name;
-        this.age = age;
-        this.greet = function() {
-            console.log("Hello, my name is " + this.name);
-        };
-    }
+```javascript
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.greet = function() {
+        console.log("Hello, my name is " + this.name);
+    };
+}
 
-    let person1 = new Person("John", 30);
-    ```
+let person1 = new Person("John", 30);
+```
 
 2. **Factory Function**:
+
 - Factory functions are regular JavaScript functions that return objects.
 - They are used to create and return new objects without using the `new` keyword.
 - Properties and methods are defined within the factory function and added to the object before returning it.
 - Example:
 
-    ```javascript
-    function createPerson(name, age) {
-        return {
-            name: name,
-            age: age,
-            greet: function() {
-                console.log("Hello, my name is " + this.name);
-            }
-        };
-    }
+```javascript
+function createPerson(name, age) {
+    return {
+        name: name,
+        age: age,
+        greet: function() {
+            console.log("Hello, my name is " + this.name);
+        }
+    };
+}
 
-    let person2 = createPerson("Alice", 25);
-    ```
+let person2 = createPerson("Alice", 25);
+```
 
 The choice between them depends on the specific requirements of your application and coding style preferences.
+
+
+|===
+| Characteristic         | Constructor            | Factory Function
+
+| Syntax                  | Defined using the `function` keyword and typically starts with a capital letter. | Defined using the `function` keyword, no specific naming convention.
+
+| Usage of `new` keyword | Requires the `new` keyword to create new instances.                         | Does not require the `new` keyword.
+
+| Return value            | Implicitly returns the newly created object.                                 | Returns the object explicitly using the `return` keyword.
+|===
+
+
+################################################################################
 
 === IF-ELSE
 
@@ -785,6 +806,8 @@ do {
 console.log("Loop ended.");
 ----
 
+################################################################################
+
 === Break and Continue
 
 ----
@@ -809,7 +832,9 @@ for (let i = 0; i < 10; i++) {
 
 ----
 
-=== For In
+################################################################################
+
+=== For In, For-In
 
 ----
 // Define an object
@@ -825,7 +850,7 @@ for (let key in person) {
 }
 ----
 
-=== For Of
+=== For Of, For-Of
 
 ----
 // Define an array
@@ -850,6 +875,23 @@ for (let fruit of fruits) {
 | Example | let arr = [1, 2, 3]; for (let val of arr) { console.log(val); } | let obj = { key1: 'value1', key2: 'value2', key3: 'value3' }; for (let key in obj) { console.log(key + ': ' + obj[key]); }
 |===
 
+################################################################################
+
+=== Iterable
+
+
+Imagine you have a basket full of fruits - apples, bananas, and oranges. Now, let's say you want to go through each fruit in the basket, one by one. You start with the first fruit, then move to the next one, and so on until you've checked them all.
+
+In programming, we often deal with collections of things, like this basket of fruits. An iterable is like a collection that lets you go through its elements, just like you would go through the fruits in the basket.
+
+For example, think of a book with chapters. Each chapter is like an element in the collection. An iterable book allows you to "read" through each chapter one after another.
+
+So, when we say something is iterable in programming, it means you can go through its parts, like flipping through the pages of a book or picking fruits from a basket, one at a time.
+
+In JavaScript, arrays are a common type of iterable. You can loop through each item in an array, just like going through each fruit in the basket. Other iterable things in JavaScript might be lists of items, like a list of tasks or a list of friends' names.
+
+################################################################################
+
 === Value V/s Reference Types
 
 In JavaScript, variables can hold two types of values: primitive values and reference values. Understanding the difference between these two types is crucial for understanding how values are stored and manipulated in JavaScript.
@@ -870,12 +912,12 @@ Here's a summary of value vs reference types in JavaScript:
 - Operations on primitive types directly manipulate the value stored in the variable.
 - Example:
 
-  ```javascript
-  let num1 = 10;
-  let num2 = num1; // Copying the value of num1 to num2
-  num2 = 20; // Changing the value of num2 does not affect num1
-  console.log(num1); // Output: 10
-  ```
+```javascript
+let num1 = 10;
+let num2 = num1; // Copying the value of num1 to num2
+num2 = 20; // Changing the value of num2 does not affect num1
+console.log(num1); // Output: 10
+```
 
 *Reference Types (Objects)*:
 
@@ -890,12 +932,12 @@ Here's a summary of value vs reference types in JavaScript:
 - Operations on reference types manipulate the reference to the object, not the object itself.
 - Example:
 
-  ```javascript
-  let obj1 = { name: 'John' };
-  let obj2 = obj1; // Copying the reference of obj1 to obj2
-  obj2.name = 'Alice'; // Modifying obj2 affects obj1 as well
-  console.log(obj1.name); // Output: Alice
-  ```
+```javascript
+let obj1 = { name: 'John' };
+let obj2 = obj1; // Copying the reference of obj1 to obj2
+obj2.name = 'Alice'; // Modifying obj2 affects obj1 as well
+console.log(obj1.name); // Output: Alice
+```
 
 *Summary*:
 
@@ -938,7 +980,7 @@ console.log(Math.sqrt(16)); // Output: 4
 console.log(Math.abs(-10)); // Output: 10
 ----
 
-=== JS String
+=== JavaScript String
 
 ----
 // String length
@@ -1103,7 +1145,7 @@ image::images/async2.png[]
 
 ==== Task Queue
 
-=== Functions
+=== JS-Functions, JavaScript-Functions
 
 ==== Arrow Functions
 
@@ -1166,6 +1208,24 @@ let greet = function(name) {
 // Call the function expression
 greet("Bob"); // Output: Hello, Bob
 ----
+
+################################################################################
+
+|===
+| Characteristic         | Named Functions       | Function Expressions
+
+| Clarity                | Provides a clear and descriptive name for the function. | Offers flexibility in defining functions without necessarily giving them a name.
+
+| Recursion              | Suitable for recursion as they can refer to themselves by name. | Can also support recursion if assigned to a variable, but it's not as straightforward.
+
+| Hoisting               | The entire function is hoisted to the top of its scope. | Only the variable declaration (if any) is hoisted, not the function definition.
+
+| Flexibility            | Limited flexibility as the function must have a name. | Offers more flexibility, especially when creating functions dynamically or anonymously.
+
+|===
+
+
+################################################################################
 
 ==== Hoisting
 
@@ -1270,4 +1330,21 @@ console.log("Hello, my name is " + this.name);
 
 person.greet(); // Output: Hello, my name is Alice
 
+################################################################################
 
+=== Garbage Collection
+
+Sure! Let's imagine you have a big box (which represents your computer's memory) where you can store different things (like numbers, words, or lists) while you're working on your computer.
+
+1. **Storing Things**: When you create something in JavaScript, like a variable or an object, it gets put into this big box in your computer's memory.
+
+2. **Using Things**: As you work on your program, you might create new things or use the ones you've already made. These things stay in the box as long as your program needs them.
+
+3. **Cleaning Up**: Sometimes, though, you don't need certain things anymore because your program doesn't use them. In JavaScript, when things are no longer needed, the computer's "cleaner" (called the garbage collector) comes along and removes them from the memory box. This helps keep the box organized and prevents it from getting too full.
+
+4. **Freeing Up Space**: By removing things you don't need anymore, the garbage collector frees up space in the memory box for new things you might create later. This helps your program run smoothly and efficiently.
+
+In simple terms, garbage collection in JavaScript is like having a helper that comes by to tidy up your computer's memory by removing things you don't need anymore, so there's always room for the things you're currently using.
+
+
+################################################################################
