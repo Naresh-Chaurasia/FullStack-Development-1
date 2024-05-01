@@ -1,5 +1,5 @@
 = Angular
-:toc: left
+:toc: right
 :toclevels: 5
 :sectnums:
 
@@ -90,19 +90,50 @@ npm install
 ----
 ng version
 
+# create project with app.module.js
+ng new angular3 --no-strict --standalone false --routing false
+
+# create project
 ng new my-first-project
 
+# Start server on port 4200
 ng serve
 
 # This will also update app.module.ts
-# Update app.component.ts `imports: [CommonModule, RouterOutlet, HomeComponent]`
 # add tag to app.component.html
 ng generate component home
 ----
 
 
-
 == Angular Glossary
+
+
+=== What is Angular Framework
+
+Angular is a popular open-source front-end web application framework maintained by Google. It is used for building dynamic single-page web applications (SPAs) and provides a comprehensive solution for structuring, building, and deploying web apps.
+
+Here are some key features of Angular:
+
+1. **Component-based architecture**: Angular applications are built using components, which are reusable and encapsulate both the UI and logic of a specific part of the application.
+
+2. **Two-way data binding**: Angular facilitates automatic synchronization of data between the model (business logic) and the view (UI), allowing changes in one to be reflected in the other without the need for manual intervention.
+
+3. **Directives**: Angular comes with a set of built-in directives like ngFor, ngIf, ngSwitch, etc., which extend HTML with additional functionality and allow developers to create dynamic views.
+
+4. **Dependency Injection (DI)**: Angular has a powerful DI system that helps manage dependencies between different components, making the code more modular, reusable, and easier to test.
+
+5. **Routing**: Angular's built-in router allows developers to build single-page applications with multiple views and navigate between them without a full page reload.
+
+6. **HTTP Client**: Angular provides a built-in HTTP client module to make HTTP requests to a server, simplifying the process of fetching and sending data to backend services.
+
+7. **Forms**: Angular offers both template-driven and reactive forms for handling user input and validation in web applications.
+
+8. **Testing**: Angular applications can be easily tested using tools like Jasmine and Karma, which are supported out of the box.
+
+Angular has undergone several major updates since its initial release, with AngularJS being the first version followed by Angular 2, Angular 4, and so forth. The latest version as of my last update is Angular 13, but there might be newer versions since then.
+
+
+################################################################################
 
 ----
 import { Component } from '@angular/core';
@@ -115,6 +146,31 @@ import { Component } from '@angular/core';
 export class ExampleComponent { }
 ----
 
+=== Angualar Framework Versions
+
+Sure, here's a brief overview of the major releases of Angular:
+
+1. **AngularJS (1.x)**:
+- AngularJS, often referred to as Angular 1, was the first version of the Angular framework.
+- It introduced concepts like two-way data binding and directives to build dynamic web applications.
+- AngularJS was released in 2010 and gained significant popularity in the following years.
+
+2. **Angular 2+**:
+- Angular 2 was a complete rewrite of AngularJS and introduced many architectural changes.
+- Released in September 2016, Angular 2 brought improved performance, modularity, and features like a component-based architecture.
+- Subsequent versions, such as Angular 4, Angular 5, and so on, introduced incremental improvements and features while maintaining backward compatibility.
+- Angular 4 was released shortly after Angular 2 and introduced improvements in size reduction and compilation.
+- Angular 5 brought improvements in build optimization, HttpClient, and other features.
+- Angular 6 introduced the Angular CLI, Angular Elements, and improved tooling.
+- Angular 7 focused on performance improvements, CLI prompts, and Angular Material updates.
+- Angular 8 introduced features like differential loading, lazy loading of routes, and the Ivy rendering engine (still in preview).
+- Angular 9 saw improvements in performance and the introduction of Ivy as the default rendering engine.
+- Angular 10 focused on improvements to the Angular CLI, Angular Material, and Ivy.
+- Angular 11 introduced features like stricter types and improved component test harnesses.
+- Angular 12 brought improvements to the Angular CLI, strict mode by default, and updated dependencies.
+- Angular 13 continued the trend of improving developer experience, performance, and tooling.
+
+Each release of Angular brought enhancements, bug fixes, and new features, empowering developers to build robust and scalable web applications. The Angular team has maintained a regular release cadence, providing updates and improvements to the framework.
 
 === Angular Metadata
 
@@ -146,6 +202,8 @@ It abstracts away much of the configuration and boilerplate code, allowing you t
 === What is bootstrapping
 
 Angular bootstrapping is the process of initializing and starting an Angular application. It involves loading the root module of the application, compiling its components, and rendering the application's view.
+
+################################################################################
 
 == The APP
 
@@ -205,3 +263,20 @@ image::img/load-angular.png[]
 
 image::img/app-bootup.png[]
 
+
+== Tips and Ticks
+
+[source,javascript]
+----
+import { Component } from '@angular/core';
+
+
+@Component({
+  selector: 'app-root',
+  template: '<app-servers></app-servers>',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'angular1';
+}
+----

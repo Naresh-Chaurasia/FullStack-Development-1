@@ -1,6 +1,6 @@
 = JavaScript
 :sectnums:
-:toc: right
+:toc: top
 :toclevels: 4
 
 ################################################################################
@@ -397,6 +397,58 @@ let newArray = array1.concat(array2, array3);
 
 console.log(newArray); // Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ----
+
+
+################################################################################
+
+The `splice()` method in JavaScript is used to change the contents of an array by removing or replacing existing elements and/or adding new elements. It modifies the original array and returns an array containing the removed elements, if any.
+
+Here's an example of using the `splice()` method:
+
+```javascript
+// Define an array
+const fruits = ['apple', 'banana', 'cherry', 'date'];
+
+// Remove elements starting from index 1 (banana) and add 'orange' and 'grape' in their place
+const removedFruits = fruits.splice(1, 2, 'orange', 'grape');
+
+// Output the modified array
+console.log(fruits); // Output: ['apple', 'orange', 'grape', 'date']
+
+// Output the removed elements
+console.log(removedFruits); // Output: ['banana', 'cherry']
+```
+
+In this example:
+
+- The `splice(1, 2, 'orange', 'grape')` call removes two elements starting from index 1 (inclusive) in the `fruits` array ('banana' and 'cherry') and replaces them with 'orange' and 'grape'. So, after the operation, the `fruits` array becomes `['apple', 'orange', 'grape', 'date']`.
+- The `splice()` method returns an array containing the removed elements ('banana' and 'cherry' in this case), which is stored in the `removedFruits` variable.
+- Both the modified array (`fruits`) and the array of removed elements (`removedFruits`) are logged to the console for demonstration.
+
+################################################################################
+
+To add elements at a specific location in an array in JavaScript, you can use the `splice()` method. The `splice()` method not only removes elements but also allows you to insert new elements at a specified index.
+
+Here's an example of adding elements at a specific location in an array:
+
+```javascript
+// Define an array
+let fruits = ['apple', 'banana', 'cherry', 'date'];
+
+// Insert 'orange' and 'grape' between 'banana' and 'cherry'
+fruits.splice(2, 0, 'orange', 'grape');
+
+// Output the modified array
+console.log(fruits); // Output: ['apple', 'banana', 'orange', 'grape', 'cherry', 'date']
+```
+
+In this example:
+
+- The `splice(2, 0, 'orange', 'grape')` call inserts the elements 'orange' and 'grape' at index 2 (after 'banana') in the `fruits` array without removing any elements.
+- After the operation, the `fruits` array becomes `['apple', 'banana', 'orange', 'grape', 'cherry', 'date']` with 'orange' and 'grape' inserted between 'banana' and 'cherry'.
+- The modified array (`fruits`) is logged to the console for demonstration.
+
+So, `splice()` allows you to add elements at a specific location in an array while optionally removing existing elements at the same time.
 
 ################################################################################
 
@@ -1321,14 +1373,55 @@ It's important to be cautious when using global variables, as they can lead to n
 
 === This Keyword
 
-const person = {
-name: "Alice",
-greet: function() {
-console.log("Hello, my name is " + this.name);
-}
+In JavaScript, the `this` keyword refers to the context within which a function is executed, while an object is a collection of key-value pairs where each value can be accessed using its corresponding key.
+
+To demonstrate that `this` can refer to an object, you can define a method within an object and access properties of that object using `this`. Here's an example:
+
+```javascript
+const myObject = {
+  property1: 'value1',
+  property2: 'value2',
+  method: function() {
+    console.log(this.property1); // accessing property1 using this
+    console.log(this.property2); // accessing property2 using this
+  }
 };
 
-person.greet(); // Output: Hello, my name is Alice
+myObject.method(); // calling the method
+```
+
+In this example:
+
+- `myObject` is an object containing properties `property1` and `property2`, as well as a method `method`.
+- Inside the `method`, `this` refers to the `myObject` itself.
+- By using `this`, you can access properties (`property1` and `property2`) of the `myObject` from within the method.
+
+When you call `myObject.method()`, it logs the values of `property1` and `property2` to the console, proving that `this` refers to the object itself.
+
+This demonstrates that `this` can indeed refer to the object in which it is used.
+
+---
+
+################################################################################
+
+Certainly! In the global context, `this` typically refers to the global object, which is `window` in browsers and `global` in Node.js. Here's an example in a browser environment:
+
+```javascript
+console.log(this === window); // true
+
+function test() {
+  console.log(this === window); // true
+}
+
+test();
+```
+
+In this example:
+
+- Outside of any function or object, `this` refers to the global object (`window` in browsers).
+- Inside the `test` function, which is called without an explicit context, `this` also refers to the global object (`window`).
+
+When you run this code in a browser environment, both `console.log` statements will output `true`, indicating that `this` refers to the global object (`window`) in both cases.
 
 ################################################################################
 
@@ -1348,3 +1441,168 @@ In simple terms, garbage collection in JavaScript is like having a helper that c
 
 
 ################################################################################
+
+== ES6 Javascript
+
+NOTE: forEach. Iterate each element in the list.
+
+image::images/forEach-iter.png[]
+
+
+----
+var posts = ['a','b','c'];
+
+//There is iterator involved here.
+posts.forEach(function(post){
+    console.log(post)
+});
+----
+
+
+---
+
+NOTE: map. Iternate each element in the list. Perform some operation and create new list.
+
+image::images/map-iter.png[]
+
+----
+var numbers = [1,2,3];
+
+// There is an iterator involved here.
+// This code uses the map() function in JavaScript to create a new array
+var doubled = numbers.map(function(number){
+    console.log('I came here...');
+    return number * 2;
+}
+);
+
+console.log(doubled)
+----
+
+---
+
+NOTE: filter. Return ALL that is true.
+
+image::images/filter-iter.png[]
+
+----
+var users = [
+  { id: 1, admin: true },
+  { id: 2, admin: false },
+  { id: 3, admin: false },
+  { id: 4, admin: false },
+  { id: 5, admin: true },
+];
+
+var filteredUsers = users.filter(function (user) {
+  return user.admin;
+});
+
+console.log(filteredUsers);
+----
+
+
+---
+
+NOTE: find. Return 1st matching
+
+image::images/find-iter.png[]
+
+---
+
+----
+// Sample array of objects
+const users = [
+  { id: 1, name: 'Alice' },
+  { id: 3, name: 'Charlie' },
+  { id: 3, name: 'Bob' },
+  { id: 4, name: 'David' }
+];
+
+// Using find to get the first user with id equal to 3
+const foundUser = users.find(function(user){
+  return user.id === 3;
+});
+
+console.log(foundUser); // Output: { id: 3, name: 'Charlie' }
+
+----
+
+---
+
+NOTE: every / some
+
+image::images/every-iter.png[]
+
+---
+
+NOTE: reduce - so the initial value was that second argument that I passed  to reduce.
+
+image::images/reduce.png[]
+
+
+
+
+
+################################################################################
+
+=== Array Iteraror, Iterator-Functions
+
+In JavaScript, you can iterate over arrays using various methods, including loops and array iterator methods. Array iterator methods provide a more concise and expressive way to iterate over arrays compared to traditional loops like `for` and `while`.
+
+Here are some commonly used array iterator methods in JavaScript:
+
+*forEach()*: Executes a provided function once for each array element.
+
+[source, javascript]
+----
+const numbers = [1, 2, 3, 4, 5];
+numbers.forEach(number => console.log(number));
+----
+
+**map()**: Creates a new array by calling a provided function on every element in the calling array.
+
+[source, javascript]
+----
+const numbers = [1, 2, 3, 4, 5];
+const doubledNumbers = numbers.map(number => number * 2);
+----
+
+**filter()**: Creates a new array with all elements that pass the test implemented by the provided function.
+
+[source, javascript]
+----
+const numbers = [1, 2, 3, 4, 5];
+const evenNumbers = numbers.filter(number => number % 2 === 0);
+----
+
+*reduce()*: Executes a reducer function on each element of the array, resulting in a single output value.
+
+NOTE: After Callback.
+
+[source, javascript]
+----
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+----
+
+**find()**: Returns the first element in the array that satisfies the provided testing function.
+
+[code, javascript]
+----
+const numbers = [1, 2, 3, 4, 5];
+const foundNumber = numbers.find(number => number > 3);
+----
+
+**forEach()**: Executes a provided function once for each array element.
+
+[code, javascript]
+----
+const numbers = [1, 2, 3, 4, 5];
+numbers.forEach(number => console.log(number));
+----
+
+These array iterator methods provide a more functional and declarative way to work with arrays, making your code easier to read and maintain. You can choose the appropriate method based on your specific requirements and the operation you want to perform on the array.
+
+################################################################################
+
