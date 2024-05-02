@@ -107,6 +107,62 @@ ng generate component home
 
 == Angular Glossary
 
+=== Data Binding
+
+image::img/data.png[]
+
+################################################################################
+
+=== String Interpolation V/s Data Binding
+
+.JS and HTML
+[source,javascript]
+----
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-servers',
+  templateUrl: './servers.component.html',
+  styleUrl: './servers.component.css'
+})
+export class ServersComponent {
+
+  isButtonDisable:boolean = false;
+  greet:string = "Hi There. I am from Component";
+  textValue:string='';
+
+  fromComponentToHtml(){
+      return "fromComponentToHtml Message";
+  }
+
+  onButtonClick(){
+    this.greet = "Hi There. Button is clicked";
+    this.isButtonDisable = !this.isButtonDisable;
+  }
+
+  typingInText(e: Event){
+    console.log(e);
+    this.textValue = (<HTMLInputElement>e.target).value;
+  }
+}
+
+
+//---------------------------------
+
+<H1>String Interpolation!!!</H1>
+<p>Well Done:: {{ fromComponentToHtml() }}</p>
+<p>Eye Opener:: {{ greet }}</p>
+<hr/>
+
+<input (input)="typingInText($event)" type="text"/>
+<br/>
+<label>{{textValue}}</label>
+
+<hr/>
+<button [disabled]="isButtonDisable" (click)="onButtonClick()">Click Me</button>
+----
+
+################################################################################
 
 === What is Angular Framework
 
@@ -203,6 +259,24 @@ It abstracts away much of the configuration and boilerplate code, allowing you t
 
 Angular bootstrapping is the process of initializing and starting an Angular application. It involves loading the root module of the application, compiling its components, and rendering the application's view.
 
+=== What are directives
+
+In simple terms, Angular directives are like special instructions that you can add to your HTML elements. These instructions tell Angular how to behave with those elements.
+
+Here's a bit more detail:
+
+1. **What they do**: Directives extend HTML with new behaviors or functionalities.
+
+2. **How they work**: You add directives to your HTML elements using attributes. For example, you might have an attribute like `*ngIf` or `ngFor` in your HTML.
+
+3. **Examples**:
+- `*ngIf`: This directive is used to conditionally show or hide elements based on a condition. For instance, you might only want to display an element if a certain variable is true.
+- `ngFor`: This directive is used to loop over a collection of items and generate HTML for each item. For example, you might want to display a list of items fetched from an array.
+
+4. **Custom Directives**: Angular also allows you to create your own custom directives. These are like your own set of instructions that you can define and apply to your HTML elements. For example, you might create a directive that highlights certain elements when they are clicked.
+
+Overall, directives are a powerful feature of Angular that allow you to make your HTML more dynamic and interactive by adding special behaviors or functionalities to your elements.
+
 ################################################################################
 
 == The APP
@@ -278,5 +352,41 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular1';
+}
+----
+
+################################################################################
+
+*Inline HTML & CSS*
+
+[source,javascript]
+----
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-inline-template',
+  template: `
+    <div>
+      <h1>Hello, {{ name }}</h1>
+      <p>This is an example of an inline template in Angular.</p>
+    </div>
+  `,
+  styles: [`
+    div {
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      color: #666;
+    }
+  `]
+})
+export class InlineTemplateComponent {
+  name: string = 'John Doe';
 }
 ----

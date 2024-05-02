@@ -33,6 +33,10 @@ link:agile/JIRA.adoc[JIRA,window=_blank]
 
 link:mysql/MYSQL.adoc[MySQL,window=_blank]
 
+== TypeScrpt
+
+link:typescript/TypeScript.adoc[TypeScript,window=_blank]
+
 
 == References
 

@@ -1,3 +1,20 @@
-<p>servers works!</p>
-<p>Eye Opener!</p>
-<p>Well Done</p>
+<H1>String Interpolation!!!</H1>
+<p>Well Done:: {{ fromComponentToHtml() }}</p>
+<p>Eye Opener:: {{ greet }}</p>
+<hr/>
+ 
+<input 
+    type="text"    
+    (input)="typingInText($event)"/> 
+<br/>
+<input 
+    type="text" 
+    [(ngModel)]="textValue">
+
+<br/>
+
+<label>{{textValue}}</label>
+
+<hr/>
+<button [disabled]="isButtonDisable" (click)="onButtonClick()">Click Me</button>
+
