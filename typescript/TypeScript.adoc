@@ -94,7 +94,42 @@ function calculator(fun:any):void{
 calculator(add);
 ----
 
-=== Module
+################################################################################
+
+=== Constructor
+
+
+[source,javascript]
+----
+class Car {
+// Properties
+brand: string;
+model: string;
+year: number;
+
+    // Constructor
+    constructor(brand: string, model: string, year: number) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+    }
+
+    // Method
+    displayInfo(): void {
+        console.log(`Brand: ${this.brand}, Model: ${this.model}, Year: ${this.year}`);
+    }
+}
+
+// Create an instance of the Car class
+const myCar = new Car("Toyota", "Camry", 2020);
+
+// Access properties and call method
+myCar.displayInfo(); // Output: Brand: Toyota, Model: Camry, Year: 2020
+----
+
+################################################################################
+
+=== External-Module, External Module
 
 In TypeScript, a module is a way to organize code into reusable units. Modules allow you to encapsulate related code and prevent naming conflicts between different parts of your program. They also enable you to structure your codebase into smaller, manageable pieces, making it easier to maintain and scale your application.
 
@@ -144,6 +179,48 @@ In this file:
 When you run `app.ts`, it will execute and output the results of the mathematical operations and the value of π, utilizing the functions and constant exported from the `math` module.
 
 This is a basic example of how modules work in TypeScript, allowing you to organize and reuse code across different files in your project.
+
+=== Internal Module, Internal-Module
+
+[source,javascript]
+----
+// geometry.ts
+namespace Geometry {
+export const PI = 3.14159;
+
+    export function calculateCircumference(radius: number): number {
+        return 2 * PI * radius;
+    }
+
+    export function calculateArea(radius: number): number {
+        return PI * radius * radius;
+    }
+}
+
+
+// app.ts
+/// <reference path="./geometry.ts" />
+
+console.log("Value of PI is", Geometry.PI); // Output: Value of PI is 3.14159
+console.log("Circumference of circle with radius 2 is", Geometry.calculateCircumference(2)); // Output: Circumference of circle with radius 2 is 12.56636
+console.log("Area of circle with radius 3 is", Geometry.calculateArea(3)); // Output: Area of circle with radius 3 is 28.27431
+----
+
+=== Internal V/s External Module
+
+[cols="2", options="header"]
+|===========================================================================
+| Internal Modules (Namespaces)   | External Modules (ES6 Modules)
+| Definition                      | Defined using `namespace` keyword. | Defined using `module` or `export` keywords.
+| File Structure                  | Typically defined in a single file. | Can be spread across multiple files.
+| Scope                           | Scope is limited to the file or files where it's defined. | Scope can be global or limited using `import` and `export` keywords.
+| Dependency Management           | No built-in dependency management.   | Supports explicit dependencies through imports and exports.
+| Compatibility                   | Supported by older versions of TypeScript. | Recommended approach in modern TypeScript applications.
+| Compilation                     | Combined into a single JavaScript file using concatenation. | Each module is compiled into its own JavaScript file, preserving module boundaries.
+| Import Syntax                   | No import syntax.                   | Imported using `import` statements.
+| Export Syntax                   | No explicit export syntax.          | Exported using `export` statements.
+|===========================================================================
+
 
 
 
