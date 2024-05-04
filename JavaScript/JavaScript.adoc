@@ -1,6 +1,6 @@
 = JavaScript
 :sectnums:
-:toc: top
+:toc: right
 :toclevels: 4
 
 ################################################################################
@@ -1181,21 +1181,186 @@ print3();
 print4();
 ----
 
+################################################################################
+
+---
+
+
+----
+console.log('Output1')
+
+const myFun = function() {
+console.log("Output2");
+}
+
+setTimeout(myFun, 2000);
+
+console.log('Output3')
+----
+
+
+################################################################################
+
+---
+
+
+image::images/cake.png[]
+
+################################################################################
+
 ---
 
 image::images/async1.png[]
+
+################################################################################
 
 ---
 
 image::images/async2.png[]
 
+################################################################################
+
 ---
+
+image::images/call-stack.png[]
+
+The job of the call stack  is to track the execution of our program,  and it does that by keeping track  of all of the functions  that are currently running.
+
+The first thing that's gonna happen is that  our script it's gonna get wrapped in that main function  that Node.js provides. That function was defined by Node,  and while it's an anonymous function  it's often referred to  as the main function for the program.
+
+SetTimeout is clearly a function,  so something new gets pushed onto the call stack.  Now setTimeout,  is not a part of the JavaScript programming language.  You're not gonna find its definition  anywhere in the JavaScript spec,  and V8 has no implementation for it.  Instead, it is Node.js,  which creates an implementation of setTimeout using C++,  and provides it to your Node.js scripts to use.  As we saw, it is an asynchronous way  to wait a specific amount of time,  and then have a function run.  So when we call setTimeout,  it's really registering an event with Node.js APIs,  and that is an event callback pair  where the event in this case is simply to wait two seconds,  and the callback is the function to run.
+
+
+
+Another event callback pair  might be to wait for a database request to complete,  then run the callback that does something with the data.  So right here,  when we call setTimeout,  a new event gets registered in Node APIs.  Here we have our setTimeout callback,  and we're waiting for two seconds.  Now at this point in the process  that two second clock starts ticking down.  While we're waiting for those two seconds to happen,  we can actually do other stuff inside of the call stack.
+
+So JavaScript itself  is a single threaded programming language.  You can do one thing at a time,  and the call stack enforces that.  We can only have one function on the top of the call stack.  That is the thing we're doing.  There's no way to execute two things at the same time.
+
+Now that doesn't mean Node.js is completely single threaded.  The code you run is indeed still single threaded,  but Node uses other threads in C++  behind the scenes to manage your events.  That's what allows us to continue running our application  while we're waiting those two seconds.  We don't have to completely wait,  and this is the non-blocking nature of Node.  This is not blocking the rest of the app from running.
+
+
+So from here, what do we do?  We move on to another setTimeout call.  We go on to line 7, we call setTimeout again.  This is going to register  yet another event in the Node API's area,  a callback where the event is zero seconds.  And at that point, we now have two Node APIs  waiting in the background.  So, we can still continue to do other things  while both of those are waiting for the event to complete.  In the first case, two seconds,  in the second case, zero.  Now where do we go from here  while these zero seconds are up?  So this callback needs to get executed.  Now, how exactly does that happen?  Well, this is where the callback queue,  and the event loop down below come into play.  The job of the callback queue is simple.  Its job is to maintain  a list of all of the callback functions  that are ready to get executed.  So when a given event is done,  in this case, when the zero second timer is complete,  that callback function,  the function we defined right here,  that's gonna get added onto the callback queue,  which is just a standard line.  You get in at the end of the line,  and you work your way towards the front.  The front item is the one that will get executed first.  So right here, since there are no items in the list,  the callback gets added right up front.  So we have this callback,  and it's ready to get executed.  But before it can be executed,  it needs to be added onto the call stack.  That's where functions go to run.
+
+Now this is where the #*event loop*# comes into play.  The event loop looks at two things.  It looks at the call stack,  and it looks at the callback queue.  *If the call stack is empty,  it's going to run items from the callback queue.  So at this point, the event loop says,  I know you got added to the callback queue,  #but the call stack is not empty, so I can't execute you#*.  And this is why our function doesn't run right away.  The event loop needs to wait for the call stack to be empty.  So at this point, main actually continues to run.  The next thing we see  is that line 11 of our program is going to run.  That is a call to log.  So the function gets added onto the call stack.  Our message prints down below.  The function gets popped off the call stack,  and at this point the main function is done.  So from here, main gets removed.  Now with our regular synchronous scripts,  this is when the program actually finished.  The end of main signified  the end the app of the application.  That is not the case with our asynchronous programs.  Right now, the event loop can start to do its job.  It can see that the call stack is empty,  and it can say, okay,  do I have anything in the callback queue? I do.  So it takes that item,  and it moves it up to the call stack  so the callback can run.  So at this point our callback function is running  that is going to execute the function, right here.  There's a single line inside of there.  It is a call to log  that gets added onto the call stack.  Our message prints, printing zero seconds,  it gets removed, and then the callback function is done.  So this is why  we were seeing zero seconds after finishing up.  None of our asynchronous callbacks are ever going to run  before the main function is done.  So at this point the program still isn't done.  The call stack is empty, the callback queue is empty  which means the event loop can't do anything.  The program just sits there for two seconds.  At that point, our other event is done.  Its callback gets pushed onto the callback queue.  The event loop detects that.  It notices the call stack is empty,  which means it's ready to run.  It takes that callback, bringing it up to the call stack,  and it executes it.  So that is defined on line 4.  We have our call to log.  We get our message to print, printing "Two seconds!",  that gets removed, the callback gets removed,  and at this point the program is complete.  The call stack is empty,  the callback queue is empty,  and there are no other events registered with Nodes APIs.  This means the process would be complete.  And over here, we have the exact same output  we got when we actually ran the application.  The only difference is that we now know why  we got the messages printing in the order we saw them.  Because Node uses other threads behind the scenes  for those Node APIs.  We could see why Node is nonblocking,  allowing finishing up to print  even though we're waiting two seconds  for our other message to print.  We also learned why we were seeing  "Finishing up" print before "Zero seconds!".  That's because the event loop  can't run any of our asynchronous callbacks  until the call stack is empty,  which means that main needs to finish first.  If you have any questions  about what was covered here,  just crack open a question in the Q&A.  And remember, this is not the end of our discussion  on asynchronous programming.  This is just the beginning.  The goal here was to give us a mental model  of what's happening.  Now, what we're gonna dive into the rest of this section,  and actually explore how we can get real data  from HTTP APIs into our application.  I'm excited to get to that.  So let's go ahead and jump right in to the next video.
+
+################################################################################
+
+---
+
+==== Callback-Method, Callback-Example
+
+In JavaScript, a callback is a function that is passed as an argument to another function and is executed after a particular task or event has been completed. Callbacks are commonly used in asynchronous programming to handle tasks that take some time to complete, such as fetching data from a server, reading files, or processing user input.
+
+Here's a simple example of a callback:
+
+[source,javascript]
+----
+javascript
+// Example function with a callback
+function fetchData(callback) {
+    // Simulating an asynchronous operation (e.g., fetching data from a server)
+    setTimeout(() => {
+        const data = { id: 1, name: 'John' }; // Simulated data
+        callback(null, data); // Call the callback function with the fetched data
+    }, 2000); // Simulated delay of 2 seconds
+}
+
+// Callback function to handle the fetched data
+function handleData(error, data) {
+    if (error) {
+        console.error("Error fetching data:", error);
+    } else {
+        console.log("Data fetched successfully:", data);
+    }
+}
+
+// Calling the function with the callback
+fetchData(handleData);
+----
+
+
+In this example:
+
+- The `fetchData` function simulates an asynchronous operation by using `setTimeout`. It accepts a callback function as an argument.
+- After the simulated operation is completed (after 2 seconds), `fetchData` calls the provided callback function with two arguments: `error` (if any) and `data`.
+- The `handleData` function is defined separately and serves as the callback. It handles the fetched data and any potential errors.
+
+Callbacks are a fundamental concept in JavaScript, especially in asynchronous programming. They enable you to write non-blocking code and handle asynchronous tasks in a more structured and manageable way. However, as code complexity grows, callback-based code can become hard to read and maintain, leading to the emergence of other asynchronous patterns like Promises and async/await.
+
+################################################################################
+
+---
+
 
 ==== Event Loop
 
 ==== Call Stack
 
 ==== Task Queue
+
+=== Promise
+
+==== State Of The Promise
+
+image::images/promise.png[]
+
+* So what is a promise?  A promise, is a special JavaScript object that represents an eventual result of an asynchronous action.  A promise is kind of a proxy for a value that you don't have yet.
+
+* Let's imagine that we have an asynchronous function that reads the contents of an external file.  The process of reading from file can take some time.  Let's say 3 seconds.  During those 3 seconds, we won't have any results from that function.  So how should we handle this?  Actually, we have at least two options in this case.  The first option is to pass a callback into the asynchronous function.  This callback will be invoked after 3 seconds with the results of the function as an argument.  Inside the callback, but we can do everything we want with the result.
+
+* The second option is to return a promise immediately.  This promise will represent the result of the function.  It will not contain the specific value during those 3 seconds, but at least we will have something  that we can use as a substitute of that value.  The benefit of this approach is that we can use this value right away.  We can already pass this promise as an argument to other functions and assign it to variables.
+
+* A promise object has two internal properties.  The first property is the promised status and the second property is the promise value.  If everything goes well, the value property will contain the real value of the promise.  Also, you need to know that any promise can be in one of three states pending, fulfilled and rejected.  Pending status means that the promise is neither fulfilled nor rejected.
+
+* In our example, during those 3 seconds, a promise would be in pending state.  While the promise is independent state, the value property will be undefined.  Fulfilled state means that the action completed successfully.  In our example, if everything goes well during this 3 seconds and we get the contents of the file,  then the province will change its state from pending to full field.  When the promise changes, the state to fulfilled the value property will contain a real value that  we are interested in.  Rejected status means that this action has failed for some reason.  Rejected promise will contain the reason why it has failed inside of the value property.
+
+################################################################################
+
+---
+
+==== How To Create Promise
+
+.Chrome Developer Tool - A
+[source, javascript]
+----
+const myPromise = new Promise(function(resolve,reject){
+});
+console.log(myPromise);
+----
+
+.Chrome Developer Tool - B
+[source, javascript]
+----
+const myP2 = new Promise(function(resolve,reject){
+    resolve('value');
+});
+console.log(myP2);
+----
+
+.Chrome Developer Tool - C
+[source, javascript]
+----
+const myP2 = new Promise(function(resolve,reject){
+    reject('reject');
+});
+console.log(myP2);
+----
+
+
+* There is a special class in JavaScript which is called promise.  If you want to create a promise, you simply need to create an instance of this class.  The Promise constructor takes only one argument, and that's a function.  This argument is required and you can't create a promise without it.  This function is called executable function, and it's invoked at that very moment when we are creating  a promise.
+
+* This function takes two arguments resolve and reject.  Both of them are functions as well.  So here we are creating a variable called My Promise that will contain a promise.  Initially, my promise variable is in pending state.  In order to transfer this promise from dependent to the fulfilled state, you should invoke resolve  function or you can invoke reject function in order to transfer this promise to the rejected state.
+
+* Let's explore this by example.  I'm going to add console.log statements to our code that will print the promise to the browser console.  Let's run our code and see what happens.  So it prints promise pending in the browser console.  If we expand the output, we can see two internal properties of the promise, promise status and promise  value promise.  Status is equal to binding and promise.  Value is equal to undefined.  I would like to mention that promises work both in the browser and inside Node.js.  We are using Google Chrome developer tools in this video because here we can see the internal properties  of the promise.  I mean promise status and promise value.  Let's change our promise and invoke resolve function inside.  Resolve function takes one argument, which is the value of the premise.  Let's run this code again.  Now you can see that problem status is resolved and parameter value is equal to string value.  Let's change our promise one more time and this time invoke, reject, function instead of resolve.  Reject function also takes one argument, and this argument represents the reason why the premise was  rejected.  Let's run our code.  Now we can see that prime status is rejected and prime is value is equal to string.  Reason that we specify it here.  If you have a rejected premise that you would have an uncut error in the browser console.  So in this video, we have learned how you can create a premise and how the status of the premise can  be changed.
+
+
+
+################################################################################
+
+---
+
+
+
 
 === JS-Functions, JavaScript-Functions
 
@@ -1216,6 +1381,8 @@ const helloWorld = () => {
 ----
 
 ################################################################################
+
+---
 
 *B*
 
@@ -1333,6 +1500,65 @@ In this example:
 
 This structure allows you to gracefully handle errors in your JavaScript code and execute cleanup tasks even if an error occurs.
 
+################################################################################
+
+---
+
+==== Use of Finally
+
+Sure! Let's consider a scenario where you're writing a function to read data from a file in a web application. The file might not exist, or there could be other issues while reading it. You want to ensure that regardless of whether the file is successfully read or not, certain cleanup tasks, like closing any open resources, are performed.
+
+Here's how you could use `try...catch...finally` in this scenario:
+
+```javascript
+function readFile(fileName) {
+    let fileData;
+    try {
+        // Attempt to read the file
+        fileData = readFromFileSystem(fileName);
+        console.log("File read successfully:", fileData);
+    } catch (error) {
+        // Handle any errors that occur during file reading
+        console.log("Error reading file:", error);
+    } finally {
+        // Ensure cleanup tasks are performed, such as closing resources
+        console.log("Cleanup: Closing any open resources...");
+    }
+}
+
+// Simulated function to read from file system
+function readFromFileSystem(fileName) {
+    // Simulate an error by throwing an exception if the file doesn't exist
+    if (!fileExists(fileName)) {
+        throw new Error("File not found: " + fileName);
+    }
+    return "File content"; // Simulated file content
+}
+
+// Simulated function to check if file exists
+function fileExists(fileName) {
+    // Simulate file existence based on some condition
+    return fileName === "example.txt";
+}
+
+// Example usage
+readFile("example.txt"); // Existing file
+readFile("nonexistent.txt"); // Non-existent file
+```
+
+In this example:
+
+- The `readFile` function attempts to read data from a file specified by `fileName`.
+- Inside the `try` block, the `readFromFileSystem` function is called to read the file. If an error occurs during file reading (e.g., file not found), it throws an exception.
+- The `catch` block catches any exceptions that occur during file reading and handles them gracefully by logging an error message.
+- The `finally` block contains cleanup code that will always execute, regardless of whether an exception occurred or not. This ensures that any open resources are properly closed, even if an error occurred during file reading.
+
+This example demonstrates how `try...catch...finally` can be used to ensure proper cleanup in scenarios where resources need to be released, such as file handling, database connections, or network requests.
+
+################################################################################
+
+---
+
 === Local V/s Global
 
 In JavaScript, variables can have either local scope or global scope, depending on where they are declared.
@@ -1371,7 +1597,7 @@ In this example, `globalVar` is a global variable declared outside of any functi
 It's important to be cautious when using global variables, as they can lead to naming conflicts and make it harder to debug and maintain your code. It's generally recommended to limit the use of global variables and prefer local variables whenever possible to encapsulate logic and prevent unintended side effects.
 
 
-=== This Keyword
+=== This Keyword, This-Keyword
 
 In JavaScript, the `this` keyword refers to the context within which a function is executed, while an object is a collection of key-value pairs where each value can be accessed using its corresponding key.
 
@@ -1400,9 +1626,9 @@ When you call `myObject.method()`, it logs the values of `property1` and `proper
 
 This demonstrates that `this` can indeed refer to the object in which it is used.
 
----
-
 ################################################################################
+
+---
 
 Certainly! In the global context, `this` typically refers to the global object, which is `window` in browsers and `global` in Node.js. Here's an example in a browser environment:
 
@@ -1425,6 +1651,35 @@ When you run this code in a browser environment, both `console.log` statements w
 
 ################################################################################
 
+---
+
+In JavaScript, the `this` keyword refers to the context in which a function is executed. It does not directly represent an object itself; rather, it refers to the object that is currently executing the function.
+
+If you want to compare the `this` keyword to an object to verify if they are equal, you would typically compare `this` to the object you expect it to refer to within a particular context. For example:
+
+```javascript
+let obj = {
+    prop: 'value',
+    method: function() {
+        // Compare 'this' to the object 'obj'
+        console.log(this === obj); // Output: true
+    }
+};
+
+obj.method(); // Calling the method
+```
+
+In this example, when the `method` function is called using `obj.method()`, within the execution context of the `method` function, `this` refers to the `obj` object. Therefore, comparing `this` to `obj` returns `true`.
+
+However, if you want to compare the `this` keyword in different contexts or within different functions, the comparison result will depend on the execution context in which those functions are called.
+
+It's worth noting that comparing `this` to a specific object directly doesn't typically serve a practical purpose, as `this` dynamically refers to different objects based on the context of its execution. Comparing `this` to an expected object is more of a validation technique within the context of a specific function or method.
+
+
+################################################################################
+
+---
+
 === Garbage Collection
 
 Sure! Let's imagine you have a big box (which represents your computer's memory) where you can store different things (like numbers, words, or lists) while you're working on your computer.
@@ -1442,7 +1697,9 @@ In simple terms, garbage collection in JavaScript is like having a helper that c
 
 ################################################################################
 
-== ES6 Javascript
+=== ES6 Javascript
+
+==== forEach
 
 NOTE: forEach. Iterate each element in the list.
 
@@ -1458,6 +1715,7 @@ posts.forEach(function(post){
 });
 ----
 
+==== map
 
 ---
 
@@ -1478,6 +1736,8 @@ var doubled = numbers.map(function(number){
 
 console.log(doubled)
 ----
+
+==== filter
 
 ---
 
@@ -1501,6 +1761,7 @@ var filteredUsers = users.filter(function (user) {
 console.log(filteredUsers);
 ----
 
+==== find
 
 ---
 
@@ -1528,6 +1789,8 @@ console.log(foundUser); // Output: { id: 3, name: 'Charlie' }
 
 ----
 
+==== some
+
 ---
 
 NOTE: every / some
@@ -1540,11 +1803,61 @@ NOTE: reduce - so the initial value was that second argument that I passed  to r
 
 image::images/reduce.png[]
 
+################################################################################
 
+---
 
+==== findIndex
 
+Certainly! The `findIndex()` method in JavaScript is used to find the index of the first element in an array that satisfies a testing function. It returns the index of the first element for which the testing function returns true, or -1 if no such element is found.
+
+Here's an example of how to use `findIndex()`:
+
+```javascript
+// Example array
+const numbers = [10, 20, 30, 40, 50];
+
+// Function to test if an element is greater than 25
+function isGreaterThan25(element) {
+    return element > 25;
+}
+
+// Using findIndex() to find the index of the first element greater than 25
+const index = numbers.findIndex(isGreaterThan25);
+
+console.log("Index of the first element greater than 25:", index);
+```
+
+In this example:
+
+- We have an array `numbers` containing some numeric values.
+- We define a function `isGreaterThan25(element)` that returns true if the given element is greater than 25.
+- We use the `findIndex()` method on the `numbers` array, passing the `isGreaterThan25` function as an argument.
+- `findIndex()` iterates through each element in the array and calls the `isGreaterThan25` function with each element as an argument. It stops and returns the index of the first element for which `isGreaterThan25` returns true.
+- If no such element is found, `findIndex()` returns -1.
+- In this case, the first element greater than 25 is 30, so the output will be the index of 30 in the array, which is 2. Therefore, the output will be:
+```
+Index of the first element greater than 25: 2
+```
+
+---
+
+[source,javascript]
+----
+const subjects = [
+    { id:1, name: 'x' },
+    { id:2, name:'y' },
+  ];
+const sub = subjects.findIndex(function(sub) {
+ return sub.name === 'ab';
+});
+console.log(sub);
+----
 
 ################################################################################
+
+---
+
 
 === Array Iteraror, Iterator-Functions
 
@@ -1605,4 +1918,28 @@ numbers.forEach(number => console.log(number));
 These array iterator methods provide a more functional and declarative way to work with arrays, making your code easier to read and maintain. You can choose the appropriate method based on your specific requirements and the operation you want to perform on the array.
 
 ################################################################################
+
+---
+
+=== V8-Engine, Node-Engine, V8-JavaScript
+
+Node.js and Chrome both use JavaScript engines to interpret and execute JavaScript code. These engines are responsible for parsing JavaScript code, optimizing it, and generating machine code that can be executed by the underlying hardware.
+
+1. **Node.js JavaScript Engine (V8):**
+- Node.js uses the V8 JavaScript engine, which is developed by Google for use in the Chrome web browser.
+- V8 is written in C++ and is highly optimized for performance.
+- It features just-in-time (JIT) compilation, garbage collection, and other optimizations to execute JavaScript code efficiently.
+- Node.js allows JavaScript to be run on the server-side, enabling developers to build scalable and high-performance applications.
+
+2. **Chrome JavaScript Engine (V8):**
+- Google Chrome also uses the V8 JavaScript engine.
+- It's the same engine used in Node.js, ensuring consistency in JavaScript behavior between the browser and server environments.
+- In the browser, V8 is responsible for executing JavaScript code on web pages, enabling dynamic and interactive web experiences.
+- Chrome's V8 engine includes various features tailored for web environments, such as DOM manipulation and interaction with browser APIs.
+
+Both Node.js and Chrome benefit from the continuous development and optimization efforts put into the V8 engine by Google and the broader open-source community. This shared foundation ensures compatibility and performance consistency for JavaScript applications running across different environments.
+
+################################################################################
+
+---
 

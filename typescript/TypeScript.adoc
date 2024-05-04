@@ -1,5 +1,5 @@
 = TypeScript
-:toc: top
+:toc: right
 :toclevels: 5
 :sectnums:
 

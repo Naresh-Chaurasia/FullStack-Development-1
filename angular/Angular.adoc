@@ -71,7 +71,7 @@ node -v
 npm -v
 ```
 
-=== Common Commands
+=== Common Angular Commands
 
 * NPM
 
@@ -93,9 +93,6 @@ ng version
 # create project with app.module.js
 ng new angular3 --no-strict --standalone false --routing false
 
-# create project
-ng new my-first-project
-
 # Start server on port 4200
 ng serve
 
@@ -103,6 +100,30 @@ ng serve
 # add tag to app.component.html
 ng generate component home
 ----
+
+################################################################################
+
+==== Angular Commands
+
+`*ng new angular3 --no-strict --standalone false --routing false*`
+
+The command `ng new angular3 --no-strict --standalone false --routing false` is used to create a new Angular project with specific configuration options. Let's break down each part of the command:
+
+1. `ng new`: This is the Angular CLI command used to create a new Angular project.
+
+2. `angular3`: This is the name of the project. Replace `angular3` with the desired name of your Angular project.
+
+3. `--no-strict`: This option disables strict mode in TypeScript for the newly created project. In strict mode, TypeScript applies stricter type checking rules, which can help catch more errors at compile-time. By using `--no-strict`, you are opting out of strict mode.
+
+4. `--standalone false`: This option configures the project to not use a standalone CSS file for styles. By default, Angular CLI creates a standalone CSS file (`styles.css`) where global styles can be added. Setting `--standalone false` means that the project will use component-specific styles instead of a standalone CSS file.
+
+5. `--routing false`: This option disables routing in the newly created project. Angular applications typically use the Angular Router module for managing navigation and routing between different views or components. By setting `--routing false`, you are opting out of using routing in your project. If you do not need routing functionality in your application, this option can help reduce the complexity of the initial project setup.
+
+Overall, the command `ng new angular3 --no-strict --standalone false --routing false` creates a new Angular project named `angular3` with the specified configuration options: disabling strict mode, not using a standalone CSS file for styles, and disabling routing functionality.
+Overall, the command `ng new angular3 --no-strict --standalone false --routing false` creates a new Angular project named `angular3` with the specified configuration options: disabling strict mode, not using a standalone CSS file for styles, and disabling routing functionality.
+
+
+################################################################################
 
 
 == Angular Glossary
@@ -278,6 +299,68 @@ Here's a bit more detail:
 Overall, directives are a powerful feature of Angular that allow you to make your HTML more dynamic and interactive by adding special behaviors or functionalities to your elements.
 
 ################################################################################
+
+=== MVC Pattern
+
+image::img/mvc.png[]
+
+################################################################################
+
+=== How does Angular Load
+
+Angular applications are typically loaded and initialized in the following sequence:
+
+1. **Index.html**: Angular applications typically start by loading an `index.html` file. This file serves as the entry point for the application and contains the basic HTML structure, including references to CSS stylesheets, JavaScript files, and the Angular application root component.
+
+2. **Angular Application Root Component**: Angular applications are built around a root component. In the `index.html` file, there is usually a custom HTML element (e.g., `<app-root>`) that serves as the placeholder for the root component.
+
+3. **Bootstrap Process**: Angular bootstraps the application by finding the root component specified in the `bootstrap` array of the Angular module (usually `AppModule`). This is typically done in the `main.ts` file using the `platformBrowserDynamic().bootstrapModule()` method.
+
+4. **Module Loading**: Angular modules are loaded as needed. When the application is bootstrapped, Angular loads the root module (`AppModule`) and its dependencies. Additional feature modules may be lazily loaded as the user navigates to different routes.
+
+5. **Component Initialization**: Angular initializes the root component and its child components. During initialization, Angular performs component instantiation, template compilation, and binding of data and events.
+
+6. **Template Rendering**: Angular renders the application UI by compiling the templates of each component into executable JavaScript code. This process involves parsing the component templates, processing directives and bindings, and generating DOM elements.
+
+7. **Change Detection**: Angular performs change detection to detect and propagate changes in the application state. This process involves checking for changes in component properties, detecting UI events, and updating the DOM accordingly.
+
+8. **Event Handling and User Interaction**: Angular handles user interactions and events within the application. This includes responding to user input, triggering component methods, and updating the application state based on user actions.
+
+9. **HTTP Requests and Data Retrieval**: Angular may perform HTTP requests to retrieve data from remote servers or APIs. This data is typically fetched asynchronously and then processed and displayed in the UI.
+
+10. **Lifecycle Hooks**: Angular components may implement lifecycle hooks such as `ngOnInit`, `ngOnChanges`, `ngAfterViewInit`, etc., to perform initialization and cleanup tasks at specific stages of the component lifecycle.
+
+Overall, Angular follows a modular and component-based architecture, where modules and components are loaded and initialized as needed, and the application UI is rendered dynamically based on the application state and user interactions.
+Overall, Angular follows a modular and component-based architecture, where modules and components are loaded and initialized as needed, and the application UI is rendered dynamically based on the application state and user interactions.
+
+################################################################################
+
+=== Benefits of using Bootstrap frameworkd
+
+Certainly! Here are some benefits of using the Bootstrap framework:
+
+- **Responsive Design**: Bootstrap provides a responsive grid system and predefined classes for creating responsive layouts that adapt to various screen sizes and devices, ensuring a consistent user experience across different devices.
+
+- **Consistent UI Components**: Bootstrap offers a wide range of reusable UI components such as buttons, forms, navigation bars, modal dialogs, and more. These components are styled and preconfigured to maintain a consistent look and feel throughout the application.
+
+- **Customizable Themes**: Bootstrap allows developers to customize the appearance of their applications using built-in Sass variables and mixins, or by leveraging pre-built themes and templates available from the Bootstrap community.
+
+- **Cross-browser Compatibility**: Bootstrap takes care of cross-browser compatibility issues by providing CSS styles and JavaScript plugins that work consistently across different web browsers, reducing the need for browser-specific fixes and optimizations.
+
+- **Faster Development**: Bootstrap speeds up the development process by providing ready-to-use components and styles, allowing developers to focus more on application logic and less on design and layout concerns. It also offers a robust documentation and examples that help developers get started quickly.
+
+- **Community Support**: Bootstrap has a large and active community of developers, designers, and contributors who continuously improve the framework, provide support, and share resources such as themes, templates, and plugins.
+
+- **Accessibility**: Bootstrap includes features and practices to ensure accessibility, such as keyboard navigation support, ARIA attributes, and semantic HTML markup, making it easier to create accessible web applications that comply with accessibility standards.
+
+- **Integration with Other Libraries**: Bootstrap can be easily integrated with other front-end libraries and frameworks such as jQuery, Angular, React, and Vue.js, allowing developers to leverage the benefits of Bootstrap alongside other tools and technologies in their projects.
+
+- **Scalability**: Bootstrap is scalable and suitable for projects of any size, from small websites to large-scale web applications. Its modular structure and customizable components make it easy to scale and maintain applications as they grow over time.
+
+Overall, Bootstrap provides a robust foundation for building modern, responsive, and visually appealing web applications with less effort and greater efficiency.
+
+################################################################################
+
 
 == The APP
 
