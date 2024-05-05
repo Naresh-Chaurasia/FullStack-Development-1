@@ -29,3 +29,14 @@ r we  not covering hosting , closure event bubbling and capturing all this javas
 
 Harisankar Mohanty . to Everyone (5 May 2024, 7:07 PM)
 then in that case we can use "Async and Await " if we want something to be completed before we start execute next statement/chunk of code 
+
+----
+
+Harisankar Mohanty . to Everyone (5 May 2024, 8:08 PM)
+sir in some cases we see chains of then , can you please give an example of this ?
+like .then().then()
+
+----
+
+
+t's some sort of return statement as in a function if we put multiple return statements , only the 1st one will work
