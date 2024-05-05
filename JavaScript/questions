@@ -1,0 +1,31 @@
+Veronica:
+repeated qn:                                                                                  
+ how can we add an element in between an array sir?
+
+
+--
+
+Ramya Ganeshmoorthy . to Everyone (4 May 2024, 7:55 PM)
+how is array.forEach different from for-of 
+
+
+Harsh Sahu . to Everyone (4 May 2024, 8:45 PM)
+difference between == and ===?
+
+Array.Reduce.
+
+
+Milan Kovar . to Everyone (4 May 2024, 10:23 PM)
+is the callback always asynchronous?
+
+
+-----
+
+
+Shivani Shah . to Everyone (5 May 2024, 7:07 PM)
+r we  not covering hosting , closure event bubbling and capturing all this javascript topic?
+
+----
+
+Harisankar Mohanty . to Everyone (5 May 2024, 7:07 PM)
+then in that case we can use "Async and Await " if we want something to be completed before we start execute next statement/chunk of code 

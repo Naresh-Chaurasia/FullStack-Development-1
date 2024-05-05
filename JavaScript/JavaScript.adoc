@@ -1185,12 +1185,13 @@ print4();
 
 ---
 
+==== Sync & Async
 
 ----
 console.log('Output1')
 
 const myFun = function() {
-console.log("Output2");
+console.log("Output From Anonymouse call::Output2");
 }
 
 setTimeout(myFun, 2000);
@@ -1347,13 +1348,89 @@ console.log(myP2);
 ----
 
 
-* There is a special class in JavaScript which is called promise.  If you want to create a promise, you simply need to create an instance of this class.  The Promise constructor takes only one argument, and that's a function.  This argument is required and you can't create a promise without it.  This function is called executable function, and it's invoked at that very moment when we are creating  a promise.
+* There is a special class in JavaScript which is called promise.  If you want to create a promise, you simply need to create an instance of this class.  The Promise constructor takes only one argument, and that's a function.  This argument is required and you can't create a promise without it.  *This function is called executor function*, and it's invoked at that very moment when we are creating  a promise.
 
-* This function takes two arguments resolve and reject.  Both of them are functions as well.  So here we are creating a variable called My Promise that will contain a promise.  Initially, my promise variable is in pending state.  In order to transfer this promise from dependent to the fulfilled state, you should invoke resolve  function or you can invoke reject function in order to transfer this promise to the rejected state.
+* *This function takes two arguments resolve and reject.  Both of them are functions as well*.  So here we are creating a variable called My Promise that will contain a promise.  Initially, my promise variable is in pending state.  In order to transfer this promise from dependent to the fulfilled state, you should invoke resolve  function or you can invoke reject function in order to transfer this promise to the rejected state.
 
-* Let's explore this by example.  I'm going to add console.log statements to our code that will print the promise to the browser console.  Let's run our code and see what happens.  So it prints promise pending in the browser console.  If we expand the output, we can see two internal properties of the promise, promise status and promise  value promise.  Status is equal to binding and promise.  Value is equal to undefined.  I would like to mention that promises work both in the browser and inside Node.js.  We are using Google Chrome developer tools in this video because here we can see the internal properties  of the promise.  I mean promise status and promise value.  Let's change our promise and invoke resolve function inside.  Resolve function takes one argument, which is the value of the premise.  Let's run this code again.  Now you can see that problem status is resolved and parameter value is equal to string value.  Let's change our promise one more time and this time invoke, reject, function instead of resolve.  Reject function also takes one argument, and this argument represents the reason why the premise was  rejected.  Let's run our code.  Now we can see that prime status is rejected and prime is value is equal to string.  Reason that we specify it here.  If you have a rejected premise that you would have an uncut error in the browser console.  So in this video, we have learned how you can create a premise and how the status of the premise can  be changed.
+* Let's explore this by example.  I'm going to add console.log statements to our code that will print the promise to the browser console.  Let's run our code and see what happens.  So it prints promise pending in the browser console.  If we expand the output, we can see two internal properties of the promise, promise status and promise  value promise.  Status is equal to binding and promise.  Value is equal to undefined.  I would like to mention that promises work both in the browser and inside Node.js.  We are using Google Chrome developer tools in this video because here we can see the internal properties  of the promise.  I mean promise status and promise value.  Let's change our promise and invoke resolve function inside.  Resolve function takes one argument, which is the value of the premise.  Let's run this code again.  Now you can see that promise status is resolved and parameter value is equal to string value.
+
+* Let's change our promise one more time and this time invoke, reject, function instead of resolve.  Reject function also takes one argument, and this argument represents the reason why the premise was  rejected.  Let's run our code.  Now we can see that prime status is rejected and prime is value is equal to string.  Reason that we specify it here.  If you have a rejected promise that you would have an uncaught *error in the browser console*.
+
+=== Final State of Promise
+
+* In the previous video I have mentioned that promise can be in one of three states pending, fulfilled  or rejected.  Two of these states are final.  If the promise is in full field or in a rejected state, it can't change its state again.  Only if the promise is in pending state, then this state can be changed, either to fulfilled or to  reject it.
+
+.Chrome Developer Tool - B
+[source, javascript]
+----
+const myP2 = new Promise(function(resolve,reject){
+    resolve('value1');
+    resolve('value2');
+    reject('reject');
+});
+console.log(myP2);
+----
+
+* Let's explore this by example.  Let's create a premise that tries to be resolved and rejected multiple times.  This promise tries to become resolved two times with different values, and then it tries to become  rejected with the reason.  If I run this code now, we will see that the status of this promise is resolved and the value is equal  to string value, which is taken from the first resolved function.  Even though we called resolve function two times and then also called reject function.  The promise became fulfilled after the first call to the resolve function, and then it never changed  its state again.
+
+* And this illustrates that fulfilled state is the final state of the promise, and it cannot be changed.
+
+.Chrome Developer Tool - B
+[source, javascript]
+----
+const myP2 = new Promise(function(resolve,reject){
+    reject('reject');
+    resolve('value1');
+    resolve('value2');
+});
+console.log(myP2);
+----
+
+* But what about the rejected state?  Let's create a premise similar to what we had before, but now it will first get rejected and only then  get resolved.  So I will put the reject function before this to resolve functions.  If I run this code now, we will see that the status of the promise is rejected.  And the value of this promise is a strong reason.  Even though we called a resolve function two times after we called reject function, the promise became  rejected after the first call to the reject function, and then it never changed its date and value  again.
+
+* This illustrates that a rejected state is also the final state of the promise, and it cannot be changed  again.  Basically the only state of the promise that can be changed later is so called pending State.  pending State is not the final state, and it can be changed either to fulfilled or rejected.
+
+=== How to Consume JavaScript Promises: Promise.then
+
+image::images/promise2.png[]
+
+* Let's take as an example, a simple premise that resolves with a string.  Hello world.  As soon as this problem becomes resolved, we would like to print Hello world to the browser console.  But how can we do it?  Promise, status and promise.  Value properties that we have seen in the browser are internal properties of the promise.  We cannot simply print the value of the promise to the browser console like shown here.  These properties are not exposed to the outside world, so we can't use them directly.  Instead, promise object has a couple of methods that can be used in order to access Promise value and Promise status.  One of these very useful methods is called Then.
+
+* Then method takes to arguments onFullfilled and onRejected.  Both of these arguments should be functions on full field function will be invoked when premise is fulfilled.  It has only one argument the fulfillment value.  And on the rejected function will be invoked if the premise is rejected.  It also has only one argument the reason of rejection.
+
+* If you're interested only in successful cases, you can provide only the first function which would  be onFulfilled.  Let's say you want to take the fulfillment value of our promise, which is Hello world and print it  to the browser console.  In order to do this, we are going to use then method of the promise object and provide only on full  field function to it.  You see here we are invoking then method on a promise and we are passing one function to it which is  on full field function.  This function takes only one argument and this is the value of the promise.  Now inside of this function, we can do anything we want.
+
+[source, javascript]
+----
+const myP2 = new Promise(function(resolve,reject){
+    resolve('value');
+});
+console.log(myP2);
+
+myP2.then(function(value){
+    console.log(value);
+});
+----
+
+* Is this value?  If we apply this code to our promise and run this in the browser, we will see.  Hello World string in the browser console.  So I will write here the same code that we've just seen and run it here in the browser console.  Here we are providing only unfulfilled function.  We are going to have a look at an example which requires both functions in the next videos.  By means of providing on full field and on rejected functions.  We are kind of subscribing to the results of the promise.  *These functions will be invoked asynchronously after the premise becomes either fulfilled or rejected.  They are being added to the message queue and will be executed only after the call stack becomes empty*.
 
 
+[source, javascript]
+----
+const myP2 = new Promise(function(resolve,reject){
+    resolve('value');
+});
+console.log(myP2);
+
+myP2.then(function(value){
+    console.log(value);
+});
+
+console.log('This is console log');
+----
+
+
+Let's have a look at this in action.  I will use our Hello World promise and add to console dot log statements to.  The first console.log I will put inside on full field function.  All right here.  And I will write here.  This is inside on full field function.  And the second console.log statement I will put at the end of our code.  After we invoked then method.  Right here.  And I will write here.  This is written after my prime to then.  So let's see what happens if I run this code.  As you can see, first gets printed.  The message this is written after my promise Dot.  Then and only after this message, you can see another message saying this is inside on fulfilled function.  In other words, all then handlers, be it on full field or on rejected, will be invoked only after  all other code in the code stack gets executed.  So in this video, we have learned how we can use the value of the premise by utilizing then method.
 
 ################################################################################
 
