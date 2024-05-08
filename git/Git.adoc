@@ -7,24 +7,6 @@
 
 == GIT - JT
 
-image::img/git-workflow.png[]
-
-=== Branching
-
-
-----
-git branch -a
-
-git branch premium
-
-git checkout premium
-
-#moving/renaming branch
-git branch -m branch1 branch2
-
-#deleting a branch
-git branch -d branch1
-----
 
 === Merging
 
@@ -79,11 +61,7 @@ Let's say that we have a launch pad to the repository. And what we just did is w
 
 image::img/branch-1.png[]
 
----
 
-image::img/branch-2.png[width=500]
-
----
 
 *Merging*
 
@@ -168,6 +146,47 @@ image::git-hierarchy2.png[]
 
 
 == Git Glossary
+
+=== What is Git and GitHub
+
+* Let's talk about a common software development problem and how Git helps us solve it.  Let's assume you have a website with two pages: a landing page and an about page.  Your boss wakes up one morning and decides that he doesn't want the company details online and he wants  you to remove all traces of them.  You simply remove the file, send your changes to your server and make your boss happy.
+
+* However a week later your boss changes their mind, as they often do. He decides he wants an about page and not  only that but he wants the exact page back online as it was before.  So your only solution is now to start writing that page again and hope that you get it exactly like the  previous one.  A lot of extra work for nothing.
+
+* Now let's look at how Git handles that problem.  Git maintains a copy of every file in your project at any time.  *Every time you modify any file in any way and commit your changes  Git will track it  and both versions are never lost*.  Commits, in this context, means simply telling Git that there is a new version of a file or multiple  files.
+
+* So with every change, Git maintains a trace of all files and you can easily switch between different  versions of each file.  Coming back to our previous example, we have version 1 where we have two pages  a landing page and an about page. after your boss tells you they want the About page removed.  We have version 2 with only one file.  When the boss comes back and decides they actually want the About page we simply revert to Version 1.  With a single line of code  we have solved the problem.
+
+* This is of course a very basic example that can be solved in many other ways.  However in a real world situation where you have thousands of files with hundreds of versions of each  file and teams of developers working on the same project.  This versioning system becomes the only way to handle changes in requirements or issues with newer versions  of files.
+
+* Here are a few other problems that Git helps us solve easily.
+
+** *Easily retrieving changes* made by other  people in our team on the same project.  If multiple people are working on the same project we need a way to retrieve their changes quickly and easily.
+
+** *Solving conflicts*. It sometimes happens that two or more people change the same file at the same time.  When this file is retrieved, there is a conflict because the system cannot know which version of the file  is correct.  Git gives us a way to analyze and solve these conflicts.
+
+** *Working on multiple versions of the project at the same time*. If one developer takes a long time to develop  a feature the rest of the team can carry on working without waiting for her. When she has finished Git  provides a way for her to reintegrate her changes into the main project.
+
+** *Never lose any changes you have made to your project ever*.  Anyone who makes changes to a project can subsequently access those changes anywhere.  No more accidental file deletes or overwritten data.
+
+** *Simple light weight and fast system*. Git is a fast lightweight and as you shall soon see, easy to learn.
+
+** *GitHub* is an online service that provides Git repositories. It is free to use for public repositories  but paid for private ones.
+
+** There are a few alternatives that provide more or less the same functionality such as *GitLab, BitBucket  or sourceforge*.  I have chosen to use GitHub because of its popularity and its openness to open source projects.
+
+################################################################################
+
+---
+
+=== What is Git Repository
+
+A Git repository is simply a folder that Git manages.  It's a folder where we want to track file changes and have file versioning.  If we create a Git repository on a local computer we create a folder. If we create it on the GitHub website  or any other online service this will simply be a link.
+
+################################################################################
+
+---
+
 
 === Concurrency
 
@@ -325,6 +344,203 @@ git config --local --remove-section user
 
 
 == Git Commands
+
+*How to use help in Git*
+----
+git clone -h
+----
+
+################################################################################
+
+---
+
+
+*Cloning GitHub Repository*
+[source, shell]
+----
+git clone https://github.com/Naresh-Chaurasia/FullStack-Development-1
+
+git remote -v
+----
+
+################################################################################
+
+---
+
+*Commits*
+
+In Git, a commit is a snapshot of your code at a specific point in time. When you commit changes, you're essentially saving those changes to the Git repository. Each commit typically represents a logical unit of work, like adding a new feature, fixing a bug, or making some improvements. Commits include a commit message that describes the changes made, providing context for anyone looking at the commit history.
+
+In the context of Git, a "snapshot" refers to a complete copy of the state of your project at a specific point in time.
+
+----
+git status
+git add first.txt
+git status
+git commit -m "first commit"
+git status
+git log
+----
+
+=== Staging
+
+NOTE: StagedFile.txt and UnStageFile.txt
+
+################################################################################
+
+---
+
+----
+echo "hello" > hello.txt
+echo "hai" > hai.txt
+git status
+
+git add hai.txt
+git status
+
+git reset hai.txt
+git status
+----
+
+################################################################################
+
+---
+
+image::img/git-workflow.png[]
+
+################################################################################
+
+---
+
+
+Think of the *staging area in Git* as a middle ground between your working directory (where you make changes) and your Git repository (where your committed changes are stored).
+
+When you make changes to your files, Git doesn't automatically save them to the repository. Instead, you first need to add these changes to the staging area. This is like preparing your changes to be committed. You can think of the staging area as a place where you gather up all the changes you want to include in your next commit.
+
+Once your changes are in the staging area, you can review them and make sure you're happy with what you're about to commit. If you realize you made a mistake, you can modify your changes in the working directory and then add the corrected version to the staging area again.
+
+Once you're satisfied with the changes in the staging area, you commit them to the repository. This saves the staged changes as a snapshot in the Git history, creating a permanent record of your work.
+
+################################################################################
+
+---
+
+The staging area serves several important purposes:
+
+1. **Selective Committing**: It allows you to selectively choose which changes you want to include in your next commit. This is helpful when you've made modifications to multiple files but want to commit them separately or in groups.
+
+2. **Review Changes**: Before committing your changes to the repository, you can review them in the staging area. This allows you to carefully examine what you're about to commit and make any necessary adjustments or corrections.
+
+3. **Commit Preparation**: The staging area acts as a preparation area before committing changes. It gives you a chance to organize and refine your changes before making them permanent in the repository.
+
+4. **Collaboration**: In collaborative environments, the staging area provides a way for team members to share changes before they are committed. This can help prevent conflicts and ensure that only the intended changes are included in each commit.
+
+Overall, while it's possible to directly add changes to the repository without using the staging area, incorporating it into your workflow offers more control, flexibility, and clarity in managing your changes.
+
+################################################################################
+
+---
+
+=== Branches
+
+TIP: Make a repository in Github and add README.md file.
+
+* Let's say you're working on Feature A for your project.  In the middle of development, a new high priority requirement for Feature B comes in.  You're now forced to pause development on feature A and start feature B.  Then once Feature B is finished, resume development on feature A.
+
+* Git accomplishes this with the concept of branches.  A branch is simply a series of commits that can be manipulated independently.  Git maintains a master branch that is in some sense the source of truth for the project, meaning it  is the code that is currently the most up to date.  Any commit on a branch can be the origin commit where a new branch can be initiated at that point.  Any commit on master will not be seen on the second branch and any commit on the second branch will  not affect master.
+
+* When the development of a feature is complete or at any arbitrary point that we as developers choose,  we can merge two branches effectively bringing all the commits on one branch into another branch.  In our example, our feature branch will bring all the committed parts into the main branch.
+
+---
+
+image::img/branch-2.png[width=500]
+
+---
+
+----
+git branch
+
+git branch featureBranch
+
+echo "master" > master.txt
+
+git add .
+
+git commit -m "master commit"
+
+git log
+
+git checkout featureBranch
+
+echo "feature" > feature.txt
+
+git add .
+
+git commit -m "feature commit"
+
+git log
+----
+
+=== Checking status and inspecting commits
+
+----
+git log
+
+git show --name-only hash
+
+#gives info about all commits on all brances
+git reflog
+----
+
+
+=== Push and pull
+
+* So far we have worked with commits and branches only on our local machine.  Now it's time to explore the *collaboration* features of Git that make it such a flexible system.
+
+* In order to collaborate with other team members, we want to be able to send the commits that we have  made on our local machine to the repository so that they have access to them.
+
+* Similarly, we want to be able to retrieve commits that our colleagues have published to the central  repository.  Git push sends all our local changes to the GitHub repository that we have set up at the start.
+
+*push*
+
+----
+
+git checkout main
+
+git push
+
+git checkout featureBranch
+
+git push
+
+----
+
+*pull*
+
+----
+
+git clone <url>
+
+echo new-file > new-file.txt
+
+git add .
+
+git commit -m "adding new file"
+
+git push
+
+#cd the original / agove directory
+
+git pull
+----
+
+=== Undo and redo changes
+
+
+=== Merging branches
+
+
+=== Pull requests and code reviews
 
 ----
 git init <name-of-project>
