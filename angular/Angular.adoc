@@ -4,12 +4,21 @@
 :sectnums:
 
 
+****
+* One Course I will complete.
+* Others, I will revise.
+****
+
+
 == Creating Angular Project
 
 * [ ] Installing Node
 * [ ] Installing Angular
 * [ ] Creating Angular Project using ng
 * [ ] Final Project
+
+
+file:///Users/nareshchaurasia/nc/FullStack-Development-1/angular/JC-Angular.adoc[JC Angular]
 
 
 == Commands

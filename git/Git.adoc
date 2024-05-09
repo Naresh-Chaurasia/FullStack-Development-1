@@ -147,41 +147,6 @@ image::git-hierarchy2.png[]
 
 == Git Glossary
 
-=== What is Git and GitHub
-
-* Let's talk about a common software development problem and how Git helps us solve it.  Let's assume you have a website with two pages: a landing page and an about page.  Your boss wakes up one morning and decides that he doesn't want the company details online and he wants  you to remove all traces of them.  You simply remove the file, send your changes to your server and make your boss happy.
-
-* However a week later your boss changes their mind, as they often do. He decides he wants an about page and not  only that but he wants the exact page back online as it was before.  So your only solution is now to start writing that page again and hope that you get it exactly like the  previous one.  A lot of extra work for nothing.
-
-* Now let's look at how Git handles that problem.  Git maintains a copy of every file in your project at any time.  *Every time you modify any file in any way and commit your changes  Git will track it  and both versions are never lost*.  Commits, in this context, means simply telling Git that there is a new version of a file or multiple  files.
-
-* So with every change, Git maintains a trace of all files and you can easily switch between different  versions of each file.  Coming back to our previous example, we have version 1 where we have two pages  a landing page and an about page. after your boss tells you they want the About page removed.  We have version 2 with only one file.  When the boss comes back and decides they actually want the About page we simply revert to Version 1.  With a single line of code  we have solved the problem.
-
-* This is of course a very basic example that can be solved in many other ways.  However in a real world situation where you have thousands of files with hundreds of versions of each  file and teams of developers working on the same project.  This versioning system becomes the only way to handle changes in requirements or issues with newer versions  of files.
-
-* Here are a few other problems that Git helps us solve easily.
-
-** *Easily retrieving changes* made by other  people in our team on the same project.  If multiple people are working on the same project we need a way to retrieve their changes quickly and easily.
-
-** *Solving conflicts*. It sometimes happens that two or more people change the same file at the same time.  When this file is retrieved, there is a conflict because the system cannot know which version of the file  is correct.  Git gives us a way to analyze and solve these conflicts.
-
-** *Working on multiple versions of the project at the same time*. If one developer takes a long time to develop  a feature the rest of the team can carry on working without waiting for her. When she has finished Git  provides a way for her to reintegrate her changes into the main project.
-
-** *Never lose any changes you have made to your project ever*.  Anyone who makes changes to a project can subsequently access those changes anywhere.  No more accidental file deletes or overwritten data.
-
-** *Simple light weight and fast system*. Git is a fast lightweight and as you shall soon see, easy to learn.
-
-** *GitHub* is an online service that provides Git repositories. It is free to use for public repositories  but paid for private ones.
-
-** There are a few alternatives that provide more or less the same functionality such as *GitLab, BitBucket  or sourceforge*.  I have chosen to use GitHub because of its popularity and its openness to open source projects.
-
-################################################################################
-
----
-
-=== What is Git Repository
-
-A Git repository is simply a folder that Git manages.  It's a folder where we want to track file changes and have file versioning.  If we create a Git repository on a local computer we create a folder. If we create it on the GitHub website  or any other online service this will simply be a link.
 
 ################################################################################
 
@@ -342,8 +307,45 @@ git config --local --remove-section user
 
 ---
 
+== Basic Git and GitHub Essentials
 
-== Git Commands
+=== What is Git and GitHub
+
+* Let's talk about a common software development problem and how Git helps us solve it.  Let's assume you have a website with two pages: a landing page and an about page.  Your boss wakes up one morning and decides that he doesn't want the company details online and he wants  you to remove all traces of them.  You simply remove the file, send your changes to your server and make your boss happy.
+
+* However a week later your boss changes their mind, as they often do. He decides he wants an about page and not  only that but he wants the exact page back online as it was before.  So your only solution is now to start writing that page again and hope that you get it exactly like the  previous one.  A lot of extra work for nothing.
+
+* Now let's look at how Git handles that problem.  Git maintains a copy of every file in your project at any time.  *Every time you modify any file in any way and commit your changes  Git will track it  and both versions are never lost*.  Commits, in this context, means simply telling Git that there is a new version of a file or multiple  files.
+
+* So with every change, Git maintains a trace of all files and you can easily switch between different  versions of each file.  Coming back to our previous example, we have version 1 where we have two pages  a landing page and an about page. after your boss tells you they want the About page removed.  We have version 2 with only one file.  When the boss comes back and decides they actually want the About page we simply revert to Version 1.  With a single line of code  we have solved the problem.
+
+* This is of course a very basic example that can be solved in many other ways.  However in a real world situation where you have thousands of files with hundreds of versions of each  file and teams of developers working on the same project.  This versioning system becomes the only way to handle changes in requirements or issues with newer versions  of files.
+
+* Here are a few other problems that Git helps us solve easily.
+
+** *Easily retrieving changes* made by other  people in our team on the same project.  If multiple people are working on the same project we need a way to retrieve their changes quickly and easily.
+
+** *Solving conflicts*. It sometimes happens that two or more people change the same file at the same time.  When this file is retrieved, there is a conflict because the system cannot know which version of the file  is correct.  Git gives us a way to analyze and solve these conflicts.
+
+** *Working on multiple versions of the project at the same time*. If one developer takes a long time to develop  a feature the rest of the team can carry on working without waiting for her. When she has finished Git  provides a way for her to reintegrate her changes into the main project.
+
+** *Never lose any changes you have made to your project ever*.  Anyone who makes changes to a project can subsequently access those changes anywhere.  No more accidental file deletes or overwritten data.
+
+** *Simple light weight and fast system*. Git is a fast lightweight and as you shall soon see, easy to learn.
+
+** *GitHub* is an online service that provides Git repositories. It is free to use for public repositories  but paid for private ones.
+
+** There are a few alternatives that provide more or less the same functionality such as *GitLab, BitBucket  or sourceforge*.  I have chosen to use GitHub because of its popularity and its openness to open source projects.
+
+################################################################################
+
+---
+
+=== What is Git Repository
+
+A Git repository is simply a folder that Git manages.  It's a folder where we want to track file changes and have file versioning.  If we create a Git repository on a local computer we create a folder. If we create it on the GitHub website  or any other online service this will simply be a link.
+
+=== Git Commands
 
 *How to use help in Git*
 ----
@@ -354,6 +356,7 @@ git clone -h
 
 ---
 
+==== Cloning
 
 *Cloning GitHub Repository*
 [source, shell]
@@ -367,7 +370,7 @@ git remote -v
 
 ---
 
-*Commits*
+==== Commits
 
 In Git, a commit is a snapshot of your code at a specific point in time. When you commit changes, you're essentially saving those changes to the Git repository. Each commit typically represents a logical unit of work, like adding a new feature, fixing a bug, or making some improvements. Commits include a commit message that describes the changes made, providing context for anyone looking at the commit history.
 
@@ -382,7 +385,7 @@ git status
 git log
 ----
 
-=== Staging
+==== Staging
 
 NOTE: StagedFile.txt and UnStageFile.txt
 
@@ -441,7 +444,7 @@ Overall, while it's possible to directly add changes to the repository without u
 
 ---
 
-=== Branches
+==== Branches
 
 TIP: Make a repository in Github and add README.md file.
 
@@ -481,7 +484,7 @@ git commit -m "feature commit"
 git log
 ----
 
-=== Checking status and inspecting commits
+==== Checking status and inspecting commits
 
 ----
 git log
@@ -493,7 +496,7 @@ git reflog
 ----
 
 
-=== Push and pull
+==== Push and pull
 
 * So far we have worked with commits and branches only on our local machine.  Now it's time to explore the *collaboration* features of Git that make it such a flexible system.
 
@@ -513,6 +516,8 @@ git checkout featureBranch
 
 git push
 
+(git push --set-upstream origin featureBranch)
+
 ----
 
 *pull*
@@ -529,46 +534,30 @@ git commit -m "adding new file"
 
 git push
 
-#cd the original / agove directory
+----
 
+*switch terminals*
+
+----
 git pull
 ----
 
-=== Undo and redo changes
+==== Merging branches
+
+image::img/merge.png[]
+
+Once our work has been done, we need to be able to merge the branch back into the project so that it  is integrated into the rest of the work.  In this lecture we'll see how we can do that and what happens when two or more people update the same  file from different branches?
+
+In our project we have this situation.  We have two branches master and feature branch.  Feature branch has one extra commit that we created earlier.  When we merge feature branch into master, we will have a new commit that adds the changes we introduced  in our feature branch.  Let's see this in practice.  Open a command prompt and navigate to your repository folder.  The command to merge two branches is simply git merge.  Let's do a git log.  Here we see a new commit that was created when the branches were merged.  Most conflicts can happen whenever the same file was modified in different ways on two branches and  we are trying to merge.  Merge conflicts can be a pain and they're best prevented, but every developer will have to deal with  them at some point in the next lecture we will look at a way to mitigate and help resolve merge conflicts.
+
+==== Pull Request and Code Reviews
+
+* Any team larger than one developer should use pull requests and if they don't, there is an issue with  the project.  Pull requests are a way for one contributor to have a look at another contributors code, give opinions  and reviews and approve or reject the change.  They also help solve merge conflicts.  Pull requests are basically a request to merge a branch into another branch.
+
+* Let's create a new commit on feature branch and push it to the origin repository.  Right.  So at the moment we have a difference between the two branches.
 
 
-Consider this problem.  A colleague has worked on a particular feature and it seems to work fine.  He has uploaded his changes to the central repository and has published the changes to the production  server.  Despite the team's best efforts, the code conflicts with a certain feature and crashes the whole project,  meaning the production website, is unusable.  We need a way to quickly and safely go back to a previous state of the project.  Git provides us a few ways to achieve this.  Let's have a look.  We have two main options when it comes to undoing changes.  We use the revert command to create a new commit that undoes the changes of a certain commit.  Let's try it out by reverting the last commit we did.
-
-First, open a command prompt and go into your repository folder.  Git log.  Now let's copy the commit hash of the last commit we did  and type git revert and paste that.  Save that file by typing colon.  Q and let's do another git log.  So here we see another commit that reverts the changes that we did for test commit.  The second option is the git reset command.  It resets the current branch to show only commits up to the one you indicate.  That means that all subsequent commits are disregarded.  Let's try it out.  Copy the hash of master branch commit.  And type git reset and paste.  If we do a git log now.  We see that we have only two commits.  There are two important modifiers for this commit git reset, dash dash soft and git reset dash dash  hard.  The soft reset disregards subsequent commits but keeps the changes they have introduced.  The hard reset simply disregards subsequent commits, including the changes if no modifier is specified.  We use the dash dash soft modifier by default.  So those are our two commands.  Git revert and git reset.  The difference between them may seem minor, but let's consider this.  You are working on a local branch and you are the only one working on it.  You create a commit but later realize it is wrong and you want to undo it.  Which would you use?  Revert or reset?  In this case we can use reset.  This command removes the commit and keeps our log clean while at the same time allowing us to retain  the changes and update them accordingly.  Now let's think of a different case.  Let's say we are working on a large feature as part of the team.  Another three developers are working on the same feature.  We find an issue with a commit that causes a problem should we revert or reset?  In this case, we would revert as each team member has a copy of every commit.  If we simply remove commits from the log, we might cause a lot of confusion and problems for everyone.  But if we add a commit to the history that anyone can pick up and continue working, this solves our  issue without disrupting others.  This is a general rule of thumb for when to use each command.  But in reality it depends a lot on particular factors.  So each situation should be analyzed independently.  Let's quickly recap the commands we talked about in this lecture.  Git revert creates a new commit that undoes the changes of a previous commit.  Git reset soft removes the commit from the history but keeps the changes.  Git reset dash dash hard.  Removes the commit from the history, including removing the changes that it introduces.
-
-=== Merging branches
-
-
-=== Pull requests and code reviews
-
-----
-git init <name-of-project>
-
-# Files being tracked
-git ls-files
-
-# Undo changes
-git reset HEAD level1-file.txt
-git checkout -- level1-file.txt
-
-# Rename file in Git
-git mv <file1.txt> <file2.txt>
-
-# Rename file in OS
-mv <file1.txt> <file2.txt>
-git add -A
-
-git log
-
-# origin refers to the name of the remote repository
-# Pull from origin master, before pushing to origin.
-git pull origin master
-----
+Let's log in to the GitHub website, click on the project link.  Let's switch to our feature branch by clicking on the button that says Branch.  And from here, create a new pull request by clicking on the button that says New pull request.  And click create pull request.  On this screen, we can see a few different things.  We can view the code changes that were introduced by this PR.  Reviewers or anyone can add comments or suggestions to the code right at the line where the comment  applies.  We can add reviewers to the PR in the top right corner of conversation tab.  Reviewers can also approve or reject the PR.  Also, if a PR introduces any merge conflicts, we will not be able to merge it until the conflicts  are resolved.  You can always add new changes to the pull request by uploading new commits to the branch.  Once the PR is approved and everyone is happy with the changes, the PR can be merged by clicking on  the merge PR button on the main screen.
 
 ################################################################################
 
