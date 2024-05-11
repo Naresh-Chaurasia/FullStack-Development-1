@@ -305,9 +305,10 @@ git config --local --remove-section user
 
 ################################################################################
 
----
 
 == Basic Git and GitHub Essentials
+
+* /Users/nareshchaurasia/nc/Git-Tutes
 
 === What is Git and GitHub
 
@@ -350,6 +351,10 @@ A Git repository is simply a folder that Git manages.  It's a folder where we wa
 *How to use help in Git*
 ----
 git clone -h
+
+git log --graph --decorate --oneline --all
+
+export PS1="Master $:"
 ----
 
 ################################################################################
@@ -369,6 +374,19 @@ git remote -v
 ################################################################################
 
 ---
+
+
+==== Create File
+
+----
+echo hello > hello.txt
+
+ls
+
+cat hello.txt
+
+pwd
+----
 
 ==== Commits
 
@@ -548,7 +566,95 @@ image::img/merge.png[]
 
 Once our work has been done, we need to be able to merge the branch back into the project so that it  is integrated into the rest of the work.  In this lecture we'll see how we can do that and what happens when two or more people update the same  file from different branches?
 
-In our project we have this situation.  We have two branches master and feature branch.  Feature branch has one extra commit that we created earlier.  When we merge feature branch into master, we will have a new commit that adds the changes we introduced  in our feature branch.  Let's see this in practice.  Open a command prompt and navigate to your repository folder.  The command to merge two branches is simply git merge.  Let's do a git log.  Here we see a new commit that was created when the branches were merged.  Most conflicts can happen whenever the same file was modified in different ways on two branches and  we are trying to merge.  Merge conflicts can be a pain and they're best prevented, but every developer will have to deal with  them at some point in the next lecture we will look at a way to mitigate and help resolve merge conflicts.
+In our project we have this situation.  We have two branches master and feature branch.  Feature branch has one extra commit that we created earlier.  When we merge feature branch into master, we will have a new commit that adds the changes we introduced  in our feature branch.  Let's see this in practice.
+
+
+----
+git init
+
+echo hello > hello.txt
+
+git add .
+
+git commit -m "first master commit"
+
+git log --graph --decorate --oneline --all
+
+git branch -a
+
+###
+
+git branch branch1
+
+git checkout branch1
+
+echo branch > branch.txt
+
+git add .
+
+git commit -m "branch commit"
+
+git status
+
+git log --graph --decorate --oneline --all
+
+###
+
+git diff master branch1
+
+git checkout master
+
+git merge branch1
+
+##Fast-forward##:: Fast-forwarding is only really possible when there are no changes being made on the target branch
+
+----
+
+==== Happy Path - Disable Fast Forward.
+
+----
+
+- Create Branch
+- Commit1
+- Commit2
+- Switch to master branch
+- git merge branch1 --no-ff
+
+----
+
+==== Automatic Merge
+
+==== Git Rebase
+
+Certainly! Git rebase is a powerful tool used to integrate changes from one branch into another. It works by moving or reapplying commits from one branch (the source branch) onto another branch (the target branch). This process effectively rewrites the commit history of the target branch.
+
+* make change in branch1, commit
+* make change in master, commit
+* rebase master to branch1
+* git log
+* make change to branch1
+
+Here's a step-by-step explanation of how git rebase works:
+
+1. **Start with a Clean Working Directory:**
+Before starting a rebase operation, ensure that your working directory is clean, meaning there are no uncommitted changes.
+
+2. **Checkout the Target Branch:**
+First, switch to the branch where you want to apply the changes. This is typically the branch you want to update with changes from another branch.
+
+```bash
+git checkout target-branch
+```
+
+3. **Start the Rebase:**
+Run the rebase command, specifying the source branch from which you want to reapply commits. This is typically done with the `-r` or `--rebase` flag.
+
+```bash
+git rebase source-branch
+```
+
+Git will identify the common ancestor of both branches and then replay each commit that is unique to the source branch on top of the target branch.
+
 
 ==== Pull Request and Code Reviews
 
@@ -639,7 +745,12 @@ Your public key has been saved in /home/your_username/.ssh/id_rsa.pub.
 * Start the SSH agent by running:
 
 ```bash
+
+#Linux or Mac
 eval "$(ssh-agent -s)"
+
+#Windows
+eval `ssh-agent -s`
 ```
 
 * Add your SSH private key to the SSH agent:

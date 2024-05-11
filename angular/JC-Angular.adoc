@@ -16,13 +16,6 @@ WARNING: WARNING
 
 ################################################################################
 
----
-
-* ng new angular1
-* npm start
-
----
-
 NOTE: https://github.com/jmcooper/joes-robot-shop
 
 == Course Overview
@@ -184,7 +177,25 @@ All modern browsers today include a JavaScript engine for running JavaScript, wh
 
 All right, so now that we've got Node installed, let's install the Angular CLI. The Angular CLI, or command‑line interface, is used for a host of things like creating and running a new Angular project, adding items like components to an existing project or building an app for production deployment, so let's get it installed.
 
+=== Creating a New Angular Application
+
+=== Exploring Our New Angular App
+
+=== Cloning Our Demo App
+
 == Creating Angular Components
+
+----
+git clone git@github.com:Naresh-Chaurasia/robot-shop.git
+
+cd robot-shop
+
+npm install
+
+npm start
+----
+
+
 
 === Creating Our First Angular Component
 
@@ -203,7 +214,7 @@ NOTE: What is app.module.ts
 
 === Using Inline Templates and Styles
 
-[source,css]
+[source,html]
 ----
 import { Component } from '@angular/core';
 
@@ -236,3 +247,74 @@ export class MyComponent {
 }
 
 ----
+
+=== Accessing and Displaying Images
+
+NOTE: <project>/src/assets
+
+IMPORTANT: Where does images come from?
+
+.angular.json
+[source,json]
+----
+"assets": [
+  "src/favicon.ico",
+  "src/assets"
+]
+----
+
+.angular.json
+[source,html]
+----
+<img src="assets/img/profile.png" width="500" height="500"/>
+----
+
+=== Component Lifecycle Hooks
+
+image::img/lifecycle-1.png[]
+
+################################################################################
+
+---
+
+image::img/lifecycle-2.png[]
+
+################################################################################
+
+---
+
+----
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-example',
+  templateUrl: './example.component.html',
+  styleUrls: ['./example.component.css']
+})
+export class ExampleComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+    // This method is called when the component is initialized
+    console.log('Component initialized');
+    // You can put initialization logic here
+  }
+
+}
+----
+
+=== Creating Additional Components
+
+----
+ng generate component catalog
+----
+
+IMPORTANT: Using above command updates app.module.ts
+
+== Using Angular Template Syntax
+
+=== Understanding Angular Interpolation
+
+2 + 2 = {{ 2 + 2 }}
+

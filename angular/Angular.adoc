@@ -17,8 +17,9 @@
 * [ ] Creating Angular Project using ng
 * [ ] Final Project
 
+---
 
-file:///Users/nareshchaurasia/nc/FullStack-Development-1/angular/JC-Angular.adoc[JC Angular]
+* file:///Users/nareshchaurasia/nc/FullStack-Development-1/angular/JC-Angular.adoc[JC Angular]
 
 
 == Commands
@@ -309,7 +310,7 @@ Overall, directives are a powerful feature of Angular that allow you to make you
 
 ################################################################################
 
-=== MVC Pattern
+=== MVC Pattern (Model-View-Controller)
 
 image::img/mvc.png[]
 
