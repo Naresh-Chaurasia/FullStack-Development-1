@@ -801,3 +801,39 @@ Here's a breakdown of what `eval "$(ssh-agent -s)"` command does:
 * It enhances security and convenience by managing the SSH key for you.
 * This is especially useful when working with multiple repositories and avoiding the need to re-enter your passphrase for each interaction with your remote repositories.
 
+---
+
+The main difference between using SSH and HTTPS with Git lies in how authentication and data transfer are handled:
+
+**SSH (Secure Shell):**
+
+1. **Authentication:** SSH uses public-key cryptography to authenticate with the remote repository. When you connect to a remote repository via SSH, you generate a key pair: a public key and a private key. The public key is stored on the remote server, while the private key remains on your local machine. This allows you to authenticate without needing to enter a username and password each time you interact with the remote repository.
+
+2. **Protocol:** SSH uses the SSH protocol for communication between your local machine and the remote server. This protocol provides encryption and ensures secure communication over the network.
+
+3. **URL format:** When using SSH, the URL format for the remote repository typically starts with `git@`, followed by the hostname of the server, and then the path to the repository. For example:
+
+   ```
+   git@github.com:user/repo.git
+   ```
+
+**HTTPS (Hypertext Transfer Protocol Secure):**
+
+1. **Authentication:** HTTPS uses basic authentication or token-based authentication to authenticate with the remote repository. When using basic authentication, you provide your username and password each time you interact with the remote repository. With token-based authentication (such as personal access tokens), you generate a token that serves as a credential for accessing the repository.
+
+2. **Protocol:** HTTPS uses the HTTP protocol over an encrypted connection (HTTPS) for communication between your local machine and the remote server. Like SSH, HTTPS also provides encryption and ensures secure communication over the network.
+
+3. **URL format:** When using HTTPS, the URL format for the remote repository typically starts with `https://`, followed by the hostname of the server, and then the path to the repository. For example:
+
+   ```
+   https://github.com/user/repo.git
+   ```
+
+**Which one to use?**
+
+- **SSH:** Using SSH is often preferred for its convenience and security. Once you've set up SSH keys, you don't need to enter your credentials each time you interact with the remote repository, which can streamline your workflow. Additionally, SSH can be more secure as it uses public-key cryptography for authentication.
+
+- **HTTPS:** HTTPS may be preferred in certain environments where SSH connections are blocked or restricted. Additionally, HTTPS can be more straightforward to set up initially, especially for users who are less familiar with SSH key management.
+
+In summary, both SSH and HTTPS are secure ways to interact with remote Git repositories, and the choice between them depends on factors such as convenience, security, and the requirements of your specific environment.
+
