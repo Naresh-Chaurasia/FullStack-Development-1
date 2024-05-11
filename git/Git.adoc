@@ -484,14 +484,6 @@ git branch
 
 git branch featureBranch
 
-echo "master" > master.txt
-
-git add .
-
-git commit -m "master commit"
-
-git log
-
 git checkout featureBranch
 
 echo "feature" > feature.txt
