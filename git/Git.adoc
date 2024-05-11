@@ -397,7 +397,7 @@ In the context of Git, a "snapshot" refers to a complete copy of the state of yo
 ----
 git init
 git status
-git add first.txt
+git add hello.txt
 git status
 git commit -m "first commit"
 git status
