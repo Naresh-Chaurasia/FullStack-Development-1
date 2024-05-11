@@ -395,6 +395,7 @@ In Git, a commit is a snapshot of your code at a specific point in time. When yo
 In the context of Git, a "snapshot" refers to a complete copy of the state of your project at a specific point in time.
 
 ----
+git init
 git status
 git add first.txt
 git status
